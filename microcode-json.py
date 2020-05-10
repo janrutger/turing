@@ -8,25 +8,57 @@ import json
 
 #het LDA commando laad de eerste waarde van de Stack i Register A
  
-x={
-    'Commando':'LDA',
-    'MicroCode': [
-        {'state':'S0','ST':'1','RA':'0', 'RB':'0', 'S' :'1',
-         'ActionString':[
-                {
-                    'write' :{'ST':'0','RA':'1', 'RB':'1', 'S' :'0'},
-                    'Move'  :{'ST':'L','RA':'S', 'RB':'R', 'S' :'L'},
-                    'Next'  :{'State':'S0'}
-                }
-                ]
-        }
-        ]   
-}
+# Dict={'LDA':
+#       {'MicroCode': [
+#           {'state':'S0','ST':'1','RA':'0', 'RB':'0', 'S' :'1'}, {'ActionString': [
+#               {'write' : [{'ST':'0','RA':'1', 'RB':'1', 'S' :'0'}]},
+#               {'move'  : [{'ST':'L','RA':'S', 'RB':'R', 'S' :'L'}]},
+#               {'next' : 'S0'}]}]}}
+              
+Dict={'LDA': [
+        {'state': 'S0', 'ST':'0','RA':'1', 'RB':'1', 'S' :'0'}, [
+            {'write': 'ST':'0','RA':'1', 'RB':'1', 'S' :'0'},  
+            {'move' : 'ST':'L','RA':'S', 'RB':'R', 'S' :'L'} ]
+#         {'next' : 'S0'}
+      ]}
+                                                   
+ #       {'write' : ['ST':'0','RA':'1', 'RB':'1', 'S' :'0']},
+  #     {'move' : ['ST':'L','RA':'S', 'RB':'R', 'S' :'L']}]]]}                                                  #        {'move'  : [ , 'next']}]}
 
-y=json.loads(x)
+###, {'ActionString': [
+#             {'write' : [{'ST':'0','RA':'1', 'RB':'1', 'S' :'0'}]},
+ #             {'move'  : [{'ST':'L','RA':'S', 'RB':'R', 'S' :'L'}]}]}}
+              
+#              #{'next':'S0'}]}}
 
-#print(json.dumps(x, indent=4))
-type(x)
+#print(x('write'))
+#y=json.loads('x')
+#y=x['Commando']
+#print(y)
+
+#y = json.dumps(x, indent=4)
+
+# the result is a JSON string:
+print(Dict)
+print(type(Dict))
+
+State=Dict['LDA']
+print(State)
+print(type(State))
+
+Statestring=State[0]
+print(Statestring)
+print(type(Statestring))
+
+Actionstring=State[1]
+print(Actionstring)
+print(type(Actionstring))
+#Actionstring=Microcode(State)
+#print(State[ActionString])
+
+
+
+
 
 exit()
 
