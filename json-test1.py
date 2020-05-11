@@ -35,9 +35,23 @@ import json
 # 
 # print()
 
-Dict2 = '{"LDA": [{"microcode" : {"State" : "S0","ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"actionstring" : {"write" : {"ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"move"  : {"ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"nextstate" : {"newstate" : "S0"}}}]}'
+Dict2 = '{"LDA": [{"microcode" : {"state" : "S0","ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"actionstring" : {"write" : {"ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"move"  : {"ST" : "1","RA" : "0","RB" : "1","S"  : "0"},"nextstate" : {"newstate" : "S0"}}}]}'
 MicroCode=json.loads(Dict2)
-print(MicroCode)
+#print(MicroCode)
+
+print(len(MicroCode))
+state=MicroCode["LDA"][0]["microcode"]["state"]
+#print(type(state))
+print(state)
+print(len(state))
+
+write=MicroCode["LDA"][0]["actionstring"]["write"]
+#print(type(write))
+print(write)
+print(len(write))
+
+exit()
+
 
 print()
 
