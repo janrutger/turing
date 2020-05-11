@@ -1,3 +1,5 @@
+import json
+
 print('een JSON met meerdere unieke commandos')
 print('een commando bestaat uit meerdere (waarde - actiestrings)')
 print('waarde Waarde uniek is en wijst naar 1 actie string')
@@ -70,5 +72,10 @@ print(move)
 print()
 
 
+
+jsonstring = json.dumps(Dict)
+
+# the result is a JSON string:
+print(jsonstring)
 
  
