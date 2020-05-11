@@ -1,3 +1,9 @@
+print('een JSON met meerdere unieke commandos')
+print('een commando bestaat uit meerdere (waarde - actiestrings)')
+print('waarde Waarde uniek is en wijst naar één actie string')
+print('de actie string bestaat uit een Write, Move en Next state')
+
+
 Dict = {'Command':[
     {
     'LDA': [
