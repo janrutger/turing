@@ -1,0 +1,29 @@
+{
+  "Commdando": "LDA",
+  "microcode": {
+    "status": "S0",
+    "waardes": {
+      "huidigewaardes": {
+        "ST": "1",
+        "RA": "1",
+        "RB": "1",
+        "S": "1"
+      },
+      "Nieuwewaardes": {
+        "ST": "0",
+        "RA": "0",
+        "RB": "0",
+        "S": "0"
+      },
+      "MOVES": {
+        "ST": "L",
+        "RA": "R",
+        "RB": "L",
+        "S": "S"
+      },
+      "nieuwestatus": {
+        "status": "S0"
+      }
+    }
+  }
+}

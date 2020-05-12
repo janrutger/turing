@@ -46,7 +46,7 @@ print(type(MicroCode))
 #NewVal={"HALT": [{"microcode": {"state": "xx", "ST": "1", "RA": "0", "RB": "1", "S": "0"}, "actionstring": {"write": {"ST": "1", "RA": "0", "RB": "1", "S": "0"}, "move": {"ST": "1", "RA": "0", "RB": "1", "S": "0"}, "nextstate": {"newstate": "S0"}}}]}
 #MicroCode = MicroCode + NewVal
 ##HOE VOEG IK EEN OBEJECT TOE
-#MicroCode["HALT"]={MicroCode["HALT"][0]["microcode"]["state"]}
+MicroCode=dict({MicroCode["HALT"][0]["microcode"]["state"]})
 #MicroCode["HALT"][0]["microcode"]["state"])="xx"
 
 print(len(MicroCode))
