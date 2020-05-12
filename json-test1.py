@@ -42,8 +42,12 @@ Dict1={
 print(type(Dict1))
 print(Dict1)
 
-Microcode=Dict1
-print(Microcode)
+Commands=Dict1["command.com"]
+print(Commands)
+
+ThisCommand=Commands["LDA"]
+
+print(type(Commands))
 
 #McLDA=Dict1["Commando" : "LDA"]
 
