@@ -58,14 +58,17 @@ nieuwestatus=Dict1["LDA"]["S0"]["microcode"]["input"]["nieuwestatus"]
 # print('De volgende status die hoort bij een geldige combinatie :', nieuwestatus)
 
 
-print(Dict1["LDA"])
+#print(Dict1['LDA'])
 #Dict1["halt"]={'S0': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}}
 #Dict1["LDA"]={'S1': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}
-Dict1={'halt': {'S1': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}}
+Dict1['halt']={'S1': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}
+Dict1['halt']['S0']={'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}
 
 
-print(Dict1)
+#print(Dict1)
 
+jsonstring = json.dumps(Dict1)
+print(jsonstring)
 
 exit
 
