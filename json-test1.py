@@ -18,7 +18,7 @@ Dict1={
             "RB": "1",
             "S": "1"
           },
-          "nieuwewaardes": {
+          "input": {
             "MOVES": {
               "ST": "L",
               "RA": "R",
@@ -41,26 +41,30 @@ Dict1={
   }
 }
 
-print(type(Dict1))
-print(Dict1)
 
 Commands=Dict1["command.com"]
-print(Commands)
-
 LDA=Dict1["command.com"]["LDA"]
-print(LDA)
-print(type(LDA))
-
 microcodelda=Dict1["command.com"]["LDA"]["S0"]["microcode"]
-    
-    
-    
-print(microcodelda)
-print(type(microcodelda))
+NU=Dict1["command.com"]["LDA"]["S0"]["microcode"]['huidigewaardes']
+move=Dict1["command.com"]["LDA"]["S0"]["microcode"]["input"]["MOVES"]
+Nieuwewaardes=Dict1["command.com"]["LDA"]["S0"]["microcode"]["input"]["Nieuwewaardes"]
+nieuwestatus=Dict1["command.com"]["LDA"]["S0"]["microcode"]["input"]["nieuwestatus"]
 
 
+print('Alle Commando in command.com :', Commands)
+print('Alle States van LDA :', LDA)
+print('Alle combinaties binnen een state (S0) :', microcodelda)
+print('De hudige waardes die horen bij een geldige combinatie :', NU)
+print('De nieuwe waardes die horen bij een geldige combinatie :', Nieuwewaardes)
+print('De tape beweging die horen bij een geldige combinatie :', move)
+print('De volgende status die hoort bij een geldige combinatie :', nieuwestatus)
 
-exit()
+Dict1["command.com"]["halt"]
+
+print(Dict1["command.com"])
+
+
+exit
 
 
 
