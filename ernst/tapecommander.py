@@ -6,10 +6,12 @@ class TapeCommander:
         self.TapeLabels={'ST','RA', 'RB', 'S'}
         self.Tape=""
 
+##De volgorde lijkt omgekeerd dan op het scherm getoont wordt
+#wat je neit merkt als je alles gelijk inititaleert, en daarna werkt het oke
         self.tapes = [
-            t.Tape('ST', ['1','1','1','1'], 0),
+            t.Tape('ST', ['1','1','1','1'], 3),
             t.Tape('RA', ['1','1','1','1'], 0),
-            t.Tape('RB', ['1','1','1','1'], 0),
+            t.Tape('RB', ['1','1','1','1'], 3),
             t.Tape('S', ['1','1','1','1'], 0)]
 
     def getLabels(self):

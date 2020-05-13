@@ -41,7 +41,7 @@ def TapeCommander(TapeCommand, TapeVal):
     elif TapeCommand == 'move':
         print('move!!')
         TapeIndex=0
-        for label in TapeLabels:
+        for label in TapeLabels:      #TApelabels is volgens mij een overbodige varialeble waavan de labels niet gebruikt worden, alleen len(tapelabel) maar Len(ALLTAPES) zal dezelfde output geven
             ThisMove=TapeVal[TapeIndex]
             #print(label, ThisMove)
             if ThisMove == 'S':
