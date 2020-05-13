@@ -37,6 +37,10 @@ Dict1={
   }
 }
 
+
+#Dit is de JSON dump
+#  {"LDA": {"S0": {"Microcode": [{"RB": "1", "ST": "1", "RA": "1", "S": "1", "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "nieuwestatus": {"status": "S0"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}}]}}}
+# einde dump
 # 
 # Commands=Dict1
 # LDA=Dict1["LDA"]
