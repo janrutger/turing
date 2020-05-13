@@ -7,19 +7,32 @@ class MachineUi:
         self.tapeCommander = tc.TapeCommander()
 
         sg.theme('Dark Blue 3')
+        
+        self.frame_Interpreter=[
+            [sg.Text('Opcode', size=(15,1),font='Courier 12'),
+             sg.Text('Operands', size=(15,1),font='Courier 12')],
+            [sg.Input('opcode', key='-OPCODE', size=(11,1)),
+             sg.Input('Not in Use', key='-OPERANDS-',size=(15,1))],
+            [sg.Button('Execute', key='Execute',font='Courier 10', size=[12,1], bind_return_key='true'),
+             sg.Button('Edit Opcode', key='EditOpcode',font='Courier 10', size=[12,1], bind_return_key='true'),
+             sg.Button('LoadJSON', key='LoadJSON',font='Courier 10', size=[12,1], bind_return_key='true')]]
 
-        self.frame_TapeCommando =[[sg.Button('INIT Tapes', key='INIT' ,font='Courier 10', size=[20,1])],
-               [sg.Button('Write Tape', key='write',font='Courier 10', size=[20,1]),
-                sg.Input(key='-WST-', size=(1,1)),
-                sg.Input(key='-WRA-',size=(1,1)),
-                sg.Input(key='-WRB-',size=(1,1)),
-                sg.Input(key='-WS-', size=(1,1))],
-               [sg.Button('Move Tape', key='move',font='Courier 10', size=[20,1]),
-                sg.Input(key='-MST-', size=(1,1)),
-                sg.Input(key='-MRA-',size=(1,1)),
-                sg.Input(key='-MRB-',size=(1,1)),
-                sg.Input(key='-MS-', size=(1,1))],
-               [sg.Button('Read Tape', key='Show',font='Courier 10', size=[20,1], bind_return_key='true')]]
+        self.frame_TapeCommando =[
+            [sg.Button('INIT Tapes', key='INIT' ,font='Courier 10', size=[20,1])],
+            [sg.Button('Write Tape', key='write',font='Courier 10', size=[20,1]),
+             sg.Input(key='-WST-', size=(1,1)),
+             sg.Input(key='-WRA-',size=(1,1)),
+             sg.Input(key='-WRB-',size=(1,1)),
+             sg.Input(key='-WS-', size=(1,1))],
+            [sg.Button('Move Tape', key='move',font='Courier 10', size=[20,1]),
+             sg.Input(key='-MST-', size=(1,1)),
+             sg.Input(key='-MRA-',size=(1,1)),
+             sg.Input(key='-MRB-',size=(1,1)),
+             sg.Input(key='-MS-', size=(1,1))],
+            [sg.Button('Read Tape', key='Show',font='Courier 10', size=[20,1], bind_return_key='true')]
+            ]
+        
+
 
         self.frame_TapeInformatie =[
              self.tapeLayout('Stack',      '-TapeLeftPos0-', '-TapeHeadPos0-','-TapeRightPos0-', 'STACK Tape'),
@@ -28,8 +41,10 @@ class MachineUi:
              self.tapeLayout('Status',     '-TapeLeftPos3-', '-TapeHeadPos3-','-TapeRightPos3-', 'STATUS')
             ]
 
-        layout = [  [sg.Frame('Tape Informatie', self.frame_TapeInformatie,font='Courier 12')],
+        layout = [
+            [sg.Frame('Tape Informatie', self.frame_TapeInformatie,font='Courier 12')],
             [sg.Frame('Tape Commando', self.frame_TapeCommando,font='Courier 12')],
+            [sg.Frame('Command Interpreter', self.frame_Interpreter,font='Courier 12')],
             [sg.Button('Exit',font='Courier 10', size=[20,1])]]          
 
         self.window = sg.Window('Window Title', layout, font='courier 18', keep_on_top = True, no_titlebar=False, grab_anywhere=False)
