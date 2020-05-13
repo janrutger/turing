@@ -3,7 +3,7 @@ class Tape:
         self.name = name
         self.tape = tape
         self.head = head
-        self.moves = { 'L' : self.left, 'R' : self.right }
+        self.moves = { 'L' : self.left, 'R' : self.right, 'S' : self.stay }
 
     def move(self, moveTo):
         if moveTo in self.moves:
