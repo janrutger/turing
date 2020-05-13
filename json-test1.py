@@ -10,60 +10,59 @@ import json
 Dict1={
   "LDA": {
     "S0": {
-      "microcode": {
-        "huidigewaardes": {
+      "Mocrocode": [
+        {
+          "RB": "1",
           "ST": "1",
           "RA": "1",
-          "RB": "1",
-          "S": "1"
-        },
-        "input": {
+          "S": "1",
           "MOVES": {
             "ST": "L",
             "RA": "R",
             "RB": "L",
             "S": "S"
           },
+          "nieuwestatus": {
+            "status": "S0"
+          },
           "Nieuwewaardes": {
             "ST": "0",
             "RA": "0",
             "RB": "0",
             "S": "0"
-          },
-          "nieuwestatus": {
-            "status": "S0"
           }
         }
-      }
+      ]
     }
   }
 }
 
-
-Commands=Dict1
-LDA=Dict1["LDA"]
-microcodelda=Dict1["LDA"]["S0"]["microcode"]
-NU=Dict1["LDA"]["S0"]["microcode"]['huidigewaardes']
-move=Dict1["LDA"]["S0"]["microcode"]["input"]["MOVES"]
-Nieuwewaardes=Dict1["LDA"]["S0"]["microcode"]["input"]["Nieuwewaardes"]
-nieuwestatus=Dict1["LDA"]["S0"]["microcode"]["input"]["nieuwestatus"]
-
-
-# print('Alle Commando in command.com :', Commands)
-# print('Alle States van LDA :', LDA)
-# print('Alle combinaties binnen een state (S0) :', microcodelda)
-# print('De hudige waardes die horen bij een geldige combinatie :', NU)
-# print('De nieuwe waardes die horen bij een geldige combinatie :', Nieuwewaardes)
-# print('De tape beweging die horen bij een geldige combinatie :', move)
-# print('De volgende status die hoort bij een geldige combinatie :', nieuwestatus)
+# 
+# Commands=Dict1
+# LDA=Dict1["LDA"]
+# microcodelda=Dict1["LDA"]["S0"]["microcode"]
+# NU=Dict1["LDA"]["S0"]["microcode"]['huidigewaardes']
+# move=Dict1["LDA"]["S0"]["microcode"]["input"]["MOVES"]
+# Nieuwewaardes=Dict1["LDA"]["S0"]["microcode"]["input"]["Nieuwewaardes"]
+# nieuwestatus=Dict1["LDA"]["S0"]["microcode"]["input"]["nieuwestatus"]
+# 
+# 
+# # print('Alle Commando in command.com :', Commands)
+# # print('Alle States van LDA :', LDA)
+# # print('Alle combinaties binnen een state (S0) :', microcodelda)
+# # print('De hudige waardes die horen bij een geldige combinatie :', NU)
+# # print('De nieuwe waardes die horen bij een geldige combinatie :', Nieuwewaardes)
+# # print('De tape beweging die horen bij een geldige combinatie :', move)
+# # print('De volgende status die hoort bij een geldige combinatie :', nieuwestatus)
 
 
 #print(Dict1['LDA'])
-#Dict1["halt"]={'S0': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}}
-#Dict1["LDA"]={'S1': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}
-Dict1['halt']={'S1': {'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}}
-Dict1['halt']['S0']={'microcode': {'huidigewaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'input': {'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'nieuwestatus': {'status': 'S0'}}}}
+#Dict1["halt"]=
+#Dict1["LDA"]={"S0": {"ST": "1", "RA": "1", "RB": "1", "S": "1", "input": {"MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "nieuwestatus": {"status": "S0"}}}}
+#Dict1["LDA"]["S1"]={"ST": "0", "RA": "1", "RB": "1", "S": "1", "input": {"MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "nieuwestatus": {"status": "S0"}}}
 
+# Dict1['halt']=
+# Dict1['halt']['S0']=
 
 #print(Dict1)
 
