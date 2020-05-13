@@ -10,7 +10,7 @@ import json
 Dict1={
   "LDA": {
     "S0": {
-      "Mocrocode": [
+      "Microcode": [
         {
           "RB": "1",
           "ST": "1",
