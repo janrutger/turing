@@ -1,0 +1,38 @@
+De Tapemachine werkt als een turing machine maar je moet je STATE nu handmatig invoeren
+
+De bedoeling is dat de Tapemachine, door middel van commando´s, gevoed wordt met de STATE 
+informatie uit een JSON bestand. 
+In het JSON bestand worden de states van de commando´s bewaard.
+
+Commandos zijn: (voorbeelden), de Z80 instructie set is een leuke inspiratie bron)
+LDA	Laaad de eerste waarde van de stacktape vaan register A
+ADD 	telt de eerste  waarde van de stack op bij A en het resultaat komt in register B
+PUSHB	Laad register B op de stack
+
+Deze commando´s kunnen helemaal door de state machine worden uitgevoerd
+Daarnaast is er een groepje commandoś die niet volledig door de state machine kunnen worden 
+uitgevoerd, zoals
+STACK	Die laad de stack tape met initele waardes waar de commando,s mee aan de slag moeten
+JP JPC	Jump en Jump conditional, die nodig zijn om straks een programmaatje te kunnen schrijven
+in assembly
+
+de NU te bouwen interpreter voed de command´s aan de Tapemachine commando per commando 
+(en later een list van commandoś)
+
+bijvoorbeeld (zie de nieuwe machineui.py) je typed een opcode in, je drukt op execute en dan
+wordt de interpreter gestart met de juiste args
+
+maar dat werkt alleen als de commando´s al gedefineert zijn en opgeslagen in de JSON. 
+
+om de verschillende states van een commando te defineren, komt er een eigen interface.
+De verschijnt als je op Edit Opcode drukt.
+
+- deze interface maakt het mogelijk om commando, de bij behorende states aan te maken/aanpassen en verwijderen.
+- de states van het commando step by step uit te voeren.
+
+Volgens mij heb ik dan om te beginnen 4 classes nodig
+- interpreter	die het opgegeven commando uitvoerd via de tapemachine (of als intern commando)
+- EditOpcodeGUI	voor het scherm van de editor
+- EditCopcode	de logica van de editor
+- JSON file 	save, load van de file
+
