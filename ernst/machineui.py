@@ -11,7 +11,7 @@ class MachineUi:
         self.frame_Interpreter=[
             [sg.Text('Opcode', size=(15,1),font='Courier 12'),
              sg.Text('Operands', size=(15,1),font='Courier 12')],
-            [sg.Input('opcode', key='-OPCODE', size=(11,1)),
+            [sg.Input('opcode', key='-OPCODE-', size=(11,1)),
              sg.Input('Not in Use', key='-OPERANDS-',size=(15,1))],
             [sg.Button('Execute', key='Execute',font='Courier 10', size=[12,1], bind_return_key='true'),
              sg.Button('Edit Opcode', key='EditOpcode',font='Courier 10', size=[12,1], bind_return_key='true'),
