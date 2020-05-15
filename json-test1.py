@@ -62,6 +62,8 @@ Dict1["ADD"]={"States": [{"S0": {"Rules": [{"MatchWaardes": {"ST": "1", "RA": "1
 #Dict1["LDA"]["States"].append =[{'S1': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}}]
 states=Dict1["LDA"]["States"]
 states.append({'S0': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}})
+states.append({'S1': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}})
+
 print(type(states))
 print('--------------')
 #print(type(Dict1["LDA"]["States"]))
