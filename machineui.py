@@ -84,9 +84,8 @@ class MachineUi:
             if event == 'Show':
                 self.updateWindow()
             if event == 'LoadJSON':
-                OpcodeDict=self.JSONfile.reload
-                print(type(OpcodeDict))
-             #   print(AllOpcodes)
+                OpcodeDict=self.JSONfile.reload()
+                print(OpcodeDict)
 #             if event == 'Execute':
 #                 self.opcodeInterpreter([values['-OPCODE-'], values['-OPERANDS-']])
 

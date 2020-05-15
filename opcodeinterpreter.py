@@ -7,8 +7,7 @@
 # en later het jump commando, wordt het commando door de interpreter uitgevoerd, en stuurt de tapecommander aan.
 # Deze commandoś zijn dus niet (zelf) te definieren via de JSON
 
-# Bij aanroepen van opcodeinterpreter wordt de JSON gelezen
-# (maar wellichtdat het inlzen van de JSNO ergens anders moet, nu leest hij het bestand bij ieder commando)
+# De JSON file is gelezen door de knop load JSON in machineui.py
 #
 import sequencer as s
 import tapecommander as tc
