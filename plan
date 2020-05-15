@@ -36,3 +36,7 @@ Volgens mij heb ik dan om te beginnen 4 classes nodig
 - EditCopcode	de logica van de editor
 - JSON file 	save, load van de file
 
+15 mei
+- bij het uitschrijven van interpreter.py uitgevonden dat we ook een class sequencer nodig hebbe.
+-sequencer	wordt aangeroepen door de interpreter met ´commando´ en ´huidige tapeweaardes´, start de state sequence (altijd) met de startstate S0 en blijft zichzelf aanroepen tot de halt stater ´h´ bereikt is. dan brengt  de sequencer de heads naar de default start positie en keer terug naar de interpreter die het volgende commando geeft
+
