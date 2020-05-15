@@ -2,11 +2,13 @@ from string import Template
 import PySimpleGUI as sg
 import tapecommander as tc
 import opcodeinterpreter as oi
+import JSONfile as jf
 
 class MachineUi:
     def __init__(self):
         self.tapeCommander = tc.TapeCommander()
         self.opcodeInterpreter = oi.OpcodeInterpreter()
+        self.JSONfile = jf.JSONfile()
 
         sg.theme('Dark Blue 3')
         
@@ -81,6 +83,10 @@ class MachineUi:
                 self.tapeCommander.move([values['-MST-'],values['-MRA-'],values['-MRB-'],values['-MS-']])
             if event == 'Show':
                 self.updateWindow()
+            if event == 'LoadJSON':
+                OpcodeDict=self.JSONfile.reload
+                print(type(OpcodeDict))
+             #   print(AllOpcodes)
 #             if event == 'Execute':
 #                 self.opcodeInterpreter([values['-OPCODE-'], values['-OPERANDS-']])
 

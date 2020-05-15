@@ -17,4 +17,8 @@ class JSONfile():
                                 "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"},
                                 "nieuwestatus": {"status": "S0"},
                                 "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}}]}}}
+    
+    def reload(self):
+        JSONdict=json.loads(self.JSONfromTape)
+        return JSONdict
         
