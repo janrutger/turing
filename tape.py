@@ -40,3 +40,5 @@ class Tape:
     def getHead(self):
         return self.head
 
+
+
