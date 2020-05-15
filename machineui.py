@@ -62,6 +62,7 @@ class MachineUi:
     def updateWindow(self):
         pos = 0;
         for label in self.tapeCommander.getLabels():
+            print(label)
             data = self.tapeCommander.print(label)
             self.window[Template('-TapeLeftPos${pos}-').substitute(pos = pos)].update(data[0])
             self.window[Template('-TapeHeadPos${pos}-').substitute(pos = pos)].update(data[1])

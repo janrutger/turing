@@ -5,11 +5,11 @@ class JSONfile():
         self.JSONfromFile="""{
                         "LDA":
                            {"S0": {"Microcode": [
-                                   {"RB": "1", "ST": "1", "RA": "1", "S": "1",
+                                 {"RB": "1", "ST": "1", "RA": "1", "S": "1",
                                     "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"},
-                                    "nieuwestatus": {"status": "S0"},
+                                    "nieuwe status": {"status": "S0"},
                                     "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}}]},
-                            "S1": {"Microcode": [
+                            "H": {"Microcode": [
                                      {"RB": "1", "ST": "1", "RA": "1", "S": "1",
                                       "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"},
                                       "nieuwestatus": {"status": "S0"},
