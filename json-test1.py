@@ -42,8 +42,8 @@ Dict1={
 #  {"LDA": {"S0": {"Microcode": [{"RB": "1", "ST": "1", "RA": "1", "S": "1", "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "nieuwestatus": {"status": "S0"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}}]}}}
 # einde dump
 # 
-# Commands=Dict1
-# LDA=Dict1["LDA"]
+Commands=Dict1
+LDA=Dict1["LDA"]
 # microcodelda=Dict1["LDA"]["S0"]["microcode"]
 # NU=Dict1["LDA"]["S0"]["microcode"]['huidigewaardes']
 # move=Dict1["LDA"]["S0"]["microcode"]["input"]["MOVES"]
@@ -51,8 +51,8 @@ Dict1={
 # nieuwestatus=Dict1["LDA"]["S0"]["microcode"]["input"]["nieuwestatus"]
 # 
 # 
-# # print('Alle Commando in command.com :', Commands)
-# # print('Alle States van LDA :', LDA)
+print('Alle Commando in command.com :', Commands)
+print('Alle States van LDA :', LDA)
 # # print('Alle combinaties binnen een state (S0) :', microcodelda)
 # # print('De hudige waardes die horen bij een geldige combinatie :', NU)
 # # print('De nieuwe waardes die horen bij een geldige combinatie :', Nieuwewaardes)
@@ -62,14 +62,14 @@ Dict1={
 
 #print(Dict1['LDA'])
 #Dict1["halt"]=
-#Dict1["LDA"]={"S0": {"ST": "1", "RA": "1", "RB": "1", "S": "1", "input": {"MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "nieuwestatus": {"status": "S0"}}}}
-#Dict1["LDA"]["S1"]={"ST": "0", "RA": "1", "RB": "1", "S": "1", "input": {"MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "nieuwestatus": {"status": "S0"}}}
-
+Dict1["ADD"]       ={'S0': {'Microcode': [{'RB': '1', 'ST': '1', 'RA': '1', 'S': '1', 'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'nieuwestatus': {'status': 'S0'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}}]}}
+Dict1["LDA"]["S1"] ={'Microcode': [{'RB': '1', 'ST': '1', 'RA': '1', 'S': '1', 'MOVES': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'nieuwestatus': {'status': 'S0'}, 'Nieuwewaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}}]}
+ 
 # Dict1['halt']=
 # Dict1['halt']['S0']=
 
 #print(Dict1)
-
+print('--------------')
 jsonstring = json.dumps(Dict1)
 print(jsonstring)
 
