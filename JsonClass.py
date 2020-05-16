@@ -1,28 +1,27 @@
+#https://github.com/PrettyPrinted/youtube_video_code/blob/master/2019/07/31/How%20to%20Convert%20JSON%20Data%20Into%20a%20Python%20Object/json_example/script.py
+
+
 import json 
 
-class Opcodes:
+class Opcode:
     def __init__(self, Name, States):
         self.Name = Name
         self.States = States
+#       self.StateS0 = States['S0']["Rules"][0]
         
-    @classmethod
-    def from_json(cls, json_string):
-        json_dict = json.loads(json_string)
-        return cls(**json_dict[0])
-
     def __repr__(self):
-        return f'<Opcodes { self.Name }>'
+        return self.Name
       
-    
 
-Opcodeslist = []
+OpcodeLib = []
 with open('OpcodeData.json', 'r') as json_file:
-    opcodedata = json.load(json_file.read())
+    opcodedata = json.loads(json_file.read())
     for u in opcodedata:
-        Opcodeslist.append(opcodedata[0])
+        OpcodeLib.append(Opcode(**u))     ### Hier begreep ik de voorbeerld niet met ** users_list.append(User(**u))
 
 
 print("--------")
-print(Opcodeslist)
+print(OpcodeLib)
+print(type(OpcodeLib))
 
 
