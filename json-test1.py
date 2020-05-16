@@ -9,72 +9,56 @@ import json
 
 Dict1={
   "LDA": {
-    "States": [
-      {
-        "S0": {
-          "Rules": [
-            {
-              "MatchWaardes": {
-                "ST": "1",
-                "RA": "1",
-                "RB": "1",
-                "S": "1"
-              },
-              "NieuweWaardes": {
-                "ST": "0",
-                "RA": "0",
-                "RB": "0",
-                "S": "0"
-              },
-              "Move": {
-                "ST": "L",
-                "RA": "R",
-                "RB": "L",
-                "S": "S"
-              },
-              "NieuweStatus": "S0"
-            }
-          ]
-        }
+    "States": {
+      "S0": {
+        "Rules": [
+          {
+            "MatchWaardes": {
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
+            },
+            "NieuweWaardes": {
+              "ST": "0",
+              "RA": "0",
+              "RB": "0",
+              "S": "0"
+            },
+            "Move": {
+              "ST": "L",
+              "RA": "R",
+              "RB": "L",
+              "S": "S"
+            },
+            "NieuweStatus": "S0"
+          }
+        ]
       }
-    ]
+    }
   }
 }
 
 
-#Dit is de JSON dump
-#  {"LDA": {"S0": {"Microcode": [{"RB": "1", "ST": "1", "RA": "1", "S": "1", "MOVES": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "nieuwestatus": {"status": "S0"}, "Nieuwewaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}}]}}}
-# einde dump
+print('ADD (met twee states)-------------')
 # 
-Commands=Dict1
-LDA=Dict1["LDA"]
-ListOfStates=Dict1["LDA"]['States'][0]
-
+Dict1["ADD"]                ={"States": {"S0": {"Rules": [{"MatchWaardes": {"ST": "1", "RA": "1", "RB": "1", "S": "1"}, "NieuweWaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "Move": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "NieuweStatus": "S0"}]}}}
+Dict1["ADD"]["States"]["S1"]={'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}
+#
+#print(states)
+#print(type(states))
+print('HALT (met een state)--------------')
 # 
-# 
-print('Alle Commando in command.com :', Commands)
-print("LDA = ", LDA)
-print('Alle States van LDA :', ListOfStates)
-
-#print(Dict1['LDA'])
-#Dict1["halt"]=
-Dict1["ADD"]={"States": [{"S0": {"Rules": [{"MatchWaardes": {"ST": "1", "RA": "1", "RB": "1", "S": "1"}, "NieuweWaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "Move": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "NieuweStatus": "S0"}]}}]}
-#Dict1["LDA"]["States"].append =[{'S1': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}}]
-states=Dict1["LDA"]["States"]
-states.append({'S0': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}})
-states.append({'S1': {'Rules': [{'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'}]}})
-
-print(type(states))
-print('--------------')
-#print(type(Dict1["LDA"]["States"]))
+Dict1["HALT"]={"States": {"S0": {"Rules": [{"MatchWaardes": {"ST": "1", "RA": "1", "RB": "1", "S": "1"}, "NieuweWaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "Move": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "NieuweStatus": "S0"}]}}}
 
 
-#Dict1["LDA"]['States'][0]["S0"]["Rules"]={"MatchWaardes": {"ST": "O", "RA": "1", "RB": "1", "S": "1"}, "NieuweWaardes": {"ST": "0", "RA": "0", "RB": "0", "S": "0"}, "Move": {"ST": "L", "RA": "R", "RB": "L", "S": "S"}, "NieuweStatus": "S0"}
-# Dict1['halt']=
-# Dict1['halt']['S0']=
+print('toevoegen RULE 2 (LDA, S0)--------------')
+rules=Dict1["LDA"]["States"]["S0"]["Rules"]
+#
+rules.append({'MatchWaardes': {'ST': '1', 'RA': '1', 'RB': '1', 'S': '1'}, 'NieuweWaardes': {'ST': '0', 'RA': '0', 'RB': '0', 'S': '0'}, 'Move': {'ST': 'L', 'RA': 'R', 'RB': 'L', 'S': 'S'}, 'NieuweStatus': 'S0'})
+#
 
-#print(Dict1)
-print('--------------')
+print('----RESULT STRING----------')
 jsonstring = json.dumps(Dict1)
 print(jsonstring)
 
