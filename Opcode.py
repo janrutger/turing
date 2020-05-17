@@ -11,6 +11,12 @@ class Opcode:
         
     def __repr__(self):
         return self.Name
+
+    def getName(self):
+        return self.Name
+
+    def getStates(self):
+        return self.States
       
 
 # OpcodeLib = []

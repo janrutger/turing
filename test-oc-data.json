@@ -1,0 +1,53 @@
+[
+  {
+    "Name": "LDA",
+    "States": {
+      "S0": {
+        "Rules": [
+          {
+            "MatchWaardes": {
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
+            },
+            "NieuweWaardes": {
+              "ST": "0",
+              "RA": "0",
+              "RB": "0",
+              "S": "0"
+            },
+            "Move": {
+              "ST": "L",
+              "RA": "R",
+              "RB": "L",
+              "S": "S"
+            },
+            "NieuweStatus": "S0"
+          },
+          {
+            "MatchWaardes": {
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
+            },
+            "NieuweWaardes": {
+              "ST": "0",
+              "RA": "0",
+              "RB": "0",
+              "S": "0"
+            },
+            "Move": {
+              "ST": "L",
+              "RA": "R",
+              "RB": "L",
+              "S": "S"
+            },
+            "NieuweStatus": "S0"
+          }
+        ]
+      }
+    }
+  }
+]

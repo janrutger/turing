@@ -2,17 +2,17 @@ import json
 import Opcode as oc
 
 class OpcodeLoader():
-    def __init__(self):
-        self.opcodeLib = []
+    def __init__(self, file = None):
         self.opcode=oc.Opcode("Name", "States")
-        self.defaultOpcodesFile = 'opcode-data.json'
+        self.file = file or 'opcode-data.json'
+        self.reload()
     
-    def reload(self, file = None):
+    def reload(self):
         self.opcodeLib = []
-        with open(file or self.defaultOpcodesFile, 'r') as json_file:
+        with open(self.file, 'r') as json_file:
             opcodedata = json.loads(json_file.read())
-            for u in opcodedata:
-                self.opcodeLib.append(oc.Opcode(**u))     ### Hier begreep ik de voorbeerld niet met ** users_list.append(User(**u))
+            for o in opcodedata:
+                self.opcodeLib.append(oc.Opcode(**o))
 #         JSONdict=json.loads(self.JSONfromFile)
 #         return JSONdict
 
