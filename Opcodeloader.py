@@ -17,5 +17,7 @@ class OpcodeLoader():
 #         return JSONdict
 
     def getOpcodes(self):
-        return self.opcodeLib
-            
+            naam=self.opcodeLib
+            return naam
+
+    
