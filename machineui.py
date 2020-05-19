@@ -1,14 +1,14 @@
 from string import Template
 import PySimpleGUI as sg
 import tapecommander as tc
-import opcodeinterpreter as oi
+import interpreter as i
 import Opcodeloader as ol
 
 
 class MachineUi:
     def __init__(self):
         self.tapeCommander = tc.TapeCommander()
-        self.opcodeInterpreter = oi.OpcodeInterpreter()
+        self.interpreter = i.Interpreter("opcode", "operand")
         self.OpcodeLoader = ol.OpcodeLoader()
 
         sg.theme('Dark Blue 3')
@@ -91,10 +91,7 @@ class MachineUi:
                 Opcodelibrary = loader.get()
                 print(Opcodelibrary)
                 print(type(Opcodelibrary))
-                
-
-          
-#             if event == 'Execute':
-#                 self.opcodeInterpreter([values['-OPCODE-'], values['-OPERANDS-']])
+            if event == 'Execute':
+                i.Interpreter(values['-OPCODE-'], values['-OPERANDS-'])
 
         self.window.close()

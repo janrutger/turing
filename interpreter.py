@@ -9,12 +9,16 @@
 
 # De JSON file is gelezen door de knop load JSON in machineui.py
 #
-import sequencer as s
-import tapecommander as tc
+import Opcodeloader as ol
+import opcode as oc
 
-class OpcodeInterpreter():
-    def __init__(self):
-           pass
+class Interpreter():
+    def __init__(self,opcode, operand):
+          self.opcode = opcode
+          self.operand = operand
+          self.loader = ol.OpcodeLoader()
+          self.opcodelibrary = self.loader.get()
+          print(self.opcodelibrary)
 # 
 # 
 # def __init__(self):
