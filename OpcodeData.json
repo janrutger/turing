@@ -28,8 +28,8 @@
           {
             "MatchWaardes": {
               "ST": "1",
-              "RA": "1",
-              "RB": "1",
+              "RA": "0",
+              "RB": "0",
               "S": "1"
             },
             "NieuweWaardes": {
@@ -54,8 +54,8 @@
             "MatchWaardes": {
               "ST": "1",
               "RA": "1",
-              "RB": "1",
-              "S": "1"
+              "RB": "0",
+              "S": "0"
             },
             "NieuweWaardes": {
               "ST": "0",
@@ -103,10 +103,10 @@
         "Rules": [
           {
             "MatchWaardes": {
-              "ST": "1",
-              "RA": "1",
-              "RB": "1",
-              "S": "1"
+              "ST": "0",
+              "RA": "0",
+              "RB": "0",
+              "S": "0"
             },
             "NieuweWaardes": {
               "ST": "0",

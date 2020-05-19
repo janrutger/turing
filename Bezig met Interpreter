@@ -1,3 +1,15 @@
+NU
+
+Interpreter.py
+
+
+
+Af
+- een tape die eindeloos is, naar link, rechtskan, "1", "0" en "_" schrijft
+- tape bestuuring, (Tapecomander)
+- laden van de opcodes uit een json file	
+
+EERDER
 De Tapemachine werkt als een turing machine maar je moet je STATE nu handmatig invoeren
 
 De bedoeling is dat de Tapemachine, door middel van commando´s, gevoed wordt met de STATE 
@@ -29,14 +41,4 @@ De verschijnt als je op Edit Opcode drukt.
 
 - deze interface maakt het mogelijk om commando, de bij behorende states aan te maken/aanpassen en verwijderen.
 - de states van het commando step by step uit te voeren.
-
-Volgens mij heb ik dan om te beginnen 4 classes nodig
-- interpreter	die het opgegeven commando uitvoerd via de tapemachine (of als intern commando)
-- EditOpcodeGUI	voor het scherm van de editor
-- EditCopcode	de logica van de editor
-- JSON file 	save, load van de file
-
-15 mei
-- bij het uitschrijven van interpreter.py uitgevonden dat we ook een class sequencer nodig hebbe.
--sequencer	wordt aangeroepen door de interpreter met ´commando´ en ´huidige tapeweaardes´, start de state sequence (altijd) met de startstate S0 en blijft zichzelf aanroepen tot de halt stater ´h´ bereikt is. dan brengt  de sequencer de heads naar de default start positie en keer terug naar de interpreter die het volgende commando geeft
 

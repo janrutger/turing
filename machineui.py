@@ -86,8 +86,12 @@ class MachineUi:
             if event == 'Show':
                 self.updateWindow()
             if event == 'LoadJSON':
-                self.OpcodeLoader.reload()
-                print(self.OpcodeLoader.getOpcodes())
+                loader = ol.OpcodeLoader()
+                Opcodelibrary = loader.load()
+                Opcodelibrary = loader.get()
+                print(Opcodelibrary)
+                print(type(Opcodelibrary))
+                
 
           
 #             if event == 'Execute':
