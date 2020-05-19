@@ -101,12 +101,5 @@ class MachineUi:
                     Opcodelibrary = loader.get()
                     i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])
                
-               
-#                 loader = ol.OpcodeLoader()
-                  
-#                 if Opcodelibrary == "":
-#                      print("JSON-file not loaded")
-#                 else:
-
-
+        
         self.window.close()

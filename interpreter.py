@@ -16,22 +16,15 @@ class Interpreter():
     def __init__(self, loader, opcode, operand):
         self.loader = loader
         self.opcode = opcode
-        self.operand = operand
-          
+        self.operand = operand       
         self.opcodeintern = ["PUSH"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
+        self.print()
         
-        
-        
-        #print(self.loader)
-        #self.opcodeJSON = self.loader.get()
-        
-#         print(self.loader)#<<<
-        
-          
-          #print(self.opcodeJSON)
-          
-#           if self.opcode in self.opcodeJSON:
-#               print('JSON Commando')
-          
+    def print(self):
+        print(self.loader)
+        print(self.opcode)
+        print(self.operand)
+        print(self.opcodeintern)
+
         
 
