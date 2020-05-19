@@ -5,7 +5,7 @@ class OpcodeLoader():
     def __init__(self, file = None):
         self.opcode=oc.Opcode("Name", "States")
         self.file = file or 'OpcodeData.json'
-        self.load()
+        self.opcodeLib="" #self.load()
     
     def load(self):
         self.opcodeLib = []

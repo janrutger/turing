@@ -8,8 +8,9 @@ import Opcodeloader as ol
 class MachineUi:
     def __init__(self):
         self.tapeCommander = tc.TapeCommander()
-        self.interpreter = i.Interpreter("opcode", "operand")
+        self.interpreter = i.Interpreter("opcodelibray", "opcode", "operand")
         self.OpcodeLoader = ol.OpcodeLoader()
+      
 
         sg.theme('Dark Blue 3')
         
@@ -87,11 +88,25 @@ class MachineUi:
                 self.updateWindow()
             if event == 'LoadJSON':
                 loader = ol.OpcodeLoader()
-                Opcodelibrary = loader.load()
-                Opcodelibrary = loader.get()
-                print(Opcodelibrary)
-                print(type(Opcodelibrary))
+                self.Opcodelibrary = loader.load()
+                self.Opcodelibrary = loader.get()
+                print(self.Opcodelibrary)
+                print(type(self.Opcodelibrary))
             if event == 'Execute':
-                i.Interpreter(values['-OPCODE-'], values['-OPERANDS-'])
+                try:
+                    loader
+                except NameError:
+                    print("JSON niet geladen")
+                else:
+                    Opcodelibrary = loader.get()
+                    i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])
+               
+               
+#                 loader = ol.OpcodeLoader()
+                  
+#                 if Opcodelibrary == "":
+#                      print("JSON-file not loaded")
+#                 else:
+
 
         self.window.close()
