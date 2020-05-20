@@ -1,8 +1,9 @@
 [
   {
     "Name": "LDA",
-    "States": {
-      "S0": {
+    "States": [
+      {
+        "state": "S0",
         "Rules": [
           {
             "MatchWaardes": {
@@ -48,7 +49,8 @@
           }
         ]
       },
-      "S1": {
+      {
+        "state": "S1",
         "Rules": [
           {
             "MatchWaardes": {
@@ -94,12 +96,13 @@
           }
         ]
       }
-    }
+    ]
   },
   {
     "Name": "MOVE",
-    "States": {
-      "S0": {
+    "States": [
+      {
+        "state": "S0",
         "Rules": [
           {
             "MatchWaardes": {
@@ -145,7 +148,8 @@
           }
         ]
       },
-      "S1": {
+      {
+        "state": "S1",
         "Rules": [
           {
             "MatchWaardes": {
@@ -191,6 +195,6 @@
           }
         ]
       }
-    }
+    ]
   }
 ]

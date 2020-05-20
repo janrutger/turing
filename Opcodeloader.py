@@ -15,8 +15,7 @@ class OpcodeLoader():
                 self.opcodeLib.append(oc.Opcode(**o))
 
     def get(self):
-            naam=self.opcodeLib
-            return naam
+        return self.opcodeLib
 
     
     
