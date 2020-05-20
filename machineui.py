@@ -90,16 +90,18 @@ class MachineUi:
                 loader = ol.OpcodeLoader()
                 self.Opcodelibrary = loader.load()
                 self.Opcodelibrary = loader.get()
-                print(self.Opcodelibrary)
-                print(type(self.Opcodelibrary))
+                #print(self.Opcodelibrary)
+                #print(type(self.Opcodelibrary))
             if event == 'Execute':
                 try:
                     loader
                 except NameError:
                     print("JSON niet geladen")
-                else:
-                    Opcodelibrary = loader.get()
-                    i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])
+                    loader = ol.OpcodeLoader()
+                    self.Opcodelibrary = loader.load()
+                    self.Opcodelibrary = loader.get()
+                #else:
+                i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])
                
         
         self.window.close()

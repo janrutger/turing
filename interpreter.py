@@ -13,15 +13,18 @@ import Opcodeloader as ol
 import opcode as oc
 
 class Interpreter():
-    def __init__(self, loader, opcode, operand):
-        self.loader = loader
+    def __init__(self, opcodelibrary, opcode, operand):
+        self.opcodelibrary = opcodelibrary
         self.opcode = opcode
         self.operand = operand       
         self.opcodeintern = ["PUSH"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
+        self.libopcode = self.opcodelibrary[0]
         self.print()
         
     def print(self):
-        print(self.loader)
+        print(self.opcodelibrary)
+        print(self.libopcode)
+        print(type(self.libopcode))
         print(self.opcode)
         print(self.operand)
         print(self.opcodeintern)
