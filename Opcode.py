@@ -1,22 +1,25 @@
 #https://github.com/PrettyPrinted/youtube_video_code/blob/master/2019/07/31/How%20to%20Convert%20JSON%20Data%20Into%20a%20Python%20Object/json_example/script.py
 
-
+import state as s
 import json 
 
 class Opcode:
-    def __init__(self, Name, States):
-        self.Name = Name
-        self.States = States
+    def __init__(self, name, states):
+        self.name = name
+        print(states)
+        self.states = []
+        for state in states:
+            self.states.append(s.State(state['state'], state["rules"]))
 #       self.StateS0 = States['S0']["Rules"][0]
         
     def __repr__(self):
-        return self.Name
+        return self.name
 
     def getName(self):
-        return self.Name
+        return self.name
 
     def getStates(self):
-        return self.States
+        return self.states
       
 
 # OpcodeLib = []
