@@ -1,8 +1,7 @@
-
-class TapeSet:
+class Move:
 
     def __init__(self, dict):
-        self.tapeset = dict
+        self.move = dict
 
     def getST(self):
         return self.get("ST")
@@ -17,4 +16,4 @@ class TapeSet:
         return self.get("S")
 
     def get(self, key):
-        return self.tapeset[key]
+        return self.move[key]

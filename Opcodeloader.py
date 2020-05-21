@@ -3,9 +3,8 @@ import Opcode as oc
 
 class OpcodeLoader():
     def __init__(self, file = None):
-        self.opcode=oc.Opcode("Name", "States")
         self.file = file or 'OpcodeData.json'
-        self.opcodeLib="" #self.load()
+        self.opcodeLib = ""
     
     def load(self):
         self.opcodeLib = []
