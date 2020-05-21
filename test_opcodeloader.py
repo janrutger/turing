@@ -27,5 +27,3 @@ class TestTape(unittest.TestCase):
             print("NieuwWaardes:", rule.getNieuwWaardes().__dict__)
             print("Move:", rule.getMove().__dict__)
             print("NieuweStatus:", rule.getNieuwWaardes().__dict__)
-
-        

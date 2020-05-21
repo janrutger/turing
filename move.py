@@ -1,4 +1,3 @@
-
 class Move:
 
     def __init__(self, dict):
@@ -18,4 +17,3 @@ class Move:
 
     def get(self, key):
         return self.move[key]
-

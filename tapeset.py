@@ -18,5 +18,3 @@ class TapeSet:
 
     def get(self, key):
         return self.tapeset[key]
-
-    
