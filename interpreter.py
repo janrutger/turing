@@ -10,24 +10,41 @@
 # De JSON file is gelezen door de knop load JSON in machineui.py
 #
 import Opcodeloader as ol
-import opcode as oc
+import Opcode as oc
 
 class Interpreter():
     def __init__(self, opcodelibrary, opcode, operand):
         self.opcodelibrary = opcodelibrary
+        print(self.opcodelibrary, "----",  type(self.opcodelibrary))
+         
         self.opcode = opcode
         self.operand = operand       
-        self.opcodeintern = ["PUSH"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
-        self.libopcode = self.opcodelibrary[0]
-        self.print()
-        
-    def print(self):
-        print(self.opcodelibrary)
-        print(self.libopcode)
-        print(type(self.libopcode))
-        print(self.opcode)
-        print(self.operand)
-        print(self.opcodeintern)
-
+        self.opcodeintern = ["PUSH", "TEST"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
+        print(self.opcodeintern, "----",  type(self.opcodeintern))
+        self.check()
         
 
+    def check(self):
+        if self.opcode in self.opcodeintern:
+            print("Interne OPCODE", self.opcode)
+        elif any(opcodex == self.opcode for opcodex in self.opcodelibrary):
+            print("JSON OPCODE", self.opcode)
+ #       elif self.opcode in enumerate(self.opcodelibrary):
+ #       elif self.opcode in self.opcodelibrary:           
+        else:
+            print("Onbekende opcode", self.opcode)
+ 
+ #if any(obj['shape'] == 'square' for obj in shapes):
+            
+#             for waarde in self.opcodelibrary:
+#                 if waarde == self.opcode:
+#                     print("JSON OPCODE", self.opcode)
+#                 
+#  
+#             
+        
+        
+       
+            
+
+         

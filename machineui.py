@@ -98,7 +98,7 @@ class MachineUi:
                 except NameError:
                     print("JSON niet geladen")
                     loader = ol.OpcodeLoader()
-                    self.Opcodelibrary = loader.load()
+                    loader.load()
                     self.Opcodelibrary = loader.get()
                 #else:
                 i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])

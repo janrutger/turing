@@ -4,7 +4,7 @@ import Opcode as oc
 class OpcodeLoader():
     def __init__(self, file = None):
         self.file = file or 'OpcodeData.json'
-        self.opcodeLib = ""
+        self.opcodeLib = []
     
     def load(self):
         self.opcodeLib = []
