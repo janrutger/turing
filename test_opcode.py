@@ -20,4 +20,7 @@ class TestTape(unittest.TestCase):
         rules = state.getRules()
         self.assertEqual(len(rules), 2)
         rule = rules[0]
-        self.assertEqual(rule.getMatchWaardes().getST(), "1")
+        print("RULE:", rule.__dict__)
+        tapeSet = rule.getMatchWaardes()
+        print("MatchWaardes: ", tapeSet.__dict__)
+        self.assertEqual(tapeSet.getST(), "1")
