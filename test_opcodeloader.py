@@ -1,6 +1,5 @@
 import unittest
 import Opcodeloader as o
-import json
 
 class TestTape(unittest.TestCase):
 
