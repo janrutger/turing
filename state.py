@@ -2,9 +2,9 @@ import rule as r
 
 class State:
 
-    def __init__(self, state, rules):
-        self.state = state
-        self.rules = self.init(rules)
+    def __init__(self, dict):
+        self.state = dict['state']
+        self.rules = self.init(dict['rules'])
 
     def init(self,dict):
         rules = []

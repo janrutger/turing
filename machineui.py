@@ -88,7 +88,7 @@ class MachineUi:
                 self.updateWindow()
             if event == 'LoadJSON':
                 loader = ol.OpcodeLoader()
-                self.Opcodelibrary = loader.load()
+                loader.load()
                 self.Opcodelibrary = loader.get()
                 #print(self.Opcodelibrary)
                 #print(type(self.Opcodelibrary))

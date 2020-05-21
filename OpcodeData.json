@@ -1,10 +1,10 @@
 [
   {
-    "Name": "LDA",
-    "States": [
+    "name": "LDA",
+    "states": [
       {
         "state": "S0",
-        "Rules": [
+        "rules": [
           {
             "MatchWaardes": {
               "ST": "1",
@@ -51,7 +51,7 @@
       },
       {
         "state": "S1",
-        "Rules": [
+        "rules": [
           {
             "MatchWaardes": {
               "ST": "1",
@@ -99,11 +99,11 @@
     ]
   },
   {
-    "Name": "MOVE",
-    "States": [
+    "name": "MOVE",
+    "states": [
       {
         "state": "S0",
-        "Rules": [
+        "rules": [
           {
             "MatchWaardes": {
               "ST": "0",
@@ -150,7 +150,7 @@
       },
       {
         "state": "S1",
-        "Rules": [
+        "rules": [
           {
             "MatchWaardes": {
               "ST": "1",

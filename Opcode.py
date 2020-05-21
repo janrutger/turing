@@ -6,11 +6,9 @@ import json
 class Opcode:
     def __init__(self, name, states):
         self.name = name
-        print(states)
         self.states = []
         for state in states:
-            self.states.append(s.State(state['state'], state["rules"]))
-#       self.StateS0 = States['S0']["Rules"][0]
+            self.states.append(s.State(state))
         
     def __repr__(self):
         return self.name
