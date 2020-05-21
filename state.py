@@ -6,7 +6,7 @@ class State:
         self.state = dict['state']
         self.rules = self.init(dict['rules'])
 
-    def init(self,dict):
+    def init(self, dict):
         rules = []
         for o in dict:
             rules.append(self.initOne(o))
