@@ -16,7 +16,7 @@ class TestInterpreter(unittest.TestCase):
         loader = ol.OpcodeLoader()
         loader.load()
         #interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
-        interpreter = ip.Interpreter(loader.get(), "MOVE", "nog niet")
+        interpreter = ip.Interpreter(loader.get(), "TEST", "nog niet")
         print(interpreter.opcode)
         print(interpreter.operand)
         print(interpreter.opcodelibrary)
@@ -24,7 +24,8 @@ class TestInterpreter(unittest.TestCase):
         print(interpreter.contains(interpreter.opcode))
 
         self.assertEqual(interpreter.contains("LDA"), True)
-        self.assertEqual(interpreter.contains("dd"), False)
+        self.assertEqual(interpreter.contains("MOVE"), True)
+        self.assertEqual(interpreter.contains("DD"),  False)
         #print(interpreter.opcodelibrary[1])
         
 #         if interpreter.opcode in interpreter.opcodelibrary:

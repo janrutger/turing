@@ -7,7 +7,7 @@ class Interpreter():
         self.opcode = opcode
         self.operand = operand       
         self.opcodeintern = ["PUSH", "TEST"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
-#        self.check()
+        self.check()
         
     def contains(self, value):
         i = 0
@@ -19,15 +19,15 @@ class Interpreter():
 #             
 #    
 # 
-#     def check(self):
-#         if self.opcode in self.opcodeintern:
-#             print("Interne OPCODE", self.opcode)
-#         
-#         elif self.contains(self.opcode) == True:
-#             print("JSON OPCODE", self.opcode)
-#             
-#         else:
-#             print("Onbekende opcode", self.opcode)
+    def check(self):
+        if self.opcode in self.opcodeintern:
+            print("Interne OPCODE", self.opcode)
+        
+        elif self.contains(self.opcode) == True:
+            print("JSON OPCODE", self.opcode)
+            
+        else:
+            print("Onbekende opcode", self.opcode)
             
             
             
