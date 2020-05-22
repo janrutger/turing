@@ -16,12 +16,21 @@ class Interpreter():
                 return True
             i = i + 1
         return False
-#             
+#
+    def exec_PUSH(self):
+        print("Running: ", self.opcode, "- ", self.operand)
+    
+    def exec_TEST(self):
+        print("Running: ", self.opcode, "- ", self.operand)
 #    
 # 
     def check(self):
         if self.opcode in self.opcodeintern:
             print("Interne OPCODE", self.opcode)
+            if self.opcode == "PUSH":
+                self.exec_PUSH()
+            if self.opcode == "TEST":
+                self.exec_TEST()
         
         elif self.contains(self.opcode) == True:
             print("JSON OPCODE", self.opcode)
