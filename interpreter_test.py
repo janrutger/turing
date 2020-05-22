@@ -16,7 +16,7 @@ class TestInterpreter(unittest.TestCase):
         loader = ol.OpcodeLoader()
         loader.load()
         #interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
-        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
+        interpreter = ip.Interpreter(loader.get(), "MOVE", "nog niet")
         print(interpreter.opcode)
         print(interpreter.operand)
         print(interpreter.opcodelibrary)
@@ -26,23 +26,18 @@ class TestInterpreter(unittest.TestCase):
         self.assertEqual(interpreter.contains("LDA"), True)
         self.assertEqual(interpreter.contains("MOVE"), True)
         self.assertEqual(interpreter.contains("DD"),  False)
-        #print(interpreter.opcodelibrary[1])
         
-#         if interpreter.opcode in interpreter.opcodelibrary:
-#             print("match")
-#         else:
-#             print("NO match")
-#             
-            
-            
-            
-            
-            
-#         for name in interpreter.opcodelibrary:
-#             if name == interpreter.opcode:
-#                 print("match")
-#             else:
-#                 print("NO match")
-#             
-        
-        #print(type(interpreter.opcode))
+        print("----")
+        i = 0
+        for opcode in interpreter.opcodelibrary:
+            neededStates = []
+            if interpreter.opcode == opcode.getName():
+                for state in opcode.getStates():
+                    RulesVanState=state.getRules()
+                    print(state, " -", RulesVanState)
+                    
+                    neededStates.append(state)
+                    
+                print(neededStates, "--> ", type(neededStates))
+                return True
+            i = i + 1

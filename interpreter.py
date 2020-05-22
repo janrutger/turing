@@ -16,7 +16,7 @@ class Interpreter():
                 return True
             i = i + 1
         return False
-#
+
     def exec_PUSH(self):
         print("Running: ", self.opcode, "- ", self.operand)
     
@@ -25,7 +25,7 @@ class Interpreter():
         
     def exec_JSON(self):
         print("Running JSON: ", self.opcode)   
-# 
+ 
     def check(self):
         if self.opcode in self.opcodeintern:
             print("Interne OPCODE", self.opcode)
@@ -41,49 +41,4 @@ class Interpreter():
         else:
             print("Onbekende opcode", self.opcode)
             
-            
-            
  
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            #for waarde in self.opcodelibrary:
-                
-        
- 
- 
- 
- 
- 
- 
- 
- 
-#print("Onbekende opcode", self.opcode)
- 
- #if any(obj['shape'] == 'square' for obj in shapes):
-           
-#              for waarde in self.opcodelibrary:
-#                  if waarde.name == self.opcode:
-#                      print("JSON OPCODE", self.opcode)
-# #                 
-#  
-#         if listOfStrings.count('at') > 0 :    
-        
-        
-#elif any(opcodex == self.opcode for opcodex in self.opcodelibrary) == True:
-        #elif self.opcodelibrary.count(self.opcode) > 0:
-        
-#        elif self.opcode in enumerate(self.opcodelibrary):
-#        elif self.opcode in self.opcodelibrary:
-            #print("JSON OPCODE", self.opcode)      
-            
-
-         

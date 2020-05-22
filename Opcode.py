@@ -20,13 +20,3 @@ class Opcode:
         return self.states
       
 
-# OpcodeLib = []
-# with open('OpcodeData.json', 'r') as json_file:
-#     opcodedata = json.loads(json_file.read())
-#     for u in opcodedata:
-#         OpcodeLib.append(Opcode(**u))     ### Hier begreep ik de voorbeerld niet met ** users_list.append(User(**u))
-# 
-# 
-# print("--------")
-# print(OpcodeLib)
-# print(type(OpcodeLib))
