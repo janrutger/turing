@@ -16,4 +16,4 @@ class TestTape(unittest.TestCase):
         loader = ol.OpcodeLoader()
         loader.load()
         interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
-        print(interpreter)
+        interpreter.
