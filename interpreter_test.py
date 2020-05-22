@@ -27,7 +27,7 @@ class TestInterpreter(unittest.TestCase):
             x = interpreter.opcodelibrary[i]
             print(x)
             if interpreter.opcode == x:
-                print(x)
+                print("match met :", x)
                 return True
             i = i + 1
         return False
