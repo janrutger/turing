@@ -22,7 +22,9 @@ class Interpreter():
     
     def exec_TEST(self):
         print("Running: ", self.opcode, "- ", self.operand)
-#    
+        
+    def exec_JSON(self):
+        print("Running JSON: ", self.opcode)   
 # 
     def check(self):
         if self.opcode in self.opcodeintern:
@@ -34,9 +36,14 @@ class Interpreter():
         
         elif self.contains(self.opcode) == True:
             print("JSON OPCODE", self.opcode)
+            self.exec_JSON()
             
         else:
             print("Onbekende opcode", self.opcode)
+            
+            
+            
+ 
             
             
             

@@ -16,7 +16,7 @@ class TestInterpreter(unittest.TestCase):
         loader = ol.OpcodeLoader()
         loader.load()
         #interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
-        interpreter = ip.Interpreter(loader.get(), "PUSH", "nog niet")
+        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
         print(interpreter.opcode)
         print(interpreter.operand)
         print(interpreter.opcodelibrary)
