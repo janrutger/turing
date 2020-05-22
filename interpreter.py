@@ -9,16 +9,13 @@ class Interpreter():
         self.opcodeintern = ["PUSH", "TEST"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
 #        self.check()
         
-#     def contains(self, value):
-#         self.rvalue = value
-#         print("gevraagde opcode", self.rvalue)
-#         i = 0
-#         for item in self.opcodelibrary:
-#             x = self.opcodelibrary[i]
-#             if self.rvalue == x:
-#                 return True
-#             i = i + 1
-#         return False
+    def contains(self, value):
+        i = 0
+        for item in self.opcodelibrary:
+            if value == item.getName():
+                return True
+            i = i + 1
+        return False
 #             
 #    
 # 

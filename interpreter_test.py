@@ -8,29 +8,22 @@ import Opcodeloader as ol
 
 class TestInterpreter(unittest.TestCase):
 
-#     def setUp(self):
-#         with open("state-test-data.json", 'r') as json_file:
-#             self.data = json.loads(json_file.read())
+    def setUp(self):
+        with open("state-test-data.json", 'r') as json_file:
+            self.data = json.loads(json_file.read())
 
     def test_interpreter_opcode(self):
         loader = ol.OpcodeLoader()
         loader.load()
-        #interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
-        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
+        interpreter = ip.Interpreter(loader.get(), o.Opcode(**self.data), "")
+        # interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
         print(interpreter.opcode)
         print(interpreter.operand)
         print(interpreter.opcodelibrary)
         print(type(interpreter.opcodelibrary))
+
+        self.assertEqual(interpreter.contains("LDA"), True)
         #print(interpreter.opcodelibrary[1])
-        i = 0
-        for n in interpreter.opcodelibrary:
-            x = interpreter.opcodelibrary[i]
-            print(x)
-            if interpreter.opcode == x:
-                print("match met :", x)
-                return True
-            i = i + 1
-        return False
         
 #         if interpreter.opcode in interpreter.opcodelibrary:
 #             print("match")
