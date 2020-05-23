@@ -3,18 +3,18 @@ import Opcode as oc
 
 class Interpreter():
     def __init__(self, opcodelibrary, opcode, operand):
-        self.opcodelibrary = opcodelibrary      
+        self.opcodelibrary = opcodelibrary
+        self.opcodeintern = ["PUSH", "TEST"]
         self.opcode = opcode
-        self.operand = operand       
-        self.opcodeintern = ["PUSH", "TEST"] # Dit commando set de OPERAND op de stack, en kan niet door states worden afgehadeld
+        self.opcodestates = []         
+        self.operand = operand
         self.check()
         
     def contains(self, value):
-        i = 0
-        for item in self.opcodelibrary:
+        for item in self.opcodelibrary:          
             if value == item.getName():
+                self.opcodestates = item.getStates()
                 return True
-            i = i + 1
         return False
 
     def exec_PUSH(self):

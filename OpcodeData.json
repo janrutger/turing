@@ -3,7 +3,7 @@
     "name": "LDA",
     "states": [
       {
-        "state": "S0",
+        "state": "start",
         "rules": [
           {
             "MatchWaardes": {
@@ -24,11 +24,11 @@
               "RB": "L",
               "S": "S"
             },
-            "NieuweStatus": "S0"
+            "NieuweStatus": "S1"
           },
           {
             "MatchWaardes": {
-              "ST": "1",
+              "ST": "0",
               "RA": "0",
               "RB": "0",
               "S": "1"
@@ -45,7 +45,7 @@
               "RB": "L",
               "S": "S"
             },
-            "NieuweStatus": "S0"
+            "NieuweStatus": "S1"
           }
         ]
       },
@@ -71,11 +71,11 @@
               "RB": "L",
               "S": "S"
             },
-            "NieuweStatus": "S0"
+            "NieuweStatus": "halt"
           },
           {
             "MatchWaardes": {
-              "ST": "1",
+              "ST": "0",
               "RA": "1",
               "RB": "1",
               "S": "1"
@@ -92,7 +92,7 @@
               "RB": "L",
               "S": "S"
             },
-            "NieuweStatus": "S0"
+            "NieuweStatus": "halt"
           }
         ]
       }
