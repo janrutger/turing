@@ -32,14 +32,17 @@ class Sequencer():
                 matchstatus = False
         return matchstatus
         
-#         self.matchwaardes = matchwaardes
-#         print(self.matchwaardes)
-#         return True ## verder uitwerken
+    def setnew(self, newvalues):
+        tapecommander = tc.TapeCommander
+        self.newvalues = newvalues
+        print(self.newvalues)
+        return
     
     def execmatch(self):
         for rule in self.currentrules:
             if self.ismatch(rule.getMatchWaardes()) == True:
                 print("Set new value") #een eigen method setNew
+                self.setnew(rule.getNieuwWaardes())
                 print("Do move") #een eigen method doMove
                 print("Get new state") #een eigen method getNewCurrentstate
                 return #new current state
