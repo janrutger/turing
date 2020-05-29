@@ -33,10 +33,11 @@ class Sequencer():
         return matchstatus
         
     def setnew(self, newvalues):
-        tapecommander = tc.TapeCommander
+        tapecommander = tc.TapeCommander()
         self.newvalues = newvalues
-        print(self.newvalues)
-        return
+        print(self.newvalues.get("ST"))
+#        return
+#self.tapeCommander.write([values['-WST-'],values['-WRA-'],values['-WRB-'],values['-WS-']])    
     
     def execmatch(self):
         for rule in self.currentrules:
