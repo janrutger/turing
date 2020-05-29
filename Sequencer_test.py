@@ -23,25 +23,26 @@ class TestSequencer(unittest.TestCase):
 #        print(sequencer.statelibrary)
 #        print(type(sequencer.statelibrary))        
         
-        for state in sequencer.statelibrary:
-            if sequencer.currentstate == state.getState():
-                print("state found")
-                currentrules = state.getRules()
-                print(currentrules)
-                print(type(currentrules))
-                return True
-            else:
-                print("No valid state found")
-                return False
+#         for state in sequencer.statelibrary:
+#             if sequencer.currentstate == state.getState():
+#                 print("Requested state found")
+#                 currentrules = state.getRules()
+#                 print(currentrules)
+#                 print(type(currentrules))
+#                 return True
+#             else:
+#                 print("No valid state found")
+#                 return False
+
+#        for rule in sequencer.currentrules:
+#             print(rule.getMatchWaardes())
+#             print(rule.getNieuwWaardes())
+#             print(rule.getMove())
+#             print(rule.getNieuweStatus())
+#             print("-----next (or last) rule------")
+            
             
         
      
         
-# 
-# 
-#         self.assertEqual(interpreter.contains("LDA"), True)
-#         self.assertEqual(interpreter.contains("MOVE"), True)
-#         self.assertEqual(interpreter.contains("DD"),  False)
-#         
-#         print("----")
-#         print(interpreter.opcodestates)
+
