@@ -13,23 +13,21 @@ class Sequencer():
                 print("Requested state found")
                 self.currentrules = state.getRules()
                 self.execmatch()
-#                print(self.currentrules)
-#                print(type(self.currentrules))
                 return True
             else:
                 print("No valid state found")
                 return False
     
     def ismatch(self, matchwaardes):
-        return True
+        return True ## verder uitwerken
     
     def execmatch(self):
         for rule in self.currentrules:
             if self.ismatch(rule.getMatchWaardes()) == True:
-                print("Set new value")
-                print("Do move")
-                print("Get new state")
-                return
+                print("Set new value") #een eigen method doNew
+                print("Do move") #een eigen method doMove
+                print("Get new state") #een eigen method getNewCurrentstate
+                return #new current state
 #             else: ## Deze else is niet de juiste plek, de no found hoort onder de FOR loop
         print("No matching rule found, check your JSON")
         return False
