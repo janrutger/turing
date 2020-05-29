@@ -43,12 +43,15 @@ class TestSequencer(unittest.TestCase):
 # met print krijg ik de output voor de UI.
 # Volgens mij ontbreekt de method om de huidige tape waarde van een tape terug te geven
 # KLOPT DIT?
-        print(tapecomander.print("ST"))
+        tapex = (tapecomander.print("ST"))
+        val=tapex[1]
+        print(val)
 # of klopt beter beter, dan heb ik een stape objecte en een tapeset obeject
-        print(tapecomander.get("ST"))
-        tape = tapecomander.get("ST")
-        print(tape.getHead()) #geeft de hdigie head positie
-
+#         print(tapecomander.get("ST"))
+#         tape = tapecomander.get("ST")
+#         print(tape.getHead()) #geeft de hdigie head positie
+#         print(tape.head)
+#         
         
         
         
