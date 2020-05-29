@@ -39,6 +39,6 @@ class Interpreter():
             self.exec_JSON()
             
         else:
-            print("Onbekende opcode", self.opcode)
+            print("No valid opcode, check your JSON", self.opcode)
             
  

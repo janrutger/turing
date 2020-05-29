@@ -22,6 +22,7 @@ class TestSequencer(unittest.TestCase):
         interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
 #        print(interpreter.opcodestates)       
         sequencer = sq.Sequencer(interpreter.opcodestates)
+        
 
 #Verdere uitwerking van de ismatch methode uit sequencer
 # #     def ismatch(self, matchwaardes):
@@ -32,29 +33,29 @@ class TestSequencer(unittest.TestCase):
 # in serquencer.matchwaardes zit het tapeset object met de waardes uit de json
 # voor het ophalen van de huidige tape waardes is de tapecommander
 # is dit zo goed, toch?
-        tapecomander = tc.TapeCommander()
-#
-# met getLabels kgrijg ik de tapelabels die gebruik bij het ophalen van de matchwaardes uit het tapeset object
-# en het ophalen van de huidige tape waarde van die tape
-        print(tapecomander.getLabels())
-        matchstatus = True
-        for tapename in tapecomander.getLabels():
-            print(tapename)
-            
-            print(sequencer.matchwaardes.get(tapename))
-            matchval = sequencer.matchwaardes.get(tapename)
+#        tapecomander = tc.TapeCommander()
+# #
+# # met getLabels kgrijg ik de tapelabels die gebruik bij het ophalen van de matchwaardes uit het tapeset object
+# # en het ophalen van de huidige tape waarde van die tape
+#         print(tapecomander.getLabels())
+#         matchstatus = True
+#        for tapename in tapecomander.getLabels():
+#             print(tapename)
+#             
+#             print(sequencer.matchwaardes.get(tapename))
+#             matchval = sequencer.matchwaardes.get(tapename)
 
 # ik ga hier ervanuit dat de HEAD altijd index 1 is in de return van print
 # KLOPT DIT?
-            tapeprint = (tapecomander.print(tapename))
-            currentval = tapeprint[1]
-            print(currentval)
-
-            if matchval != currentval and matchval != "-":
-                matchstatus = False
-        print(matchstatus)
-        return matchstatus
-        
+#             tapeprint = (tapecomander.print(tapename))
+#             currentval = tapeprint[1]
+#             print(currentval)
+# 
+#             if matchval != currentval and matchval != "-":
+#                 matchstatus = False
+#         print(matchstatus)
+#         return matchstatus
+#         
         
         
 #einde oefening       

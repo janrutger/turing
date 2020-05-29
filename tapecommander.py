@@ -9,10 +9,10 @@ class TapeCommander:
 ##De volgorde lijkt omgekeerd dan op het scherm getoont wordt
 #wat je neit merkt als je alles gelijk inititaleert, en daarna werkt het oke
         self.tapes = [
-            t.Tape('ST', ['S','T','_','_'], 3),
-            t.Tape('RA', ['R','A','_','_'], 3),
-            t.Tape('RB', ['R','B','_','_'], 3),
-            t.Tape('S', ['S','_','_','_'], 3)]
+            t.Tape('ST', ['S','T','_','1'], 3),
+            t.Tape('RA', ['R','A','_','1'], 3),
+            t.Tape('RB', ['R','B','_','1'], 3),
+            t.Tape('S', ['S','_','_','1'], 3)]
 
     def getLabels(self):
         return self.TapeLabels
