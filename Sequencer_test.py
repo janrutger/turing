@@ -37,7 +37,7 @@ class TestSequencer(unittest.TestCase):
 # met getLabels kgrijg ik de tapelabels die gebruik bij het ophalen van de matchwaardes uit het tapeset object
 # en het ophalen van de huidige tape waarde van die tape
         print(tapecomander.getLabels())
-        
+        matchstatus = True
         for tapename in tapecomander.getLabels():
             print(tapename)
             
@@ -50,7 +50,10 @@ class TestSequencer(unittest.TestCase):
             currentval = tapeprint[1]
             print(currentval)
 
-        
+            if matchval != currentval and matchval != "-":
+                matchstatus = False
+        print(matchstatus)
+        return matchstatus
         
         
         
