@@ -30,8 +30,6 @@ class TestSequencer(unittest.TestCase):
 # #         return True ## verder uitwerken
 
 # in serquencer.matchwaardes zit het tapeset object met de waardes uit de json
-# is het dan niet qua naam handiger om het de jsonset te noemen?
-
 # voor het ophalen van de huidige tape waardes is de tapecommander
 # is dit zo goed, toch?
         tapecomander = tc.TapeCommander()
@@ -39,19 +37,19 @@ class TestSequencer(unittest.TestCase):
 # met getLabels kgrijg ik de tapelabels die gebruik bij het ophalen van de matchwaardes uit het tapeset object
 # en het ophalen van de huidige tape waarde van die tape
         print(tapecomander.getLabels())
-#
-# met print krijg ik de output voor de UI.
-# Volgens mij ontbreekt de method om de huidige tape waarde van een tape terug te geven
+        
+        for tapename in tapecomander.getLabels():
+            print(tapename)
+            
+            print(sequencer.matchwaardes.get(tapename))
+            matchval = sequencer.matchwaardes.get(tapename)
+
+# ik ga hier ervanuit dat de HEAD altijd index 1 is in de return van print
 # KLOPT DIT?
-        tapex = (tapecomander.print("ST"))
-        val=tapex[1]
-        print(val)
-# of klopt beter beter, dan heb ik een stape objecte en een tapeset obeject
-#         print(tapecomander.get("ST"))
-#         tape = tapecomander.get("ST")
-#         print(tape.getHead()) #geeft de hdigie head positie
-#         print(tape.head)
-#         
+            tapeprint = (tapecomander.print(tapename))
+            currentval = tapeprint[1]
+            print(currentval)
+
         
         
         
