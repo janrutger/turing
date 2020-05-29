@@ -19,12 +19,14 @@ class Sequencer():
                 return False
     
     def ismatch(self, matchwaardes):
+        self.matchwaardes = matchwaardes
+        print(self.matchwaardes)
         return True ## verder uitwerken
     
     def execmatch(self):
         for rule in self.currentrules:
             if self.ismatch(rule.getMatchWaardes()) == True:
-                print("Set new value") #een eigen method doNew
+                print("Set new value") #een eigen method setNew
                 print("Do move") #een eigen method doMove
                 print("Get new state") #een eigen method getNewCurrentstate
                 return #new current state
