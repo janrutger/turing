@@ -16,8 +16,8 @@ class Sequencer():
                 self.currentrules = state.getRules()
                 self.execmatch()
                 return #deze return voorkomt verder zoeken als match gevonden is
-            else:
-                print("No valid state found, check your JSON")
+#            else: #deze else is niet goed
+        print("No valid state found, check your JSON")
 #                return 
     
     def ismatch(self, matchwaardes):
@@ -38,17 +38,27 @@ class Sequencer():
         writeval = {}
         for tapename in tapecommander.getLabels():
             writeval[tapename] = self.newvalues.get(tapename)
-        print("Write new values on tape") 
+        print("Write new values on tapes") 
         tapecommander.write([writeval['ST'],writeval['RA'],writeval['RB'],writeval['S']])
+        
+    def domove(self, moves):
+        tapecommander = tc.TapeCommander()
+        self.moves = moves
+        moveval = {}
+        for tapename in tapecommander.getLabels():
+            moveval[tapename] = self.moves.get(tapename)
+        print("Perform moves of tapes") 
+        tapecommander.move([moveval['ST'],moveval['RA'],moveval['RB'],moveval['S']])
     
     def execmatch(self):
         for rule in self.currentrules:
             if self.ismatch(rule.getMatchWaardes()) == True:
-                print("Set new value") #een eigen method setNew
                 self.setnew(rule.getNieuwWaardes())
-                print("Do move") #een eigen method doMove
-                print("Get new state") #een eigen method getNewCurrentstate
-                return #new current state
+                self.domove(rule.getMove())
+                self.currentstate = rule.getNieuweStatus()
+                self.findcurrentrules()
+#                print(self.currentstate) #een eigen method getNewCurrentstate
+#                return #new current state
 #             else: ## Deze else is niet de juiste plek, de no found hoort onder de FOR loop
         print("No matching rule found, check your JSON")
         return False

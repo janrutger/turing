@@ -19,4 +19,4 @@ class Rule:
         return self.move
 
     def getNieuweStatus(self):
-        return self.nieuweWaardes
+        return self.nieuweStatus
