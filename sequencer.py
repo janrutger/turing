@@ -25,7 +25,7 @@ class Sequencer():
     #                return 
 
     def dohousekeeping(self):
-        print("After halt state, do house keeping")
+        print("Entering halt state, do some housekeeping")
         return
 
     def ismatch(self, matchwaardes):

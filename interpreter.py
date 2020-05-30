@@ -1,5 +1,6 @@
 import Opcodeloader as ol
 import Opcode as oc
+import sequencer as sq
 
 class Interpreter():
     def __init__(self, opcodelibrary, opcode, operand):
@@ -24,7 +25,13 @@ class Interpreter():
         print("Running: ", self.opcode, "- ", self.operand)
         
     def exec_JSON(self):
-        print("Running JSON: ", self.opcode)   
+        print("Running JSON: ", self.opcode)
+        sequencer = sq.Sequencer(self.opcodestates)
+        if sequencer.currentstate == "halt":
+            print(self.opcode, " exit code >>", sequencer.currentstate, " == CORRECT")
+        else:
+            print(self.opcode, " exit code >>", sequencer.currentstate, " == ERROR ")
+
  
     def check(self):
         if self.opcode in self.opcodeintern:
