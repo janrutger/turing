@@ -10,16 +10,24 @@ class Sequencer():
 #        self.tapecommander = tc.TapeCommander()
         
     def findcurrentrules(self):
-        for state in self.statelibrary:
-            if self.currentstate == state.getState():
-                print("Requested state found")
-                self.currentrules = state.getRules()
-                self.execmatch()
-                return #deze return voorkomt verder zoeken als match gevonden is
-#            else: #deze else is niet goed
-        print("No valid state found, check your JSON")
-#                return 
-    
+        if self.currentstate == "halt":
+            self.dohousekeeping()
+            
+        else:
+            for state in self.statelibrary:
+                if self.currentstate == state.getState():
+                    print("Requested state found: ", self.currentstate)
+                    self.currentrules = state.getRules()
+                    self.execmatch()
+                    return #deze return voorkomt verder zoeken als match gevonden is
+    #            else: #deze else is niet goed
+            print("No valid state found, check your JSON")
+    #                return 
+
+    def dohousekeeping(self):
+        print("After halt state, do house keeping")
+        return
+
     def ismatch(self, matchwaardes):
         tapecommander = tc.TapeCommander()
         self.matchwaardes = matchwaardes
@@ -53,13 +61,16 @@ class Sequencer():
     def execmatch(self):
         for rule in self.currentrules:
             if self.ismatch(rule.getMatchWaardes()) == True:
+                print("Matching rule found")
                 self.setnew(rule.getNieuwWaardes())
                 self.domove(rule.getMove())
+                print("Get next state to run")
                 self.currentstate = rule.getNieuweStatus()
                 self.findcurrentrules()
+                return
 #                print(self.currentstate) #een eigen method getNewCurrentstate
 #                return #new current state
 #             else: ## Deze else is niet de juiste plek, de no found hoort onder de FOR loop
         print("No matching rule found, check your JSON")
-        return False
+#        return False
             

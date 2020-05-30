@@ -10,16 +10,17 @@ class Tape:
             self.moves.get(moveTo)()
 
     def stay(self):
-        print('stay')
+#        print('stay')
+        return
 
     def left(self):
-        print('links')  ## this is more like right
+#        print('links')  ## this is more like right
         self.head += 1
         if self.head == len(self.tape):
             self.tape.append('_')
 
     def right(self):
-        print('rechts')
+#        print('rechts')
         if self.head == 0:
             self.tape.insert(0, '_')
         else:
