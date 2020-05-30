@@ -2,7 +2,7 @@ import unittest
 
 import tape as tape
 import tapecommander as tc
-
+import machineui as ui
 import json
 import Opcode as o
 import state as s
@@ -20,9 +20,12 @@ class TestSequencer(unittest.TestCase):
         loader.load()
 
         interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
-#        print(interpreter.opcodestates)       
+       
         sequencer = sq.Sequencer(interpreter.opcodestates)
         
+#         tapecommander = ui.tc.TapeCommander()
+#         print(tapecommander.getLabels())
+#         print(tapecommander)
 
 #Verdere uitwerking van de ismatch methode uit sequencer
 # #     def ismatch(self, matchwaardes):
