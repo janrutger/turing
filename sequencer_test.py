@@ -16,15 +16,20 @@ class TestSequencer(unittest.TestCase):
 
 
     def test_sequencers(self):
-        tapecommander = tc.TapeCommander()
-#        tapecommander.inittapes()
+        
         loader = ol.OpcodeLoader()
         loader.load()
+        tapecommander = tc.TapeCommander()
         
-        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet")
+        print(tapecommander.print("ST"))
+        print(tapecommander.print("RA"))
+        print(tapecommander.print("RB"))
+        print(tapecommander.print("S"))
+        
+        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet", tapecommander)
 #        sequencer = sq.Sequencer(interpreter.opcodestates)
         
-
+# 
         print(tapecommander.print("ST"))
         print(tapecommander.print("RA"))
         print(tapecommander.print("RB"))

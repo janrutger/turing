@@ -3,11 +3,12 @@ import rule as rl
 import tapecommander as tc
 
 class Sequencer():
-    def __init__(self, statelibrary):
+    def __init__(self, statelibrary, tapecommander):
         self.statelibrary = statelibrary
         self.currentstate = "start"
+        self.tapecommander = tapecommander
         self.findcurrentrules()
-#        self.tapecommander = tc.TapeCommander()
+
         
     def findcurrentrules(self):
         if self.currentstate == "halt":
@@ -29,34 +30,34 @@ class Sequencer():
         return
 
     def ismatch(self, matchwaardes):
-        tapecommander = tc.TapeCommander()
+        #tapecommander = self.tapecommander
         self.matchwaardes = matchwaardes
         matchstatus = True
-        for tapename in tapecommander.getLabels():
+        for tapename in self.tapecommander.getLabels():
             matchval = self.matchwaardes.get(tapename)     
-            tapeprint = (tapecommander.print(tapename))
+            tapeprint = (self.tapecommander.print(tapename))
             currentval = tapeprint[1]     # ik ga hier er vanuit de de tapewaarde van het head altijd in index 1 zit
             if matchval != currentval and matchval != "-":
                 matchstatus = False
         return matchstatus
         
     def setnew(self, newvalues):
-        tapecommander = tc.TapeCommander()
+#        tapecommander = self.tapecommander()
         self.newvalues = newvalues
         writeval = {}
-        for tapename in tapecommander.getLabels():
+        for tapename in self.tapecommander.getLabels():
             writeval[tapename] = self.newvalues.get(tapename)
         print("Write new values on tapes") 
-        tapecommander.write([writeval['ST'],writeval['RA'],writeval['RB'],writeval['S']])
+        self.tapecommander.write([writeval['ST'],writeval['RA'],writeval['RB'],writeval['S']])
         
     def domove(self, moves):
-        tapecommander = tc.TapeCommander()
+#        tapecommander = self.tapecommander()
         self.moves = moves
         moveval = {}
-        for tapename in tapecommander.getLabels():
+        for tapename in self.tapecommander.getLabels():
             moveval[tapename] = self.moves.get(tapename)
         print("Perform moves of tapes") 
-        tapecommander.move([moveval['ST'],moveval['RA'],moveval['RB'],moveval['S']])
+        self.tapecommander.move([moveval['ST'],moveval['RA'],moveval['RB'],moveval['S']])
     
     def execmatch(self):
         for rule in self.currentrules:

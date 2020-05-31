@@ -7,10 +7,10 @@
         "rules": [
           {
             "MatchWaardes": {
-              "ST": "1",
-              "RA": "1",
-              "RB": "1",
-              "S": "1"
+              "ST": "_",
+              "RA": "_",
+              "RB": "_",
+              "S": "_"
             },
             "NieuweWaardes": {
               "ST": "0",
@@ -20,9 +20,9 @@
             },
             "Move": {
               "ST": "L",
-              "RA": "R",
+              "RA": "L",
               "RB": "L",
-              "S": "S"
+              "S": "L"
             },
             "NieuweStatus": "S1"
           },
@@ -54,22 +54,22 @@
         "rules": [
           {
             "MatchWaardes": {
-              "ST": "1",
-              "RA": "1",
-              "RB": "0",
-              "S": "0"
+              "ST": "_",
+              "RA": "_",
+              "RB": "_",
+              "S": "_"
             },
             "NieuweWaardes": {
-              "ST": "0",
-              "RA": "0",
-              "RB": "0",
-              "S": "0"
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
             },
             "Move": {
-              "ST": "L",
+              "ST": "R",
               "RA": "R",
-              "RB": "L",
-              "S": "S"
+              "RB": "R",
+              "S": "R"
             },
             "NieuweStatus": "halt"
           },

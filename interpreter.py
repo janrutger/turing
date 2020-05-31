@@ -3,12 +3,13 @@ import Opcode as oc
 import sequencer as sq
 
 class Interpreter():
-    def __init__(self, opcodelibrary, opcode, operand):
+    def __init__(self, opcodelibrary, opcode, operand, tapecommander):
         self.opcodelibrary = opcodelibrary
         self.opcodeintern = ["PUSH", "TEST"]
         self.opcode = opcode
         self.opcodestates = []         
         self.operand = operand
+        self.tapecommander = tapecommander
         self.check()
         
     def contains(self, value):
@@ -26,7 +27,7 @@ class Interpreter():
         
     def exec_JSON(self):
         print("Running JSON: ", self.opcode)
-        sequencer = sq.Sequencer(self.opcodestates)
+        sequencer = sq.Sequencer(self.opcodestates, self.tapecommander)
         if sequencer.currentstate == "halt":
             print(self.opcode, " exit code >>", sequencer.currentstate, " == CORRECT")
         else:
