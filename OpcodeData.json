@@ -31,19 +31,19 @@
               "ST": "0",
               "RA": "0",
               "RB": "0",
-              "S": "1"
+              "S": "0"
             },
             "NieuweWaardes": {
-              "ST": "0",
-              "RA": "0",
-              "RB": "0",
-              "S": "0"
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
             },
             "Move": {
               "ST": "L",
-              "RA": "R",
+              "RA": "L",
               "RB": "L",
-              "S": "S"
+              "S": "L"
             },
             "NieuweStatus": "S1"
           }
@@ -71,26 +71,26 @@
               "RB": "R",
               "S": "R"
             },
-            "NieuweStatus": "halt"
+            "NieuweStatus": "S1"
           },
           {
             "MatchWaardes": {
-              "ST": "-",
-              "RA": "-",
-              "RB": "-",
-              "S": "-"
-            },
-            "NieuweWaardes": {
               "ST": "0",
               "RA": "0",
               "RB": "0",
               "S": "0"
             },
+            "NieuweWaardes": {
+              "ST": "1",
+              "RA": "1",
+              "RB": "1",
+              "S": "1"
+            },
             "Move": {
               "ST": "L",
-              "RA": "R",
+              "RA": "L",
               "RB": "L",
-              "S": "S"
+              "S": "L"
             },
             "NieuweStatus": "halt"
           }
