@@ -26,9 +26,14 @@ class TestSequencer(unittest.TestCase):
         print(tapecommander.print("RB"))
         print(tapecommander.print("S"))
         
-        interpreter = ip.Interpreter(loader.get(), "LDA", "nog niet", tapecommander)
-#        sequencer = sq.Sequencer(interpreter.opcodestates)
+        interpreter = ip.Interpreter(loader.get(), "PUSH", "101#10011", tapecommander)      
+# 
+        print(tapecommander.print("ST"))
+        print(tapecommander.print("RA"))
+        print(tapecommander.print("RB"))
+        print(tapecommander.print("S"))
         
+        interpreter = ip.Interpreter(loader.get(), "LDA", "101#10011", tapecommander)      
 # 
         print(tapecommander.print("ST"))
         print(tapecommander.print("RA"))

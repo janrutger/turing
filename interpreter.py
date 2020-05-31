@@ -21,6 +21,11 @@ class Interpreter():
 
     def exec_PUSH(self):
         print("Running: ", self.opcode, "- ", self.operand)
+        self.tapecommander.write(["_","-","-","-"])
+        self.tapecommander.move(["L","S","S","S"])
+        for bit in self.operand:
+            self.tapecommander.write([bit,"-","-","-"])
+            self.tapecommander.move(["L","S","S","S"])
     
     def exec_TEST(self):
         print("Running: ", self.opcode, "- ", self.operand)
@@ -29,9 +34,9 @@ class Interpreter():
         print("Running JSON: ", self.opcode)
         sequencer = sq.Sequencer(self.opcodestates, self.tapecommander)
         if sequencer.currentstate == "halt":
-            print(self.opcode, " exit code >>", sequencer.currentstate, " == CORRECT")
+            print(self.opcode, " exit code >>", sequencer.currentstate, "<CORRECT>")
         else:
-            print(self.opcode, " exit code >>", sequencer.currentstate, " == ERROR ")
+            print(self.opcode, " exit code >>", sequencer.currentstate, "<ERROR>")
 
  
     def check(self):
