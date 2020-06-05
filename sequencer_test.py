@@ -20,21 +20,26 @@ class TestSequencer(unittest.TestCase):
         loader = ol.OpcodeLoader()
         loader.load()
         tapecommander = tc.TapeCommander()
+        interpreter = ip.Interpreter(loader.get(), tapecommander)
         
         print(tapecommander.print("ST"))
         print(tapecommander.print("RA"))
         print(tapecommander.print("RB"))
         print(tapecommander.print("S"))
         
-        interpreter = ip.Interpreter(loader.get(), "PUSH", "101#10011", tapecommander)      
+        interpreter.check("PUSH", "101#10011")
+        
+#        interpreter = ip.Interpreter(loader.get(), "PUSH", "101#10011", tapecommander)      
 # 
         print(tapecommander.print("ST"))
         print(tapecommander.print("RA"))
         print(tapecommander.print("RB"))
         print(tapecommander.print("S"))
         
-        interpreter = ip.Interpreter(loader.get(), "LDA", "101#10011", tapecommander)      
-# 
+        interpreter.check("LDA", "not relevant")
+#         
+#         interpreter = ip.Interpreter(loader.get(), "LDA", "101#10011", tapecommander)      
+# # 
         print(tapecommander.print("ST"))
         print(tapecommander.print("RA"))
         print(tapecommander.print("RB"))

@@ -10,10 +10,10 @@ class TapeCommander:
 #wat je neit merkt als je alles gelijk inititaleert, en daarna werkt het oke
 #    def inittapes(self):
         self.tapes = [
-            t.Tape('ST', ['S','T','_','_'], 3),
-            t.Tape('RA', ['R','A','_','_'], 3),
-            t.Tape('RB', ['R','B','_','_'], 3),
-            t.Tape('S', ['_','S','_','_'], 3)]
+            t.Tape('ST', ['ST','_','_','_'], 2),
+            t.Tape('RA', ['RA','_','_','_'], 2),
+            t.Tape('RB', ['RB','_','_','_'], 2),
+            t.Tape('S',  [' S','_','_','_'], 2)]
 
     def getLabels(self):
         return self.TapeLabels

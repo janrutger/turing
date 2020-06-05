@@ -3,14 +3,15 @@ import Opcode as oc
 import sequencer as sq
 
 class Interpreter():
-    def __init__(self, opcodelibrary, opcode, operand, tapecommander):
+    def __init__(self, opcodelibrary, tapecommander):
+#    def __init__(self, opcodelibrary, opcode, operand, tapecommander):
         self.opcodelibrary = opcodelibrary
         self.opcodeintern = ["PUSH", "TEST"]
-        self.opcode = opcode
+#        self.opcode = opcode
         self.opcodestates = []         
-        self.operand = operand
+#        self.operand = operand
         self.tapecommander = tapecommander
-        self.check()
+#        self.check()
         
     def contains(self, value):
         for item in self.opcodelibrary:          
@@ -19,37 +20,37 @@ class Interpreter():
                 return True
         return False
 
-    def exec_PUSH(self):
-        print("Running: ", self.opcode, "- ", self.operand)
+    def exec_PUSH(self, operand):
+        print("Running: ", "PUSH", "- ", operand)
         self.tapecommander.write(["_","-","-","-"])
         self.tapecommander.move(["L","S","S","S"])
-        for bit in self.operand:
+        for bit in operand:
             self.tapecommander.write([bit,"-","-","-"])
             self.tapecommander.move(["L","S","S","S"])
     
     def exec_TEST(self):
         print("Running: ", self.opcode, "- ", self.operand)
         
-    def exec_JSON(self):
-        print("Running JSON: ", self.opcode)
+    def exec_JSON(self, opcode):
+        print("Running JSON: ", opcode)
         sequencer = sq.Sequencer(self.opcodestates, self.tapecommander)
         if sequencer.currentstate == "halt":
-            print(self.opcode, " exit code >>", sequencer.currentstate, "<CORRECT>")
+            print(opcode, " exit code >>", sequencer.currentstate, "<CORRECT>")
         else:
-            print(self.opcode, " exit code >>", sequencer.currentstate, "<ERROR>")
+            print(opcode, " exit code >>", sequencer.currentstate, "<ERROR>")
 
  
-    def check(self):
-        if self.opcode in self.opcodeintern:
-            print("Interne OPCODE", self.opcode)
-            if self.opcode == "PUSH":
-                self.exec_PUSH()
-            if self.opcode == "TEST":
+    def check(self, opcode, operand):
+        if opcode in self.opcodeintern:
+            print("Interne OPCODE", opcode)
+            if opcode == "PUSH":
+                self.exec_PUSH(operand)
+            if opcode == "TEST":
                 self.exec_TEST()
         
-        elif self.contains(self.opcode) == True:
-            print("JSON OPCODE", self.opcode)
-            self.exec_JSON()
+        elif self.contains(opcode) == True:
+            print("JSON OPCODE", opcode)
+            self.exec_JSON(opcode)
             
         else:
             print("No valid opcode, check your JSON", self.opcode)

@@ -8,7 +8,7 @@ import Opcodeloader as ol
 class MachineUi:
     def __init__(self):
         self.tapeCommander = tc.TapeCommander()
-        self.interpreter = i.Interpreter("opcodelibray", "opcode", "operand")
+#        self.interpreter = i.Interpreter("opcodelibray", "opcode", "operand", "tapeCommander")
         self.OpcodeLoader = ol.OpcodeLoader()
       
 
@@ -96,12 +96,14 @@ class MachineUi:
                 try:
                     loader
                 except NameError:
-                    print("JSON niet geladen")
+                    print("JSON niet geladen, wordt nu geladen")
                     loader = ol.OpcodeLoader()
                     loader.load()
-                    self.Opcodelibrary = loader.get()
+                    #self.Opcodelibrary = loader.get()
                 #else:
-                i.Interpreter(self.Opcodelibrary, values['-OPCODE-'], values['-OPERANDS-'])
+                    interpreter = i.Interpreter(loader.get(), values['-OPCODE-'], values['-OPERANDS-'], self.tapeCommander)
+                    print(interpreter)
+                self.updateWindow()
                
         
         self.window.close()
