@@ -84,6 +84,7 @@ class MachineUi:
                 self.tapeCommander.write([values['-WST-'],values['-WRA-'],values['-WRB-'],values['-WS-']])
             if event == 'move':
                 self.tapeCommander.move([values['-MST-'],values['-MRA-'],values['-MRB-'],values['-MS-']])
+                self.updateWindow()
             if event == 'Show':
                 self.updateWindow()
             if event == 'LoadJSON':

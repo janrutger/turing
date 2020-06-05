@@ -3,14 +3,16 @@ import rule as rl
 import tapecommander as tc
 
 class Sequencer():
-    def __init__(self, statelibrary, tapecommander):
-        self.statelibrary = statelibrary
+    def __init__(self, tapecommander):
+#     def __init__(self, statelibrary, tapecommander):
+#        self.statelibrary = statelibrary
         self.currentstate = "start"
         self.tapecommander = tapecommander
-        self.findcurrentrules()
+#        self.findcurrentrules()
 
         
-    def findcurrentrules(self):
+    def findcurrentrules(self, statelibrary):
+        self.statelibrary = statelibrary
         if self.currentstate == "halt":
             self.dohousekeeping()
             
@@ -67,7 +69,7 @@ class Sequencer():
                 self.domove(rule.getMove())
                 print("Get next state to run")
                 self.currentstate = rule.getNieuweStatus()
-                self.findcurrentrules()
+                self.findcurrentrules(self.statelibrary)
                 return
 #                print(self.currentstate) #een eigen method getNewCurrentstate
 #                return #new current state

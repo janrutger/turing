@@ -11,6 +11,7 @@ class Interpreter():
         self.opcodestates = []         
 #        self.operand = operand
         self.tapecommander = tapecommander
+        self.sequencer = sq.Sequencer(self.tapecommander)
 #        self.check()
         
     def contains(self, value):
@@ -28,16 +29,18 @@ class Interpreter():
             self.tapecommander.write([bit,"-","-","-"])
             self.tapecommander.move(["L","S","S","S"])
     
-    def exec_TEST(self):
-        print("Running: ", self.opcode, "- ", self.operand)
+    def exec_TEST(self, operand):
+        print("Running: ","TEST", "- ", operand)
         
     def exec_JSON(self, opcode):
         print("Running JSON: ", opcode)
-        sequencer = sq.Sequencer(self.opcodestates, self.tapecommander)
-        if sequencer.currentstate == "halt":
-            print(opcode, " exit code >>", sequencer.currentstate, "<CORRECT>")
+
+        self.sequencer.findcurrentrules(self.opcodestates)
+        #sequencer = sq.Sequencer(self.opcodestates, self.tapecommander)
+        if self.sequencer.currentstate == "halt":
+            print(opcode, " exit code >>", self.sequencer.currentstate, "<CORRECT>")
         else:
-            print(opcode, " exit code >>", sequencer.currentstate, "<ERROR>")
+            print(opcode, " exit code >>", self.sequencer.currentstate, "<ERROR>")
 
  
     def check(self, opcode, operand):
