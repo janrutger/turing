@@ -53,6 +53,6 @@ class Interpreter():
             self.exec_JSON(opcode)
             
         else:
-            print("No valid opcode, check your JSON", self.opcode)
+            print("No valid opcode, check your JSON", opcode)
             
  

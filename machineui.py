@@ -99,11 +99,14 @@ class MachineUi:
                     print("JSON niet geladen, wordt nu geladen")
                     loader = ol.OpcodeLoader()
                     loader.load()
+                interpreter = i.Interpreter(loader.get(), self.tapeCommander)
+                interpreter.check(values['-OPCODE-'], values['-OPERANDS-'])
+                self.updateWindow()
+
                     #self.Opcodelibrary = loader.get()
                 #else:
-                    interpreter = i.Interpreter(loader.get(), values['-OPCODE-'], values['-OPERANDS-'], self.tapeCommander)
-                    print(interpreter)
-                self.updateWindow()
+#                    interpreter = i.Interpreter(loader.get(), values['-OPCODE-'], values['-OPERANDS-'], self.tapeCommander)
+                    
                
         
         self.window.close()
