@@ -53,7 +53,7 @@ class MachineUi:
             [sg.Frame('Command Interpreter', self.frame_Interpreter,font='Courier 12')],
             [sg.Button('Exit',font='Courier 10', size=[20,1])]]          
 
-        self.window = sg.Window('Window Title', layout, font='courier 18', keep_on_top = True, no_titlebar=False, grab_anywhere=False)
+        self.window = sg.Window('Christopher (TM)', layout, font='courier 18', keep_on_top = True, no_titlebar=False, grab_anywhere=False)
 
     def tapeLayout(self, label, left, head, right, name):
         return [sg.Text(size=(12,1), key=left,justification='right', text=label),
@@ -97,7 +97,7 @@ class MachineUi:
                 try:
                     loader
                 except NameError:
-                    print("JSON niet geladen, wordt nu geladen")
+                    print("JSON nog niet geladen, wordt nu geladen")
                     loader = ol.OpcodeLoader()
                     loader.load()
                 interpreter = i.Interpreter(loader.get(), self.tapeCommander)
