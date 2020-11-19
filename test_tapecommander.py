@@ -11,6 +11,7 @@ class test_tapecommander(unittest.TestCase):
         self.tapecommander = tc.Tapecommander()
         tapes = {"ST", "RA", "RB", "S"}
         testresult = self.tapecommander.get_head(tapes)
+        print(testresult)
 
     
 
