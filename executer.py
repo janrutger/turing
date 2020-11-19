@@ -8,18 +8,22 @@ class Executer:
         self.nop_commandos = {"PUSH", "PULL"}
 
     def run_nop_commando(self, commando, operant):
-        print(commando, operant)
+        if commando == "PUSH":
+            return("DONE nop")
+        if commando == "PULL":
+            return("DONE nop")
 
     def run_opcode_commando(self, commando):
         print(commando)
+        return("DONE")
 
 
     def run__commando(self, commando, operant):
         if commando in self.nop_commandos:
-            self.run_nop_commando(commando, operant)
-            return("DONE nop")
+            return(self.run_nop_commando(commando, operant))
+            
         else:
-            self.run_opcode_commando(commando)
-            return("DONE")
+            return(self.run_opcode_commando(commando))
+            
             
     
