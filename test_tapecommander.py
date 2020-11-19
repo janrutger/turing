@@ -28,17 +28,26 @@ class test_tapecommander(unittest.TestCase):
 
     def test_do_write_read_move(self):
         self.tapecommander = tc.Tapecommander()
-        newValues = {"ST":"0", "RA":"1"}
+        newValues = {"ST":"0", "RA":"1", "S":"0"}
         self.tapecommander.do_write(newValues)
 
         tapes = {"ST", "RA", "RB", "S"}
         testresult = self.tapecommander.get_tapeValues(tapes)
-        self.assertEqual(testresult, {'RA': '1', 'ST': '0', 'S': '_', 'RB': '_'})
+        self.assertEqual(testresult, {'RA': '1', 'ST': '0', 'S': '0', 'RB': '_'})
 
+        moveValues = {"ST":"L", "RA":"R", "RB":"S"}
+        self.tapecommander.do_move(moveValues)
 
+        tapes = {"ST", "RA", "S"}
+        testresult = self.tapecommander.get_tapeValues(tapes)
+        self.assertEqual(testresult, {'RA': '_', 'ST': '_', 'S': '0'})
 
+        moveValues = {"ST":"R", "RA":"L", "S":"R"}
+        self.tapecommander.do_move(moveValues)
 
-    
+        tapes = {"ST", "RA", "S"}
+        testresult = self.tapecommander.get_tapeValues(tapes)
+        self.assertEqual(testresult, {'RA': '1', 'ST': '0', 'S': '_'})
 
 
 if __name__ == '__main__':

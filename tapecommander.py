@@ -16,11 +16,17 @@ class  Tapecommander:
             tapeValues[tape] = resultValue
         return(tapeValues)
 
-    def do_write(self, newValues):
-        tapeList = list(newValues.keys())
+    def do_write(self, writeValues):
+        tapeList = list(writeValues.keys())
         for tape in tapeList:
             thisTape = self.alltapes[tape]
-            thisTape.write(newValues[tape])
+            thisTape.write(writeValues[tape])
+
+    def do_move(self, moveValues):
+        tapeList = list(moveValues.keys())
+        for tape in tapeList:
+            thisTape = self.alltapes[tape]
+            thisTape.move(moveValues[tape])
     
     def get_head(self, tapelist):
         head = {}
