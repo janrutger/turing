@@ -8,7 +8,7 @@ class  Tapecommander:
         for tape in alltapesnames:
             self.alltapes[tape] = t.Tape(tape, ['_','_','_','_'], 2)
 
-    def get_tapeValues(self, tapeList):
+    def do_read(self, tapeList):
         tapeValues = {}
         for tape in tapeList:
             thisTape = self.alltapes[tape]
