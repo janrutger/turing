@@ -9,12 +9,12 @@ class test_opcodelibrary(unittest.TestCase):
     
     
     def testLDA(self):
-        LDA = self.opcodelibrary.get_all_rules("LDA")
+        LDA = self.opcodelibrary.get_all_rules("_LDA")
         self.assertEqual(LDA[0][0], "START")
 
     
     def testADD(self):
-        ADD = self.opcodelibrary.get_all_rules("ADD")
+        ADD = self.opcodelibrary.get_all_rules("_ADD")
         self.assertEqual(ADD[0][0], "STadd")
         
 

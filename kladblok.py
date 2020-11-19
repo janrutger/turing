@@ -1,4 +1,5 @@
-#library = {}
+alltapes = {"ST", "RA", "RB", "S"}
+print(type(alltapes))#library = {}
         
 import microcode as mc
 
