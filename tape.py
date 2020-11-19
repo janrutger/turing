@@ -30,6 +30,9 @@ class Tape:
         if '-' != val:
             self.tape[self.head] = val
 
+    def read(self):
+        return(self.tape[self.head])
+
     def print(self):
         if self.head == len(self.tape) - 1:
             return [''.join(self.tape[:self.head]), self.tape[self.head], '']
