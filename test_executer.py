@@ -26,10 +26,13 @@ class test_executer(unittest.TestCase):
         self.assertEqual(self.executer.run_commando("PULL", None), "0")
 
         #self.executer.run_commando("LDA", None)
-        self.executer.run_commando("PUSH", "10101")
-        
-        self.assertEqual(self.executer.run_commando("LDA", None), "LDA")
+        self.executer.run_commando("PUSH", "1101101")
+        self.executer.run_commando("PUSH", "1110111")
 
+        self.executer.run_commando("LDA", None)
+
+        tapeprint =self.executer.run_commando("PRINT", {"ST", "RA"})
+        self.assertEqual(tapeprint, {'RA': ['__111011', '1', '_'], 'ST': ['___#110110', '1', '________']})
 
 if __name__ == '__main__':
     unittest.main()
