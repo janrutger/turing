@@ -21,7 +21,7 @@ class Exec_opcode:
         self.tapecommander.do_move(moveValue)
 
         tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-        print(tapeprint) #JRK hier worden de tape in de console geprint, nog geen UI
+        print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
 
         while nextState != "HALT":
             state       = nextState
@@ -36,6 +36,6 @@ class Exec_opcode:
             self.tapecommander.do_move(moveValue)
         
             tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-            print(tapeprint) #JRK hier worden de tape in de console geprint, nog geen UI
+            print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
     
         return(nextState)      #do something smarter over here
