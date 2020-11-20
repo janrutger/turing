@@ -18,7 +18,7 @@ class Executer:
         if commando == "PULL":
              return(self.execNOP.pull())
         else:
-            return(self.run_opcode(commando))
+            return(self.execOP.run(commando))
 
     # def run_no_opcode(self, commando, operand):
     #     if commando == "PUSH":
