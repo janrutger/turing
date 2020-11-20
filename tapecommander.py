@@ -35,3 +35,11 @@ class  Tapecommander:
             resultvalue = currenttape.getHead()
             head[tape] = resultvalue
         return(head)
+    
+    def print_tape(self, tapeList):
+        printResult = {}
+        for tape in tapeList:
+            currenttape = self.alltapes[tape]
+            resultValue = currenttape.print()
+            printResult[tape] = resultValue
+        return(printResult)

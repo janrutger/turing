@@ -18,6 +18,11 @@ class Exec_no_opcode:
             self.tapecommander.do_write(writeBit)
         return("oke")    
 
+    def print(self, tapeList):
+        resultValue = {}
+        resultValue = self.tapecommander.print_tape(tapeList)
+        return(resultValue)
+
 
     def pull(self):
         return("0")           #do something smarter over here

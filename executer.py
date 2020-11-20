@@ -13,6 +13,8 @@ class Executer:
     def run_commando(self, commando, operand):
         if commando == "PUSH":
              return(self.execNOP.push(operand))
+        if commando == "PRINT":
+            return(self.execNOP.print(operand))
         if commando == "PULL":
              return(self.execNOP.pull())
         else:
