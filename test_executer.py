@@ -26,13 +26,14 @@ class test_executer(unittest.TestCase):
         self.assertEqual(self.executer.run_commando("PULL", None), "0")
 
     def test_run_PUSH_LDA_opcodes(self):
-        self.executer.run_commando("PUSH", "1101101")
-        self.executer.run_commando("PUSH", "1110111")
+        self.executer.run_commando("PUSH", "01")
+        self.executer.run_commando("PUSH", "10")
 
         self.assertEqual(self.executer.run_commando("LDA", None), "HALT")
-
         tapeprint =self.executer.run_commando("PRINT", {"ST", "RA"})
-        self.assertEqual(tapeprint, {'RA': ['__111011', '1', '_'], 'ST': ['___#110110', '1', '________']})
+        #self.assertEqual(tapeprint, {'RA': ['__111011', '1', '_'], 'ST': ['___#110110', '1', '________']})
+
+        self.assertEqual(self.executer.run_commando("ADD", None), "HALT")
 
 if __name__ == '__main__':
     unittest.main()
