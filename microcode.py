@@ -15,13 +15,13 @@ def loadlibrary():
     )
 
     library["LDA"] =    (
-        ("START", {"ST":"1", "RA":"_"}, ({"ST":"_", "RA":"1"}, {"ST":"L", "RA":"L"}, "START")),
-        ("START", {"ST":"1", "RA":"1"}, ({"ST":"_", "RA":"1"}, {"ST":"L", "RA":"L"}, "START")),
-        ("START", {"ST":"1", "RA":"0"}, ({"ST":"_", "RA":"1"}, {"ST":"L", "RA":"L"}, "START")),
+        ("START", {"ST":"1", "RA":"_"}, ({"ST":"_", "RA":"1"}, {"ST":"R", "RA":"L"}, "START")),
+        ("START", {"ST":"1", "RA":"1"}, ({"ST":"_", "RA":"1"}, {"ST":"R", "RA":"L"}, "START")),
+        ("START", {"ST":"1", "RA":"0"}, ({"ST":"_", "RA":"1"}, {"ST":"R", "RA":"L"}, "START")),
 
-        ("START", {"ST":"0", "RA":"_"}, ({"ST":"_", "RA":"0"}, {"ST":"L", "RA":"L"}, "START")),
-        ("START", {"ST":"0", "RA":"1"}, ({"ST":"_", "RA":"0"}, {"ST":"L", "RA":"L"}, "START")),
-        ("START", {"ST":"0", "RA":"0"}, ({"ST":"_", "RA":"0"}, {"ST":"L", "RA":"L"}, "START")),
+        ("START", {"ST":"0", "RA":"_"}, ({"ST":"_", "RA":"0"}, {"ST":"R", "RA":"L"}, "START")),
+        ("START", {"ST":"0", "RA":"1"}, ({"ST":"_", "RA":"0"}, {"ST":"R", "RA":"L"}, "START")),
+        ("START", {"ST":"0", "RA":"0"}, ({"ST":"_", "RA":"0"}, {"ST":"R", "RA":"L"}, "START")),
           
         ("START", {"ST":"#", "RA":"1"}, ({"ST":"#", "RA":"_"}, {"ST":"S", "RA":"L"}, "START")),
         ("START", {"ST":"#", "RA":"0"}, ({"ST":"#", "RA":"_"}, {"ST":"S", "RA":"L"}, "START")),
@@ -33,7 +33,7 @@ def loadlibrary():
           
         ("loop" , {"ST":"#", "RA":"1"}, ({"ST":"#", "RA":"1"}, {"ST":"S", "RA":"R"}, "loop")),
         ("loop" , {"ST":"#", "RA":"0"}, ({"ST":"#", "RA":"0"}, {"ST":"S", "RA":"R"}, "loop")),
-        ("loop" , {"ST":"#", "RA":"_"}, ({"ST":"_", "RA":"_"}, {"ST":"L", "RA":"L"}, "HALT"))
+        ("loop" , {"ST":"#", "RA":"_"}, ({"ST":"_", "RA":"_"}, {"ST":"R", "RA":"L"}, "HALT"))
     )
 
     return(library)

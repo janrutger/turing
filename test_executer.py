@@ -26,6 +26,8 @@ class test_executer(unittest.TestCase):
         self.assertEqual(self.executer.run_commando("PULL", None), "0")
 
         #self.executer.run_commando("LDA", None)
+        self.executer.run_commando("PUSH", "10101")
+        
         self.assertEqual(self.executer.run_commando("LDA", None), "LDA")
 
 
