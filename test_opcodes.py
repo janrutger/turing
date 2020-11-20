@@ -29,5 +29,12 @@ class test_opcodes(unittest.TestCase):
         turingrules = self.opcodes.get_turingrule(opcode, tapevalue, state)
         self.assertEqual(turingrules, ({"ST":"_", "Rb":"1"}, {"ST":"L", "Rb":"L"}, "DONE"))
 
+    def test_get_LDA_rules(self):
+        opcode    = "LDA"                   #komt van executer
+        tapevalue = {"ST":"#", "RA":"_"}    #komt van executer
+        state     = "loop"                  #komt van executer
+        turingrules = self.opcodes.get_turingrule(opcode, tapevalue, state)
+        self.assertEqual(turingrules, ({'ST': '_', 'RA': '_'}, {'ST': 'L', 'RA': 'L'}, 'HALT'))
+
 if __name__ == '__main__':
     unittest.main()
