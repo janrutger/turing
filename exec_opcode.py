@@ -35,7 +35,7 @@ class Exec_opcode:
             self.tapecommander.do_write(writeValue)
             self.tapecommander.do_move(moveValue)
         
-            tapeprint =self.tapecommander.print_tape(tapeList)
-            print(tapeprint)
+            tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
+            print(tapeprint) #JRK hier worden de tape in de console geprint, nog geen UI
     
         return(nextState)      #do something smarter over here
