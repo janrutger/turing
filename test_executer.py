@@ -9,7 +9,7 @@ class test_executer(unittest.TestCase):
 
     def test_run_commando(self):
         #self.executer.run_commando("PUSH","100001")
-        self.assertEqual(self.executer.run_commando("PUSH","100001"), "100001")
+        self.assertEqual(self.executer.run_commando("PUSH","101101"), "oke")
 
         #self.executer.run_commando("PULL", None)
         self.assertEqual(self.executer.run_commando("PULL", None), "0")

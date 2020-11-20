@@ -7,7 +7,16 @@ class Exec_no_opcode:
 
 
     def push(self, operand):
-        return(operand)     #do something smarter over here, 
+        moveLeft = {"ST": "L"}
+        writeSeperator = {"ST": "#"}
+        writeBit = {}
+        self.tapecommander.do_move(moveLeft)
+        self.tapecommander.do_write(writeSeperator)
+        for bit in operand:
+            writeBit["ST"] = bit
+            self.tapecommander.do_move(moveLeft)
+            self.tapecommander.do_write(writeBit)
+        return("oke")    
 
 
     def pull(self):
