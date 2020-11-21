@@ -53,7 +53,7 @@ class MachineUi:
 
     def run(self):       
         while True:  # Event Loop
-            event, values = self.window.read(timeout = 1500)       # can also be written as event, values = window()
+            event, values = self.window.read(timeout = None)       # can also be written as event, values = window()
             print(event, values)
             if event is None or event == 'Exit':
                 break
