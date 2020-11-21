@@ -19,6 +19,6 @@ class Opcodes:
             if rulestate == state and rulevalues == tapevalues:
                 return(turingrule)
         else:
-            print("NOT FOUND", opcode, state, tapevalues)
+            print("NOT FOUND", "<",opcode,">", "(",state,",", tapevalues,",","( ))")
             return(-1)
         

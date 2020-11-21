@@ -13,6 +13,10 @@ class Exec_opcode:
         tapeValues  = self.tapecommander.do_read(tapeList)
         turingRules = self.opcodes.get_turingrule(opcode, tapeValues, state)
 
+        if turingRules == -1:
+            nextState = "ERROR"
+            
+
         writeValue  = turingRules[0]
         moveValue   = turingRules[1]
         nextState   = turingRules[2]
@@ -23,10 +27,13 @@ class Exec_opcode:
         tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
         print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
 
-        while nextState != "HALT":
+        while nextState != "HALT" and nextState != "ERROR":
             state       = nextState
             tapeValues  = self.tapecommander.do_read(tapeList)
             turingRules = self.opcodes.get_turingrule(opcode, tapeValues, state)
+            if turingRules == -1:
+                nextState = "ERROR"
+                break
         
             writeValue  = turingRules[0]
             moveValue   = turingRules[1]
