@@ -13,10 +13,10 @@ class MachineUi:
         
         self.frame_Interpreter=[
             [sg.Text('Opcode', size=(15,1),font='Courier 12'),
-             sg.Text('Operands', size=(15,1),font='Courier 12')],
-            [sg.Input('opcode', key='-OPCODE-', size=(11,1)),
-             sg.Input('None', key='-OPERANDS-',size=(15,1))],
-            [sg.Button('Execute', key='Execute',font='Courier 10', size=[12,1], bind_return_key='true'),]
+             sg.Text('Operand', size=(15,1),font='Courier 12')],
+            [sg.Input(key='-OPCODE-', size=(11,1)),
+             sg.Input(key='-OPERANDS-',size=(15,1))],
+            [sg.Button('Execute', key='Execute',font='Courier 10', size=[45,1], bind_return_key='true'),]
             ]
 
         
@@ -30,7 +30,7 @@ class MachineUi:
         layout = [
             [sg.Frame('Tape Informatie', self.frame_TapeInformatie,font='Courier 12')],
             [sg.Frame('Command Interpreter', self.frame_Interpreter,font='Courier 12')],
-            [sg.Button('Exit',font='Courier 10', size=[20,1])]]          
+            [sg.Button('Exit',font='Courier 10', size=[10,1])]]          
 
         self.window = sg.Window('Christopher (TM)', layout, font='courier 18', keep_on_top = True, no_titlebar=False, grab_anywhere=False)
 
@@ -64,7 +64,6 @@ class MachineUi:
                 else:
                     raw = int(values["-OPERANDS-"])
                     operand = bin(raw)[2:]
-                    #operand = operand.decode("ascii")
                 self.ecexuter.run_commando(opcode, operand)
                 
             self.updateTapeInfo()
