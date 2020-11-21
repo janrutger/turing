@@ -15,14 +15,13 @@ class Exec_opcode:
 
         if turingRules == -1:
             nextState = "ERROR"
-            
+        else:
+            writeValue  = turingRules[0]
+            moveValue   = turingRules[1]
+            nextState   = turingRules[2]
 
-        writeValue  = turingRules[0]
-        moveValue   = turingRules[1]
-        nextState   = turingRules[2]
-
-        self.tapecommander.do_write(writeValue)
-        self.tapecommander.do_move(moveValue)
+            self.tapecommander.do_write(writeValue)
+            self.tapecommander.do_move(moveValue)
 
         tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
         print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI

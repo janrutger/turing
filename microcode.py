@@ -14,6 +14,11 @@ def loadlibrary():
         ("STadd", {"ST":"1", "Rb":"0"}, ({"ST":"_", "Rb":"1"}, {"ST":"L", "Rb":"L"}, "DONE"))
     )
 
+    library["_INCB"] =  (
+        ("START", {'RB': '_', "S": "_"}, ({"RB":"_", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
+        ("START", {'RB': '_', "S": "_"}, ({"RB":"_", "S":"_"}, {"RB":"S", "S":"S"}, "START"))
+    )
+
     library["ADD"] =    (
         ("START", {"ST":"1", "RA":"1"}, ({"ST":"_", "RA":"0"}, {"ST":"R", "RA":"R"}, "ADD1")),
         ("START", {"ST":"0", "RA":"1"}, ({"ST":"_", "RA":"1"}, {"ST":"R", "RA":"R"}, "ADD")),
