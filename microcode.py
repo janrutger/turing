@@ -48,7 +48,7 @@ def loadlibrary():
         ("write", {"ST":"_", "RB":"_"}, ({"ST":"_", "RB":"_"}, {"ST":"R", "RB":"R"}, "HALT")),
     )
 
-    library["INCB"] =  (
+    library["DECB"] =  (
         ("START", {'RB': '1', "S": "0"}, ({"RB":"1", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
         ("START", {'RB': '1', "S": "1"}, ({"RB":"1", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
         ("START", {'RB': '0', "S": "0"}, ({"RB":"0", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
