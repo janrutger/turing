@@ -14,6 +14,23 @@ def loadlibrary():
         ("STadd", {"ST":"1", "Rb":"0"}, ({"ST":"_", "Rb":"1"}, {"ST":"L", "Rb":"L"}, "DONE"))
     )
 
+    library["STA"] =    (
+        ("START", {"ST":"1", "RA":"1"}, ({"ST":"1", "RA":"1"}, {"ST":"R", "RA":"S"}, "START")),
+        ("START", {"ST":"0", "RA":"1"}, ({"ST":"0", "RA":"1"}, {"ST":"R", "RA":"S"}, "START")),
+        ("START", {"ST":"1", "RA":"0"}, ({"ST":"1", "RA":"0"}, {"ST":"R", "RA":"S"}, "START")),
+        ("START", {"ST":"0", "RA":"0"}, ({"ST":"0", "RA":"0"}, {"ST":"R", "RA":"S"}, "START")),
+        ("START", {"ST":"_", "RA":"1"}, ({"ST":"#", "RA":"1"}, {"ST":"S", "RA":"S"}, "toend")),
+        ("START", {"ST":"_", "RA":"0"}, ({"ST":"#", "RA":"0"}, {"ST":"S", "RA":"S"}, "toend")),
+
+        ("toend", {"ST":"#", "RA":"0"}, ({"ST":"#", "RA":"0"}, {"ST":"S", "RA":"R"}, "toend")),
+        ("toend", {"ST":"#", "RA":"1"}, ({"ST":"#", "RA":"1"}, {"ST":"S", "RA":"R"}, "toend")),        
+        ("toend", {"ST":"#", "RA":"_"}, ({"ST":"#", "RA":"_"}, {"ST":"L", "RA":"L"}, "write")),
+
+        ("write", {"ST":"_", "RA":"1"}, ({"ST":"1", "RA":"1"}, {"ST":"L", "RA":"L"}, "write")),
+        ("write", {"ST":"_", "RA":"0"}, ({"ST":"0", "RA":"0"}, {"ST":"L", "RA":"L"}, "write")),
+        ("write", {"ST":"_", "RA":"_"}, ({"ST":"_", "RA":"_"}, {"ST":"R", "RA":"R"}, "HALT")),
+    )
+
     library["INCB"] =  (
         ("START", {'RB': '1', "S": "0"}, ({"RB":"1", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
         ("START", {'RB': '1', "S": "1"}, ({"RB":"1", "S":"_"}, {"RB":"S", "S":"S"}, "START")),
