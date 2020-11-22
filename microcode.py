@@ -15,10 +15,10 @@ def loadlibrary():
     )
 
     library["STA"] =    (
-        ("START", {"ST":"1", "RA":"1"}, ({"ST":"1", "RA":"1"}, {"ST":"R", "RA":"S"}, "START")),
-        ("START", {"ST":"0", "RA":"1"}, ({"ST":"0", "RA":"1"}, {"ST":"R", "RA":"S"}, "START")),
-        ("START", {"ST":"1", "RA":"0"}, ({"ST":"1", "RA":"0"}, {"ST":"R", "RA":"S"}, "START")),
-        ("START", {"ST":"0", "RA":"0"}, ({"ST":"0", "RA":"0"}, {"ST":"R", "RA":"S"}, "START")),
+        ("START", {"ST":"1", "RA":"1"}, ({"ST":"1", "RA":"1"}, {"ST":"L", "RA":"S"}, "START")),
+        ("START", {"ST":"0", "RA":"1"}, ({"ST":"0", "RA":"1"}, {"ST":"L", "RA":"S"}, "START")),
+        ("START", {"ST":"1", "RA":"0"}, ({"ST":"1", "RA":"0"}, {"ST":"L", "RA":"S"}, "START")),
+        ("START", {"ST":"0", "RA":"0"}, ({"ST":"0", "RA":"0"}, {"ST":"L", "RA":"S"}, "START")),
         ("START", {"ST":"_", "RA":"1"}, ({"ST":"#", "RA":"1"}, {"ST":"S", "RA":"S"}, "toend")),
         ("START", {"ST":"_", "RA":"0"}, ({"ST":"#", "RA":"0"}, {"ST":"S", "RA":"S"}, "toend")),
 
@@ -29,6 +29,23 @@ def loadlibrary():
         ("write", {"ST":"_", "RA":"1"}, ({"ST":"1", "RA":"1"}, {"ST":"L", "RA":"L"}, "write")),
         ("write", {"ST":"_", "RA":"0"}, ({"ST":"0", "RA":"0"}, {"ST":"L", "RA":"L"}, "write")),
         ("write", {"ST":"_", "RA":"_"}, ({"ST":"_", "RA":"_"}, {"ST":"R", "RA":"R"}, "HALT")),
+    )
+
+    library["STB"] =    (
+        ("START", {"ST":"1", "RB":"1"}, ({"ST":"1", "RB":"1"}, {"ST":"L", "RB":"S"}, "START")),
+        ("START", {"ST":"0", "RB":"1"}, ({"ST":"0", "RB":"1"}, {"ST":"L", "RB":"S"}, "START")),
+        ("START", {"ST":"1", "RB":"0"}, ({"ST":"1", "RB":"0"}, {"ST":"L", "RB":"S"}, "START")),
+        ("START", {"ST":"0", "RB":"0"}, ({"ST":"0", "RB":"0"}, {"ST":"L", "RB":"S"}, "START")),
+        ("START", {"ST":"_", "RB":"1"}, ({"ST":"#", "RB":"1"}, {"ST":"S", "RB":"S"}, "toend")),
+        ("START", {"ST":"_", "RB":"0"}, ({"ST":"#", "RB":"0"}, {"ST":"S", "RB":"S"}, "toend")),
+
+        ("toend", {"ST":"#", "RB":"0"}, ({"ST":"#", "RB":"0"}, {"ST":"S", "RB":"R"}, "toend")),
+        ("toend", {"ST":"#", "RB":"1"}, ({"ST":"#", "RB":"1"}, {"ST":"S", "RB":"R"}, "toend")),        
+        ("toend", {"ST":"#", "RB":"_"}, ({"ST":"#", "RB":"_"}, {"ST":"L", "RB":"L"}, "write")),
+
+        ("write", {"ST":"_", "RB":"1"}, ({"ST":"1", "RB":"1"}, {"ST":"L", "RB":"L"}, "write")),
+        ("write", {"ST":"_", "RB":"0"}, ({"ST":"0", "RB":"0"}, {"ST":"L", "RB":"L"}, "write")),
+        ("write", {"ST":"_", "RB":"_"}, ({"ST":"_", "RB":"_"}, {"ST":"R", "RB":"R"}, "HALT")),
     )
 
     library["INCB"] =  (
