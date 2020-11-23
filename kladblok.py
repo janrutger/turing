@@ -17,12 +17,23 @@ frame_Interpreter=[
     [sg.Button('Execute', key='Execute',font='Courier 10', size=[45,1], bind_return_key='true'),]
     ]
 
-def tapeLayout(self, label, left, head, right):
+def tapeLayout(label, left, head, right, name):
     return [
         sg.Text(size=(12,1), key=left,justification='right', text=label),
         sg.Text(size=(1,1), key=head,justification='center'),
-        sg.Text(size=(12,1), key=right,justification='left')
+        sg.Text(size=(12,1), key=right,justification='left'),
+        sg.Text(name)
         ]
+
+def updateTapeInfo():
+    pos = 0;
+    result = ecexuter.run_commando("PRINT", ALLTAPES)
+    for tape in result.keys():
+        data = result[tape]
+        tapeWindow[Template('-TapeLeftPos${pos}-').substitute(pos = pos)].update(data[0])
+        tapeWindow[Template('-TapeHeadPos${pos}-').substitute(pos = pos)].update(data[1])
+        tapeWindow[Template('-TapeRightPos${pos}-').substitute(pos = pos)].update(data[2])
+        pos += 1
 
 frame_TapeInformatie =[
     tapeLayout('Stack',      '-TapeLeftPos0-', '-TapeHeadPos0-','-TapeRightPos0-', 'Stack'),
@@ -42,9 +53,12 @@ tapeWindow = sg.Window('Window 1', tapeLayout)
 win2_active = False
 while True: #event loop tapewindow (window 1)
     tapeEvent, tapeValues = tapeWindow.read(timeout=100)
+    print("tapewin",tapeEvent, tapeValues)
     if tapeEvent == sg.WIN_CLOSED or tapeEvent == 'Exit':
         break
 
+    updateTapeInfo()
+    
     if not win2_active: #define window 2
         win2_active = True
         commandLayout = [
@@ -56,6 +70,15 @@ while True: #event loop tapewindow (window 1)
 
     if win2_active: #event loop commandwindow (window 2)
         CommandEvent, CommandValues = commandWindow.read(timeout=100)
+        print("commandwin",tapeEvent, tapeValues)
         if CommandEvent == sg.WIN_CLOSED or CommandEvent == 'Exit':
             win2_active  = False
             commandWindow.close()
+        if CommandEvent == "Execute":
+            opcode = str.upper(CommandValues["-OPCODE-"])
+            if CommandValues["-OPERANDS-"] == "":
+                operand = None
+            else:
+                raw = int(CommandValues["-OPERANDS-"])
+                operand = bin(raw)[2:]
+            ecexuter.run_commando(opcode, operand)
