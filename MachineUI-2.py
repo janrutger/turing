@@ -52,7 +52,7 @@ tapeLayout = [
     ] 
  
 
-tapeWindow = sg.Window('Christopher (TM)', tapeLayout)
+tapeWindow = sg.Window('Window 1', tapeLayout)
 
 win2_active = False
 while True: #event loop tapewindow (window 1)
@@ -66,11 +66,11 @@ while True: #event loop tapewindow (window 1)
     if not win2_active: #define window 2
         win2_active = True
         commandLayout = [
-            [sg.Frame('Command Line', frame_Interpreter,font='Courier 12')]
+            [sg.Frame('Command Interpreter', frame_Interpreter,font='Courier 12')]
             #[sg.Button('Exit',font='Courier 10', size=[10,1])]
             ] 
         
-        commandWindow = sg.Window('Interpreter', commandLayout)
+        commandWindow = sg.Window('Window 2', commandLayout)
 
     if win2_active: #event loop commandwindow (window 2)
         CommandEvent, CommandValues = commandWindow.read(timeout=100)
