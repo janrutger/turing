@@ -1,6 +1,7 @@
 from string import Template
 import PySimpleGUI as sg
 import executer as ex
+import threading as thread
 
 # Design pattern 2 - First window remains active
 
@@ -81,4 +82,4 @@ while True: #event loop tapewindow (window 1)
             else:
                 raw = int(CommandValues["-OPERANDS-"])
                 operand = bin(raw)[2:]
-            ecexuter.run_commando(opcode, operand)
+            job = thread(target=ecexuter.run_commando, args= (opcode, operand) )
