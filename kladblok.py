@@ -1,12 +1,15 @@
 from string import Template
 import PySimpleGUI as sg
 import executer as ex
-import threading as thread
+import threading 
 
 # Design pattern 2 - First window remains active
 
-ecexuter = ex.Executer() 
+executer = ex.Executer() 
 ALLTAPES = ["ST", "RA", "RB", "S"]   
+
+def runner(opcode, operand):
+    executer.run_commando(opcode, operand)
 
 sg.theme('Dark Blue 3')
 
@@ -28,7 +31,7 @@ def tapeLayout(label, left, head, right, name):
 
 def updateTapeInfo():
     pos = 0;
-    result = ecexuter.run_commando("PRINT", ALLTAPES)
+    result = executer.run_commando("PRINT", ALLTAPES)
     for tape in result.keys():
         data = result[tape]
         tapeWindow[Template('-TapeLeftPos${pos}-').substitute(pos = pos)].update(data[0])
@@ -82,4 +85,6 @@ while True: #event loop tapewindow (window 1)
             else:
                 raw = int(CommandValues["-OPERANDS-"])
                 operand = bin(raw)[2:]
-            job = thread(target=ecexuter.run_commando, args= (opcode, operand) )
+
+            job = threading.Thread(target=runner, args= (opcode, operand,) )
+            job.start()

@@ -1,4 +1,5 @@
 import tape as t
+import time
 
 
 class  Tapecommander:
@@ -21,12 +22,14 @@ class  Tapecommander:
         for tape in tapeList:
             thisTape = self.alltapes[tape]
             thisTape.write(writeValues[tape])
+        time.sleep(0.5)
 
     def do_move(self, moveValues):
         tapeList = list(moveValues.keys())
         for tape in tapeList:
             thisTape = self.alltapes[tape]
             thisTape.move(moveValues[tape])
+        time.sleep(0.5)
     
     def get_head(self, tapelist):
         head = {}
