@@ -58,4 +58,11 @@ INCB            opcode      Register B      x               HALT        Verlaagt
                                                                         Status = 0 (false) wanneer B>0
                                                                         waarbij INCB(0) weer een 0 oplevert
 
-                               
+
+
+Inspiration/motivation:
+https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU
+https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
+https://github.com/ernstvorsteveld
+https://en.wikipedia.org/wiki/Alan_Turing
+
