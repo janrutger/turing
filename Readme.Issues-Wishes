@@ -1,0 +1,19 @@
+ISSUES
+UI/kladblok
+    Thread afhandeling, zorgen dat er maar 1 thread gestart kan worden en de returnwaarde van de 
+    thread afvangen en in scherm zetten
+
+Opcodes/Opcodelibrary
+    fout afhandeling indien opcode nog found, (als voorbeeld rule not found), return "error" bij fout conditie.
+    op dit moment een crash als de opcodeniet bestaat
+
+
+WISHES
+UI/kladblok
+    Console window voor retrun waardes
+
+UI/kladblok 
+    een betere UI
+
+Opcodelibrary
+    Opcodes toevoegen
