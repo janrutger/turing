@@ -10,7 +10,10 @@ Opcodes/Opcodelibrary
 
 WISHES
 UI/kladblok
-    Console window voor retrun waardes
+    Console window voor return waardes
+
+UI - Executer
+    afhandelen van programma listing/memory
 
 UI/kladblok 
     een betere UI
