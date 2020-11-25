@@ -70,7 +70,7 @@ while True: #event loop tapewindow (window 1)
             #[sg.Button('Exit',font='Courier 10', size=[10,1])]
             ] 
         
-        commandWindow = sg.Window('Interpreter', commandLayout)
+        commandWindow = sg.Window('Interpreter', commandLayout, no_titlebar=False)
 
     if win2_active: #event loop commandwindow (window 2)
         CommandEvent, CommandValues = commandWindow.read(timeout=100)
