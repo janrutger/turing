@@ -45,10 +45,10 @@ de eerste "_" (NULL) positie. Bij tape met een waarde is dit de least-significan
 25 nov 2020 (lijstje met commandos)
 Naam    Operand Soort       result-tape     status-tape     Return      doet 
 PUSH    N       commando    Stacktape       -               HALT        Zet de waarde N op de Stack
-LDA     -       opcode      Register A      -               HALT        Zet de eerste waarde van de Stack in Register A, 
-                                                                        verwijder waarde van Stack (read once)
-LDB     -       opcode      Register B      -               HALT        Zet de eerste waarde van de Stack in Register b, 
-                                                                        verwijder waarde van Stack (read once)
+LDA     -       opcode      Register A      -               HALT        verplaatst de eerste waarde van de Stack in 
+                                                                        Register A, (read once)
+LDB     -       opcode      Register B      -               HALT        verplaatst de eerste waarde van de Stack in 
+                                                                        Register B, (read once)
 
 STA     -       opcode      Stacktape       -               HALT        Kopieert Register A naar Stack
 STB     -       opcode      Stacktape       -               HALT        Kopieert Register B naar Stack
