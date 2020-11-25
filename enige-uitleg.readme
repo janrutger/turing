@@ -57,6 +57,7 @@ INCB            opcode      Register B      x               HALT        Verlaagt
                                                                         Status = 1 (true)  wanneer B=0
                                                                         Status = 0 (false) wanneer B>0
                                                                         waarbij INCB(0) weer een 0 oplevert
+EX      -       opcode      Register A/B    -               HALT        Swop Register A en Register B
 
 
 
