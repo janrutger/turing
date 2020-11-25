@@ -1,0 +1,51 @@
+De Turing computer heeft 4 tapes
+
+a) Stacktape: 
+Vanuit de interpreter kunnen er waardes op de stacktape gezet worden (PUSH) en 
+er weer vanaf gehaald worden (PULL). Als PULL de waarde van de stacktape leest, blijft de waarde 
+op de stacktape staan.
+
+b) Statustape: 
+De statustape (1 bit) geeft de status van van de vorige opcode aan. 
+bijvoorbeeld DECB: waarbij waarde 1 van tegister bij wordt afgetrokken, als het resultaat in 
+register B de waarde 0 is, dan wordt/is status 1 (True), anders wordt/is status 0 (False)
+De Interpreter kan de waarde van de stacktape opvragen.
+
+c) Register A tape en Register B tape:
+Dit zijn de tapes waar de bewerkingen op worden uitgevoerd bij het uitvoeren van een opcode.
+Wanneer de opcode de stack waarde als een input gebruikt, wordt de waarde na het lezen van 
+de stacktape de waarde "_" (NULL) dus READ-ONCE
+
+Interpreter en Executer:
+De Interpreter stuurt commando's naar de executer om uit te voeren en krijgt het resutlaat terug. 
+De mogelijk return waardes zijn 
+    HALT        Commando is succesvol uitgevoerd
+    ERROR       Commando niet goed uitgevoerd, fout gevonden in de opcodelibrary, opcode not found
+                of rule not found
+    True/False  Zijn de mogelijke return waardes na het testen van de status tape 
+    N           de nummerieke waarde van de stacktape 
+                (executer geeft deze binair terug en wordt door de interpreter omgezet naar decimaal)
+
+
+De Interpreter stuurt commando's naar de executer en drukt het resultaat (de return waarde) af 
+in het consolewindow van de interpreter (moet nog gebouwd worden)
+
+Daarnaast geeft de executer (printtapes) deinformatie voor de "tapemonitor" die continue de tape 
+waardes toont en ververst
+
+25 nov 2020 (lijstje met commandos)
+Naam    Operand Soort       result-tape     status-tape     Return      doet 
+PUSH    N       commando    Stacktape       -               HALT        Zet de waarde N op de Stack
+LDA     -       opcode      Register A      -               HALT        Zet de eerste waarde van de Stack in Register A, 
+                                                                        verwijder waarde van Stack (read once)
+LDB     -       opcode      Register B      -               HALT        Zet de eerste waarde van de Stack in Register b, 
+                                                                        verwijder waarde van Stack (read once)
+
+STA     -       opcode      Stacktape       -               HALT        Kopieert Register A naar Stack
+STB     -       opcode      Stacktape       -               HALT        Kopieert Register B naar Stack
+
+INCB            opcode      Register B      x               HALT        Verlaagt Register B met 1 en set Status 
+                                                                        Status = 1 (true)  wanneer B=0
+                                                                        Status = 0 (false) wanneer B>0
+
+                               
