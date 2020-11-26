@@ -41,8 +41,6 @@ De states van de opcodes, die de state machine besturen, zijn gedefineerd in de 
 de commdano's zijn er verantwoordeijk voor dat alle tape's eindigen in home-position, op een lege tape is dit
 de eerste "_" (NULL) positie. Bij tape met een waarde is dit de least-significant-bit van de waarde
 
-
-
 25 nov 2020 (lijstje met commandos)
 Naam    Operand Soort       result-tape     status-tape     Return      doet 
 PUSH    N       commando    Stacktape       -               HALT        Zet de waarde N op de Stack
