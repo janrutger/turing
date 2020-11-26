@@ -29,17 +29,27 @@ De mogelijk return waardes zijn
 
 De Interpreter stuurt commando's naar de executer en drukt het resultaat (de return waarde) af 
 in het consolewindow van de interpreter (moet nog gebouwd worden)
-
-Daarnaast geeft de executer (printtapes) deinformatie voor de "tapemonitor" die continue de tape 
+Daarnaast geeft de executer (printtapes) de informatie voor de "tapemonitor" die continue de tape 
 waardes toont en ververst
+
+Commando's en opcodes:
+er zijn twee soorten commando's, de "gewone" commando's, deze worden direct door de executer (exec_non_opcode)
+uitgevoerd. Daarnaast zijn er Opcodes, dit zijn commando's die via de executer door de State machine (exec_opcode)
+worden uitgevoerd.
+De states van de opcodes, die de state machine besturen, zijn gedefineerd in de opcodelibrary
+
+de commdano's zijn er verantwoordeijk voor dat alle tape's eindigen in home-position, op een lege tape is dit
+de eerste "_" (NULL) positie. Bij tape met een waarde is dit de least-significant-bit van de waarde
+
+
 
 25 nov 2020 (lijstje met commandos)
 Naam    Operand Soort       result-tape     status-tape     Return      doet 
 PUSH    N       commando    Stacktape       -               HALT        Zet de waarde N op de Stack
-LDA     -       opcode      Register A      -               HALT        Zet de eerste waarde van de Stack in Register A, 
-                                                                        verwijder waarde van Stack (read once)
-LDB     -       opcode      Register B      -               HALT        Zet de eerste waarde van de Stack in Register b, 
-                                                                        verwijder waarde van Stack (read once)
+LDA     -       opcode      Register A      -               HALT        verplaatst de eerste waarde van de Stack in 
+                                                                        Register A, (read once)
+LDB     -       opcode      Register B      -               HALT        verplaatst de eerste waarde van de Stack in 
+                                                                        Register B, (read once)
 
 STA     -       opcode      Stacktape       -               HALT        Kopieert Register A naar Stack
 STB     -       opcode      Stacktape       -               HALT        Kopieert Register B naar Stack
@@ -47,5 +57,19 @@ STB     -       opcode      Stacktape       -               HALT        Kopieert
 INCB            opcode      Register B      x               HALT        Verlaagt Register B met 1 en set Status 
                                                                         Status = 1 (true)  wanneer B=0
                                                                         Status = 0 (false) wanneer B>0
+                                                                        waarbij INCB(0) weer een 0 oplevert
+EX      -       opcode      Register A/B    -               HALT        Swop Register A en Register B
+TSTZ    -       opcode      Register A      x               HALT        Status = 1 (true)  wanneer A=0
+                                                                        Status = 0 (false) wanneer A!=0
+TSTE    -       opcode      Register A      x               HALT        Status = 1 (true)  wanneer A=B
+                                                                        Status = 0 (false) wanneer A!=B
 
-                               
+
+
+
+Inspiration/motivation:
+https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU
+https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
+https://github.com/ernstvorsteveld
+https://en.wikipedia.org/wiki/Alan_Turing
+
