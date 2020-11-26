@@ -28,15 +28,18 @@ class Executer:
             if len(tuple(programline)) == 2:
                 opcode  = programline[0]
                 operand = programline[1]
-                self.run_commando(opcode, operand)
+                exitcode = (self.run_commando(opcode, operand))
+                PC = PC +1
 
             if len(tuple(programline)) == 1:
                 opcode = programline[0]
-                self.run_commando(opcode, None)
+                exitcode = (self.run_commando(opcode, None))
+                PC = PC +1
                 
             if len(tuple(programline)) == 0:
-                return("HALT")
-            PC = PC +1
+                #exitcode = "HALT"
+                return(exitcode)
+            
         else:
             return("error")
 
