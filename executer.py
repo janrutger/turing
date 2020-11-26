@@ -8,40 +8,52 @@ class Executer:
         tapecommander = tc.Tapecommander()
         self.execNOP = nop.Exec_no_opcode(tapecommander)
         self.execOP  = op.Exec_opcode(tapecommander)
+        self.pc = int(0)
 
 
     def run_commando(self, commando, operand):
         if commando == "PUSH":
-             return(self.execNOP.push(operand))
+            exitCode = self.execNOP.push(operand)
+            self.pc = self.pc + 1
+            return(exitCode)
         if commando == "PRINT":
-            return(self.execNOP.print(operand))
+            exitCode = self.execNOP.print(operand)
+            self.pc = self.pc + 1
+            return(exitCode)
         if commando == "PULL":
-             return(self.execNOP.pull())
+            exitCode = self.execNOP.pull()
+            self.pc = self.pc + 1
+            return(exitCode)
         else:
-            return(self.execOP.run(commando))
+            exitCode = self.execOP.run(commando)
+            self.pc = self.pc + 1
+            return(exitCode)
 
     def run_program(self, program):
-        PC = 0
-
-        while PC < len(program):
-            programline = program[PC]
+        self.pc = 0
+        print(type(self.pc))
+        while self.pc < len(program):
+            programline = program[self.pc]
             if len(tuple(programline)) == 2:
                 opcode  = programline[0]
                 operand = programline[1]
                 exitcode = (self.run_commando(opcode, operand))
-                PC = PC +1
+                #pc = pc +1
 
             if len(tuple(programline)) == 1:
                 opcode = programline[0]
                 exitcode = (self.run_commando(opcode, None))
-                PC = PC +1
+                #pc = pc +1
                 
             if len(tuple(programline)) == 0:
                 #exitcode = "HALT"
                 return(exitcode)
             
         else:
-            return("error")
+            if self.pc == len(program):
+                return("HALT")
+            else:
+                return("error")
 
 
    

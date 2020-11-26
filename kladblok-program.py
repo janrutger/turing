@@ -115,9 +115,10 @@ while True: #event loop tapewindow (window 1)
             ("DECB",),
             ("EX",),
             ("TSTE",),
-            ("TSTZ",),
-            ()
+            ("TSTZ",)
             ]
 
-            job = threading.Thread(target=runner2, args=(program,))
-            job.start()
+            #job = threading.Thread(target=runner2, args=(program))
+            #job.start()
+
+            executer.run_program(program)

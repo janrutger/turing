@@ -1,8 +1,6 @@
 import unittest
 import executer as ex
 
-
-
 class test_executer(unittest.TestCase):
 
     def setUp(self):
@@ -42,8 +40,7 @@ class test_executer(unittest.TestCase):
             ("PUSH", "101011"),
             ("PUSH", "110101"),
             ("LDA",),
-            ("ADD",),
-            ()
+            ("ADD",)
         ]
         #exitcode = self.executer.run_program(program)
         #print(self.executer.run_program(program))
