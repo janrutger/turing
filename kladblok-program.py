@@ -11,6 +11,7 @@ ALLTAPES = ["ST", "RA", "RB", "S"]
 def runner(opcode, operand):
     executer.run_commando(opcode, operand)
 def runner2(program):
+    print(type(program))
     executer.run_program(program)
 
 sg.theme('Dark Blue 3')
@@ -118,7 +119,9 @@ while True: #event loop tapewindow (window 1)
             ("TSTZ",)
             ]
 
-            #job = threading.Thread(target=runner2, args=(program))
-            #job.start()
+            print(program)
+            print(type(program))
+            job = threading.Thread(target=runner2, args=((program,)))
+            job.start()
 
-            executer.run_program(program)
+            #executer.run_program(program)

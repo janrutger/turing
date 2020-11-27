@@ -45,9 +45,9 @@ class Executer:
                 exitcode = (self.run_commando(opcode, None))
                 #pc = pc +1
                 
-            if len(tuple(programline)) == 0:
-                #exitcode = "HALT"
-                return(exitcode)
+            # if len(tuple(programline)) == 0:
+            #     #exitcode = "HALT"
+            #     return(exitcode)
             
         else:
             if self.pc == len(program):
