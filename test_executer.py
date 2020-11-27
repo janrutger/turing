@@ -10,12 +10,12 @@ class test_executer(unittest.TestCase):
         #self.executer.run_commando("PUSH","100001")
         self.assertEqual(self.executer.run_commando("PUSH","1011001"), "oke")
         tapelist = {"ST"}
-        result = self.executer.run_commando("PRINT", tapelist)
+        result = self.executer.refreshTapes(tapelist)
         self.assertEqual(result, {'ST': ['___#101100', '1', '']})
 
         self.assertEqual(self.executer.run_commando("PUSH","1011"), "oke")
         tapelist = {"ST"}
-        result = self.executer.run_commando("PRINT", tapelist)
+        result = self.executer.refreshTapes(tapelist)
         self.assertEqual(result, {'ST': ['___#1011001#101', '1', '']})
 
     def test_run_PUSH_LDA_opcodes(self):
@@ -24,7 +24,7 @@ class test_executer(unittest.TestCase):
         
 
         self.assertEqual(self.executer.run_commando("LDA", None), "HALT")
-        tapeprint =self.executer.run_commando("PRINT", {"ST", "RA"})
+        tapeprint =self.executer.refreshTapes({"ST", "RA"})
         #self.assertEqual(tapeprint, {'RA': ['__111011', '1', '_'], 'ST': ['___#110110', '1', '________']})
 
         self.assertEqual(self.executer.run_commando("ADD", None), "HALT")

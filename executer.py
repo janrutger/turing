@@ -10,16 +10,19 @@ class Executer:
         self.execOP  = op.Exec_opcode(tapecommander)
         self.pc = int(0)
 
+    def refreshTapes(self, tapeList):
+        exitCode = self.execNOP.print(tapeList)
+        return(exitCode)
 
     def run_commando(self, commando, operand):
         if commando == "PUSH":
             exitCode = self.execNOP.push(operand)
             self.pc = self.pc + 1
             return(exitCode)
-        if commando == "PRINT":
-            exitCode = self.execNOP.print(operand)
-            self.pc = self.pc + 1
-            return(exitCode)
+        # if commando == "PRINT":
+        #     exitCode = self.execNOP.print(operand)
+        #     #self.pc = self.pc + 1
+        #     return(exitCode)
         if commando == "PULL":
             exitCode = self.execNOP.pull()
             self.pc = self.pc + 1

@@ -34,7 +34,8 @@ def tapeLayout(label, left, head, right, name):
 
 def updateTapeInfo():
     pos = 0;
-    result = executer.run_commando("PRINT", ALLTAPES)
+    #result = executer.run_commando("PRINT", ALLTAPES)
+    result = executer.refreshTapes(ALLTAPES)
     for tape in result.keys():
         data = result[tape]
         tapeWindow[Template('-TapeLeftPos${pos}-').substitute(pos = pos)].update(data[0])
