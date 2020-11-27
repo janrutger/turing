@@ -40,7 +40,10 @@ class test_executer(unittest.TestCase):
             ("PUSH", "101011"),
             ("PUSH", "110101"),
             ("LDA",),
-            ("ADD",)
+            ("ADD",),
+            ("STA",),
+            ("PUSH", "01"),
+            ("JP", 1)
         ]
         #exitcode = self.executer.run_program(program)
         #print(self.executer.run_program(program))

@@ -22,6 +22,24 @@ class Executer:
             exitCode = self.execNOP.pull()
             self.pc = self.pc + 1
             return(exitCode)
+        if commando == "JP":
+            exitCode = "HALT"
+            self.pc = operand
+            return(exitCode)
+        if commando == "JPT":
+            exitCode = self.execNOP.returnStatus()
+            if exitCode == "true":
+                self.pc = operand
+            else:
+                self.pc = self.pc + 1
+            return(exitCode)
+        if commando == "JPF":
+            exitCode = self.execNOP.returnStatus()
+            if exitCode == "false":
+                self.pc = operand
+            else:
+                self.pc = self.pc + 1
+            return(exitCode)
         else:
             exitCode = self.execOP.run(commando)
             self.pc = self.pc + 1

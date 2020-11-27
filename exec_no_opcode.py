@@ -5,6 +5,16 @@ class Exec_no_opcode:
     def __init__(self, tapecommander):
         self.tapecommander = tapecommander
 
+    def returnStatus(self):
+        tapeList = {"S"}
+        result   = self.tapecommander.do_read(tapeList)
+        bit = result[tapeList]
+        if bit == "1":
+            return("true")
+        if bit == "0":
+            return("false")
+        if bit == "_":
+            return("null")
 
     def push(self, operand):
         moveLeft = {"ST": "L"}
