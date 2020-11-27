@@ -11,7 +11,6 @@ ALLTAPES = ["ST", "RA", "RB", "S"]
 def runner(opcode, operand):
     executer.run_commando(opcode, operand)
 def runner2(program):
-    print(type(program))
     executer.run_program(program)
 
 sg.theme('Dark Blue 3')
@@ -94,14 +93,16 @@ while True: #event loop tapewindow (window 1)
             job.start()
         if CommandEvent == "RunProg":
             program = [
+                ("PUSH", "111"),
                 ("PUSH", "1"),
-                ("PUSH", "10"),
                 ("LDA",),
-                ("ADD",),
+                ("LDB",),
                 ("STA",),
-                ("PUSH", "11"),
-                ("JP", 2)
-            ]
+                ("ADD",),
+                ("DECB",),
+                ("JPF", 4),
+                ("PUSH", "00")
+                ]
 
 
             job = threading.Thread(target=runner2, args=((program,)))

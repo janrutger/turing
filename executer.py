@@ -47,19 +47,16 @@ class Executer:
 
     def run_program(self, program):
         self.pc = 0
-        print(type(self.pc))
         while self.pc < len(program):
             programline = program[self.pc]
             if len(tuple(programline)) == 2:
                 opcode  = programline[0]
                 operand = programline[1]
                 exitcode = (self.run_commando(opcode, operand))
-                #pc = pc +1
 
             if len(tuple(programline)) == 1:
                 opcode = programline[0]
                 exitcode = (self.run_commando(opcode, None))
-                #pc = pc +1
                 
         else:
             if self.pc == len(program):
