@@ -1,4 +1,3 @@
-#import opcodes as oc ## verplaatst naar de exec_opcode class
 import tapecommander as tc 
 import exec_no_opcode as nop
 import exec_opcode as op
@@ -19,10 +18,6 @@ class Executer:
             exitCode = self.execNOP.push(operand)
             self.pc = self.pc + 1
             return(exitCode)
-        # if commando == "PRINT":
-        #     exitCode = self.execNOP.print(operand)
-        #     #self.pc = self.pc + 1
-        #     return(exitCode)
         if commando == "PULL":
             exitCode = self.execNOP.pull()
             self.pc = self.pc + 1
@@ -48,10 +43,6 @@ class Executer:
                 exitcode = (self.run_commando(opcode, None))
                 #pc = pc +1
                 
-            # if len(tuple(programline)) == 0:
-            #     #exitcode = "HALT"
-            #     return(exitcode)
-            
         else:
             if self.pc == len(program):
                 return("HALT")

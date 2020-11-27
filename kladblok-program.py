@@ -120,8 +120,7 @@ while True: #event loop tapewindow (window 1)
             ("TSTZ",)
             ]
 
-            print(program)
-            print(type(program))
+
             job = threading.Thread(target=runner2, args=((program,)))
             job.start()
 
