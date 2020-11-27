@@ -37,13 +37,11 @@ class test_executer(unittest.TestCase):
 
     def test_executer_program(self):
         program = [
-            ("PUSH", "101011"),
-            ("PUSH", "110101"),
-            ("LDA",),
-            ("ADD",),
-            ("STA",),
-            ("PUSH", "01"),
-            ("JP", 1)
+            ("PUSH", "11"),
+            ("LDB",),
+            ("DECB",),
+            ("JPF", 2),
+            ("PUSH", "00")
         ]
         #exitcode = self.executer.run_program(program)
         #print(self.executer.run_program(program))

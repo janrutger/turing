@@ -8,7 +8,8 @@ class Exec_no_opcode:
     def returnStatus(self):
         tapeList = {"S"}
         result   = self.tapecommander.do_read(tapeList)
-        bit = result[tapeList]
+        bit = result["S"]
+        print(bit)
         if bit == "1":
             return("true")
         if bit == "0":
