@@ -93,14 +93,14 @@ while True: #event loop tapewindow (window 1)
             job.start()
         if CommandEvent == "RunProg":
             program = [
-                ("PUSH", "111"),
-                ("PUSH", "1"),
+                ("PUSH", "1110"),
+                ("PUSH", "10"),
                 ("LDA",),
                 ("LDB",),
-                ("STA",),
-                ("ADD",),
+                ("TSTE",),
+                ("JPT", 8),
                 ("DECB",),
-                ("JPF", 4),
+                ("JP", 4),
                 ("PUSH", "00")
                 ]
 

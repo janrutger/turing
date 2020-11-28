@@ -49,10 +49,11 @@ LDA     -       opcode      Register A      -               HALT        verplaat
                                                                         Register A, (read once)
 LDB     -       opcode      Register B      -               HALT        verplaatst de eerste waarde van de Stack in 
                                                                         Register B, (read once)
-
 STA     -       opcode      Stacktape       -               HALT        Kopieert Register A naar Stack
 STB     -       opcode      Stacktape       -               HALT        Kopieert Register B naar Stack
-
+ADD             opcode      Register A      -               HALT        Telt de eerste waarde van de Stack op bij 
+                                                                        Register A, en verwijderd de waarde van 
+                                                                        de Stack
 INCB            opcode      Register B      s               HALT        Verlaagt Register B met 1 en set Status 
                                                                         Status = 1 (true)  wanneer B=0
                                                                         Status = 0 (false) wanneer B>0
