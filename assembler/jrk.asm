@@ -1,14 +1,20 @@
 # Dit is mijn eerste test programma
+	jump :init
 
-	push 10
-	push 2
-	loadb
-	loada
-	ex
-:loop
+:start
 	storea
 	add
+	jump :loop
+
+
+:init
+	push 0b1010101
+	push 10
+	loadb
+	loada
+	jump :start
+:loop
 	decrementb
-	jumpf :loop
+	jumpf :start
 
 	push 0b00000

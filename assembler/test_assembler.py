@@ -16,7 +16,7 @@ class test_opcodes(unittest.TestCase):
         self.assertEqual(result, ['#'])
 
     def test_compile(self):
-        program = self.assembler.readASM("/home/pi/projects/assembler/jrk.asm")
+        program = self.assembler.readASM("/home/pi/projects/turing2/assembler/jrk.asm")
         program = self.assembler.compile(program)
         print(program)
         
