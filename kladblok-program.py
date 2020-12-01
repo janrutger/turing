@@ -92,8 +92,8 @@ while True: #event loop tapewindow (window 1)
             job = threading.Thread(target=runner, args= (opcode, operand,) )
             job.start()
         if CommandEvent == "RunProg":
-            program = [('PUSH', '11'), ('PUSH', '10'), ('LDB', ''), ('LDA', ''), ('EX', ''), ('STA', ''), ('ADD', ''), ('DECB', ''), ('JPF', 5), ('PUSH', '00000')]
-
+            program = [('JP', 4), ('STA', ''), ('ADD', ''), ('JP', 9), ('PUSH', '1010101'), ('PUSH', '1010'), ('LDB', ''), ('LDA', ''), ('JP', 1), ('DECB', ''), ('JPF', 1), ('PUSH', '00000')]
+            
 
             # program = [
             #     ("PUSH", "11111111111111"),
