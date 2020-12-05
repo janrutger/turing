@@ -1,4 +1,4 @@
-import ASMcompiler as c
+from assembler import ASMcompiler as c
 
 
 class Assembler:
@@ -15,8 +15,8 @@ class Assembler:
         return(ASMfile)
 
     def compile(self, ASMfile):
-        program = self.compiler.parseProgram(ASMfile)
-        program = self.compiler.ProcesLabels(program)
+        program    = self.compiler.parseProgram(ASMfile)
+        program    = self.compiler.ProcesLabels(program)
         BINprogram = self.compiler.ProcesLines(program)
 
         return(BINprogram)

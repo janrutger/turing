@@ -2,19 +2,15 @@
 	jump :init
 
 :start
-	storea
+
 	add
-	jump :loop
+	jump :end
 
 
 :init
-	push 0b1010101
-	push 10
-	loadb
+	push 9
+	push 6
 	loada
 	jump :start
-:loop
-	decrementb
-	jumpf :start
-
-	push 0b00000
+:end
+	storea

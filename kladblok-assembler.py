@@ -1,11 +1,14 @@
 from string import Template
 import PySimpleGUI as sg
+import threading
+from assembler import assembler as ASM
 import executer as ex
-import threading 
+ 
 
 # Design pattern 2 - First window remains active
 
-executer = ex.Executer() 
+executer  = ex.Executer() 
+assembler = ASM.Assembler()
 ALLTAPES = ["ST", "RA", "RB", "S"]   
 
 def runner(opcode, operand):
@@ -92,29 +95,10 @@ while True: #event loop tapewindow (window 1)
             job = threading.Thread(target=runner, args= (opcode, operand,) )
             job.start()
         if CommandEvent == "RunProg":
-            program = [('JP', 6), ('STB', ''), ('STA', ''), ('ADD', ''), ('ADD', ''), 
-            ('JP', 11), ('PUSH', '1'), ('PUSH', '110'), ('LDB', ''), ('LDA', ''), 
-            ('JP', 1), ('DECB', ''), ('JPF', 1), ('EX', ''), ('DECB', ''), ('EX', ''), 
-            ('STB', '')]
+            ASMfile    = assembler.readASM("/home/pi/projects/turing2/assembler/jrk.asm")
+            BINprogram = assembler.compile(ASMfile)
 
-
-
-
-            # program = [
-            #     ("PUSH", "11111111111111"),
-            #     ("PUSH", "10111111111111"),
-            #     ("LDA",),
-            #     ("LDB",),
-            #     ("TSTE",),
-            #     ("JPT", 7),
-            #     ("EX",),
-            #     ("DECB",),
-            #     ("JP", 4),
-            #     ("PUSH", "00")
-            #     ]
-
-
-            job = threading.Thread(target=runner2, args=((program,)))
+            job = threading.Thread(target=runner2, args=((BINprogram,)))
             job.start()
 
             #executer.run_program(program)

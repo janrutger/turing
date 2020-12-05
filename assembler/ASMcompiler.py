@@ -1,4 +1,4 @@
-import ASMschema as schema
+from assembler import ASMschema as schema
 
 
 class Compiler:
