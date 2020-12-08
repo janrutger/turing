@@ -1,8 +1,7 @@
 
 
-
 # Dit is mijn eerste test programma
-	push 5
+	push 9
 	push 0
 
 	loada
@@ -18,6 +17,7 @@
 	jump :test
 
 
+
 :verder
 	#ex
 	decrementb
@@ -30,5 +30,6 @@
 
 :einde
 	#push 0b1010
-	ex
-	storeb
+	#ex
+	storea
+	add
