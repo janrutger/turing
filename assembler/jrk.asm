@@ -1,16 +1,34 @@
+
+
+
 # Dit is mijn eerste test programma
-	jump :init
+	push 5
+	push 0
 
-:start
-
-	add
-	jump :end
-
-
-:init
-	push 9
-	push 6
 	loada
-	jump :start
-:end
-	storea
+	loadb
+
+:test
+	teste
+	jumpt :verder
+
+:plus
+	push 1
+	add
+	jump :test
+
+
+:verder
+	#ex
+	decrementb
+	ex
+	testz
+	ex 
+	jumpt :einde
+	jumpf :verder
+
+
+:einde
+	#push 0b1010
+	ex
+	storeb
