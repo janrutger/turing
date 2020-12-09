@@ -1,7 +1,7 @@
 
 
 # Dit is mijn eerste test programma
-	push 9
+	push 91
 	push 0
 
 	loada
