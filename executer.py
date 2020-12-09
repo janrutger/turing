@@ -18,6 +18,10 @@ class Executer:
             exitCode = self.execNOP.push(operand)
             self.pc = self.pc + 1
             return(exitCode)
+        if commando == "HALT":
+            exitCode = "CPUstopped"
+            self.pc = self.pc
+            return(exitCode)
         if commando == "PULL":
             exitCode = self.execNOP.pull()
             self.pc = self.pc + 1
@@ -46,8 +50,9 @@ class Executer:
             return(exitCode)
 
     def run_program(self, program):
+        exitcode = ""
         self.pc = 0
-        while self.pc < len(program):
+        while self.pc < len(program) and exitcode != "CPUstopped":
             programline = program[self.pc]
             if len(tuple(programline)) == 2:
                 opcode  = programline[0]

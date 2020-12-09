@@ -15,23 +15,23 @@ class MMU:
         return(self.memory)
         
 
-    def readMem(self, pc):
-        if isinstance(pc, int):
-            return(self.memory[pc])
+    def readMem(self, adres):
+        if isinstance(adres, int):
+            return(self.memory[adres])
         else:
-            if pc in self.virtMemAdresses.keys():
-                return(self.memory[self.virtMemAdresses[pc]])
+            if adres in self.virtMemAdresses.keys():
+                return(self.memory[self.virtMemAdresses[adres]])
             else:
                 return("error")
 
-    def writeMem(self, pc, memVal):
-        if isinstance(pc, int):
-            self.memory[pc] = memVal
+    def writeMem(self, adres, memVal):
+        if isinstance(adres, int):
+            self.memory[adres] = memVal
         else:      
-            if pc in self.virtMemAdresses.keys():
-                self.memory[self.virtMemAdresses(pc)] = memVal
-            if pc not in self.virtMemAdresses.keys() and pc[0] == "$":
-                self.virtMemAdresses[pc] = len(self.memory)
+            if adres in self.virtMemAdresses.keys():
+                self.memory[self.virtMemAdresses(adres)] = memVal
+            if adres not in self.virtMemAdresses.keys() and adres[0] == "$":
+                self.virtMemAdresses[adres] = len(self.memory)
                 self.memory.append(memVal)
             else:
                 return("error")

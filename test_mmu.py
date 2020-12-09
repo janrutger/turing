@@ -11,7 +11,7 @@ class test_opcodes(unittest.TestCase):
         self.assembler = asm.Assembler()
         self.executer  = e.Executer()
         self.memMgr    = mmu.MMU()
-        ASMfile    = self.assembler.readASM("/home/pi/projects/turing2/mmu/test_mmu.asm")
+        ASMfile        = self.assembler.readASM("/home/pi/projects/turing2/mmu/test_mmu.asm")
         self.BINprogram = self.assembler.compile(ASMfile)
 
 

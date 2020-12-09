@@ -4,6 +4,7 @@ def loadSchema():
 
     schema["push"]      = ("PUSH", "b")
     schema["pull"]      = ("PULL", None)
+    schema["halt"]      = ("HALT", None)
     schema["jump"]      = ("JP", "n")
     schema["jumpt"]     = ("JPT", "n")
     schema["jumpf"]     = ("JPF", "n")
