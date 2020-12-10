@@ -35,4 +35,18 @@ class Exec_no_opcode:
 
 
     def pull(self):
-        return("0")           #do something smarter over here
+        result = ""
+        move = {"ST": "R"}
+        writeBlank = {"ST": "_"}
+        bit = self.tapecommander.do_read({"ST"})
+
+        while bit["ST"] != "#" and bit["ST"] != "_":
+            result = result + bit["ST"]
+            self.tapecommander.do_write(writeBlank)
+            self.tapecommander.do_move(move)
+            bit = self.tapecommander.do_read({"ST"})
+
+        self.tapecommander.do_write(writeBlank)
+        self.tapecommander.do_move(move)
+
+        return(result)
