@@ -95,7 +95,7 @@ while True: #event loop tapewindow (window 1)
             job = threading.Thread(target=runner, args= (opcode, operand,) )
             job.start()
         if CommandEvent == "RunProg":
-            ASMfile    = assembler.readASM("/home/pi/projects/turing2/assembler/pull_test.asm")
+            ASMfile    = assembler.readASM("/home/pi/projects/turing2/assembler/jrk.asm")
             BINprogram = assembler.compile(ASMfile)
 
             job = threading.Thread(target=runner2, args=((BINprogram,)))
