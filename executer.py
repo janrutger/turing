@@ -1,3 +1,4 @@
+
 import tapecommander as tc 
 import exec_no_opcode as nop
 import exec_opcode as op
@@ -86,16 +87,3 @@ class Executer:
         else:
             return("error")
 
-
-            # if isinstance(operand, int):
-            #     exitcode = self.run_commando(opcode, operand)
-            # else:
-            #     if len(operand) != 0:
-            #         exitcode = self.run_commando(opcode, operand)
-            #     else:
-            #         exitcode = self.run_commando(opcode, operand) #no operand
-            
-            #print(type(operand))
-            #print(operand)
-            #self.pc = self.pc + 1
-   

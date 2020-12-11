@@ -1,7 +1,7 @@
 
 
 # Dit is mijn eerste test programma
-	push 1
+	push 3
 	push 0
 
 	loada
@@ -32,6 +32,6 @@
 	#push 0b1010
 	#ex
 	storea
-	#halt
+	halt
 	add
 	halt
