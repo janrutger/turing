@@ -35,7 +35,7 @@ class test_executer(unittest.TestCase):
 
     def test_run_aOther_commando(self):
         #self.executer.run_commando("PULL", None)
-        self.assertEqual(self.executer.run_commando("PULL", None), "0")
+        self.assertEqual(self.executer.run_commando("PULL", None), "")
 
     def test_executer_program(self):
         program = [

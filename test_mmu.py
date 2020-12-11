@@ -40,10 +40,8 @@ class test_opcodes(unittest.TestCase):
 
         memVal = self.memMgr.readMem("$jr3")
         self.assertEqual(memVal, "error")
-
         memVal = self.memMgr.readMem("$jr")
         self.assertEqual(memVal, ('MEM', '1001'))
-
         memVal = self.memMgr.readMem("$jrk")
         self.assertEqual(memVal, ('MEM', '1111'))
 
