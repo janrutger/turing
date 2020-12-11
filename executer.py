@@ -3,7 +3,8 @@ import exec_no_opcode as nop
 import exec_opcode as op
 
 class Executer:
-    def __init__(self):
+    def __init__(self, memory):
+        self.memory = memory
         tapecommander = tc.Tapecommander()
         self.execNOP = nop.Exec_no_opcode(tapecommander)
         self.execOP  = op.Exec_opcode(tapecommander)
@@ -69,5 +70,32 @@ class Executer:
             else:
                 return("error")
 
+    def run_memory(self, pc):
+        self.pc = pc
+        exitcode = "CPUrunning"
 
+        while exitcode != "CPUstopped":
+            adresValue = self.memory.readMem(self.pc)
+            opcode  = adresValue[0]
+            operand = adresValue[1]
+
+            exitcode = self.run_commando(opcode, operand)
+
+        if exitcode == "CPUstopped":
+            return("HALT")
+        else:
+            return("error")
+
+
+            # if isinstance(operand, int):
+            #     exitcode = self.run_commando(opcode, operand)
+            # else:
+            #     if len(operand) != 0:
+            #         exitcode = self.run_commando(opcode, operand)
+            #     else:
+            #         exitcode = self.run_commando(opcode, operand) #no operand
+            
+            #print(type(operand))
+            #print(operand)
+            #self.pc = self.pc + 1
    

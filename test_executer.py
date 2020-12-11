@@ -1,10 +1,12 @@
 import unittest
 import executer as ex
+from mmu import mmu as MMU
 
 class test_executer(unittest.TestCase):
 
     def setUp(self):
-        self.executer = ex.Executer()
+        memory    = MMU.MMU()
+        self.executer = ex.Executer(memory)
 
     def test_run_PUSH_commando(self):
         #self.executer.run_commando("PUSH","100001")

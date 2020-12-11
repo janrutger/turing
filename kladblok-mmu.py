@@ -17,6 +17,8 @@ def runner(opcode, operand):
     executer.run_commando(opcode, operand)
 def runner2(program):
     executer.run_program(program)
+def runner3(program):
+    executer.run_memory(program)
 
 sg.theme('Dark Blue 3')
 
@@ -100,7 +102,10 @@ while True: #event loop tapewindow (window 1)
             ASMfile    = assembler.readASM("/home/pi/projects/turing2/assembler/jrk.asm")
             BINprogram = assembler.compile(ASMfile)
 
-            job = threading.Thread(target=runner2, args=((BINprogram,)))
+            pc = 0
+            memory.loadMem(BINprogram)
+
+            job = threading.Thread(target=runner3, args=((pc,)))
             job.start()
 
             #executer.run_program(program)
