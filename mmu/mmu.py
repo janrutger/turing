@@ -20,7 +20,7 @@ class MMU:
             return(self.memory[adres])
         else:
             if adres in self.virtMemAdresses.keys():
-                return(self.memory[self.virtMemAdresses[adres]])
+                return(self.memory[self.virtMemAdresses[adres]][1])
             else:
                 return("error")
 
@@ -29,10 +29,10 @@ class MMU:
             self.memory[adres] = memVal
         else:      
             if adres in self.virtMemAdresses.keys():
-                self.memory[self.virtMemAdresses(adres)] = memVal
+                self.memory[self.virtMemAdresses[adres]] = ("MEM", memVal)
             if adres not in self.virtMemAdresses.keys() and adres[0] == "$":
                 self.virtMemAdresses[adres] = len(self.memory)
-                self.memory.append(memVal)
+                self.memory.append(("MEM", memVal))
             else:
                 return("error")
     

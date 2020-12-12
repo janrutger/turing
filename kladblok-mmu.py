@@ -104,6 +104,7 @@ while True: #event loop tapewindow (window 1)
 
             pc = 0
             memory.loadMem(BINprogram)
+            print(memory.dumpMem())
 
             job = threading.Thread(target=runner3, args=((pc,)))
             job.start()

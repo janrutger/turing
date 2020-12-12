@@ -28,6 +28,18 @@ class Executer:
             exitCode = self.execNOP.pull()
             self.pc = self.pc + 1
             return(exitCode)
+        if commando =="STM":
+            exitCode="HALT"
+            val = self.execNOP.pull()
+            self.memory.writeMem(operand, val)
+            self.pc = self.pc + 1
+            return(exitCode)
+        if commando == "LDM":
+            exitCode ="HALT"
+            val = self.memory.readMem(operand)
+            self.execNOP.push(val)
+            self.pc = self.pc +1
+            return(exitCode)
         if commando == "JP":
             exitCode = "HALT"
             self.pc = operand

@@ -1,7 +1,18 @@
+push 0b1100
+push 0b1010
 
+storem $jan1
+storem $jan
+
+loadm $jan1
+loadm $jan
+
+halt
+loadm  $jan
+halt
 
 # Dit is mijn eerste test programma
-	push 3
+	push 7
 	push 0
 
 	loada

@@ -7,8 +7,10 @@ class Compiler:
         self.labels = {}
 
     def checkOperand(self, operandType, operand_):
-        if operand_[0] == ":":
+        if operand_[0] == ":":                      # input is a mem label
             return(self.labels[operand_])
+        if operand_[0] == "$":                      # input is mem adres
+            return(str(operand_))
         if operand_.isnumeric():                    # input is numeriek
             if operandType == "n":
                 return(int(operand_))
@@ -22,7 +24,7 @@ class Compiler:
                 return(operand_[2:])
             if operandType == "n":
                 return(int(operand_, 2))
-        else:                                       # input is string
+        else:                                       # input is string (dit lijkt niet te werken)
             if operandType == "b":
                 return(error)
             if operandType == "n":

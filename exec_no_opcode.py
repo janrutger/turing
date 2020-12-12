@@ -41,7 +41,7 @@ class Exec_no_opcode:
         bit = self.tapecommander.do_read({"ST"})
 
         while bit["ST"] != "#" and bit["ST"] != "_":
-            result = result + bit["ST"]
+            result = bit["ST"] + result
             self.tapecommander.do_write(writeBlank)
             self.tapecommander.do_move(move)
             bit = self.tapecommander.do_read({"ST"})
