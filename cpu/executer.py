@@ -1,7 +1,7 @@
 
-import tapecommander as tc 
-import exec_no_opcode as nop
-import exec_opcode as op
+from cpu import tapecommander as tc 
+from cpu import exec_no_opcode as nop
+from cpu import exec_opcode as op
 
 class Executer:
     def __init__(self, memory):

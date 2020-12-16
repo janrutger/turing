@@ -1,4 +1,4 @@
-import opcodelibrary as ol
+from cpu import opcodelibrary as ol
 
 class Opcodes:
     def __init__(self):

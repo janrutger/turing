@@ -1,4 +1,4 @@
-import opcodes as oc 
+from cpu import opcodes as oc 
 
 
 class Exec_opcode:

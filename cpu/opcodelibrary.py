@@ -1,4 +1,4 @@
-import microcode as mc
+from cpu import microcode as mc
 import json
 
 class Opcodelibrary:

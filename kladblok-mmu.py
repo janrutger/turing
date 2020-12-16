@@ -1,9 +1,10 @@
 from string import Template
 import PySimpleGUI as sg
 import threading
+
 from assembler import assembler as ASM
-from mmu import mmu as MMU
-import executer as ex
+from mmu       import mmu       as MMU
+from cpu       import executer  as ex
  
 
 # Design pattern 2 - First window remains active

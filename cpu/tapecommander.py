@@ -1,4 +1,4 @@
-import tape as t
+from cpu import tape as t
 import time
 
 
