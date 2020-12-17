@@ -13,9 +13,11 @@ assembler = ASM.Assembler()
 ALLTAPES = ["ST", "RA", "RB", "S"] 
 THREAD = False
 BINfile = ""
+currentASMfileName = ""
 
 def runner(pc):
-    executer.run_memory(pc)
+    exitcode = executer.run_memory(pc)
+    window['-stout-'].print("Value ", exitcode)
 
 def updateTapeInfo():
     pos = 0;
@@ -56,11 +58,11 @@ frame_MemInformatie=[
 
 
 layout = [
-    [sg.Multiline("Dit wordt standaard ouput/error", size=(65, 5))],
+    [sg.Multiline("Initialize.... \n", size=(65, 5), key="-stout-")],
     [sg.FileBrowse("Open",font='Courier 10', size=[10,1], key="-open-"),
-     sg.Button("Compile", font='Courier 10', size=[10,1], key="-compile-"),
-     sg.Button("Load", font='Courier 10', size=[10,1], key="-load-"),
-     sg.Button("Run", font='Courier 10',  size=[10,1], key="-run-")],
+     sg.Button("Compile", font='Courier 10', size=[10,1], key="-compile-", disabled=True),
+     sg.Button("Load", font='Courier 10', size=[10,1], key="-load-", disabled=True),
+     sg.Button("Run", font='Courier 10',  size=[10,1], key="-run-", disabled=True)],
     [sg.Frame('Tape Informatie', frame_TapeInformatie,font='Courier 12')],
     [sg.Frame('Memory Stack', frame_MemInformatie, font='Courier 12')],
     [sg.Button("Shutdown", font='Courier 10', size=[10,1], key='-shutdown-')]
@@ -69,38 +71,64 @@ layout = [
 
 # Create the Window
 window = sg.Window('Christopher (TM)', layout)
-window.Finalize()
-window['-compile-'].update(disabled=True)
-window['-load-'].update(disabled=True)
-window['-run-'].update(disabled=True)
+#window.Finalize()
+#window['-compile-'].update(disabled=True)
+#window['-load-'].update(disabled=True)
+#window['-run-'].update(disabled=True)
+#window['-stout-'].print("Initialize")
 
 # Event Loop to process "events"
 while True:             
     event, values = window.read(timeout=1000)
-    print(event, values)
+    #print(event, values)
     #print(values['-open-'])
     if event == sg.WIN_CLOSED or event == '-shutdown-':
-        break
+        window['-stout-'].print("Shutdown, waiting for finisch")
+        if THREAD == True:
+            job.join()
+            break
+        else:
+            break
+
     if (values['-open-']) != '':
-        window['-compile-'].update(disabled=False)
+        if currentASMfileName != values['-open-']:
+            ASMfile = assembler.readASM(values['-open-'])
+            currentASMfileName = values['-open-']
+            window['-stout-'].print("ASM file loaded")
+            window['-compile-'].update(disabled=False)
+
     if event == '-compile-':
-        ASMfile = assembler.readASM(values['-open-'])
         BINfile = assembler.compile(ASMfile)
+        window['-stout-'].print("Assembly compiled, binary generated")
+        window['-compile-'].update(disabled=True)
+
     if BINfile != "" and THREAD == False:
             window['-load-'].update(disabled=False)
+
     if event == '-load-':
         memory.loadMem(BINfile)
         window['-run-'].update(disabled=False)
+        window['-stout-'].print("Binary loaded in memory")
+
     if event == '-run-':
         pc = 0
         window['-load-'].update(disabled=True)
         window['-run-'].update(disabled=True)
-        
+        window['-stout-'].print("Binary started")
         job = threading.Thread(target=runner, args=((pc,)))
         job.start()
         THREAD = True
     
     updateTapeInfo()
+
+    if THREAD == True:
+        if not job.is_alive():
+            THREAD = False
+            window['-load-'].update(disabled=False)
+            window['-run-'].update(disabled=False)
+            window['-stout-'].print("Binary ended")
+            # exitvalue = job.join()
+            # print(exitvalue)
 
 
     

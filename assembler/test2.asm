@@ -1,3 +1,3 @@
 push 5
-loada
+pull
 halt
