@@ -10,6 +10,8 @@ class Exec_opcode:
     def run(self, opcode):
         tapeList    = self.opcodes.get_tapelist(opcode)
         state       = "START"
+        stepCounter = 0
+
         tapeValues  = self.tapecommander.do_read(tapeList)
         turingRules = self.opcodes.get_turingrule(opcode, tapeValues, state)
 
@@ -23,8 +25,9 @@ class Exec_opcode:
             self.tapecommander.do_write(writeValue)
             self.tapecommander.do_move(moveValue)
 
-        tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-        print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+            stepCounter = stepCounter + 1
+            tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
+            print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
 
         while nextState != "HALT" and nextState != "ERROR":
             state       = nextState
@@ -41,7 +44,9 @@ class Exec_opcode:
             self.tapecommander.do_write(writeValue)
             self.tapecommander.do_move(moveValue)
         
+            stepCounter = stepCounter + 1
             tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-            print(opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+            print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+
     
         return(nextState)      #do something smarter over here
