@@ -1,4 +1,5 @@
 
+#from christopherUI import tapeLayout
 from cpu import tapecommander as tc 
 from cpu import exec_no_opcode as nop
 from cpu import exec_opcode as op
@@ -6,9 +7,9 @@ from cpu import exec_opcode as op
 class Executer:
     def __init__(self, memory):
         self.memory = memory
-        tapecommander = tc.Tapecommander()
-        self.execNOP = nop.Exec_no_opcode(tapecommander)
-        self.execOP  = op.Exec_opcode(tapecommander)
+        self.tapecommander = tc.Tapecommander()
+        self.execNOP = nop.Exec_no_opcode(self.tapecommander)
+        self.execOP  = op.Exec_opcode(self.tapecommander)
         self.pc = int(0)
 
     def refreshTapes(self, tapeList):
@@ -57,6 +58,11 @@ class Executer:
                 self.pc = operand
             else:
                 self.pc = self.pc + 1
+            return(exitCode)
+        if commando == "SPEED":
+            exitCode = "HALT"
+            self.tapecommander.CPUspeed = operand
+            self.pc = self.pc + 1
             return(exitCode)
         else:
             exitCode = self.execOP.run(commando)

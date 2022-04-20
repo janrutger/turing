@@ -45,8 +45,11 @@ class Exec_opcode:
             self.tapecommander.do_move(moveValue)
         
             stepCounter = stepCounter + 1
-            tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-            print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+            if self.tapecommander.CPUspeed > 2 or nextState == "HALT":
+                tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
+                print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+            else:
+                print(stepCounter, opcode, state, ">", nextState)
 
     
         return(nextState)      #do something smarter over here

@@ -2,10 +2,14 @@ schema = {}
 
 def loadSchema():
 
-    schema["2s-bb"]      = ("2S-BB", None)
-    schema["4s-bb"]      = ("4S-BB", None)
-    schema["5s-bb"]      = ("5S-BB", None)
-    schema["5s-bbv2"]    = ("5S-BBv2", None)
+    schema["2s-bb"]     = ("2S-BB", None)
+    schema["4s-bb"]     = ("4S-BB", None)
+    schema["5s-bb"]     = ("5S-BB", None)
+    schema["5s-bbv2"]   = ("5S-BBv2", None)
+
+    schema["rwd"]       = ("RWD", None)
+    schema["abs"]       = ("ABS", None)
+    schema["speed"]     = ("SPEED", "n")
 
     schema["push"]      = ("PUSH", "b")
     schema["pull"]      = ("PULL", None)
