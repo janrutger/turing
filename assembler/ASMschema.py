@@ -29,6 +29,7 @@ def loadSchema():
 
     schema["decrementb"]= ("DECB", None)    
     schema["add"]       = ("ADD", None)
+    schema["multi"]     = ("MULTI", None)
 
     schema["ex"]        = ("EX", None)
     schema["testz"]     = ("TSTZ", None)

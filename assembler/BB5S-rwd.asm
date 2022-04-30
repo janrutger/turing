@@ -1,7 +1,7 @@
-speed 0
-5s-bb
 speed 3
+5s-bb
+
 rwd
-speed 0
+
 abs
 halt
