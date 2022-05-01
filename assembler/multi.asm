@@ -1,7 +1,7 @@
 speed 5
 
-push 9
-push 5
+push 21
+push 31
 
 multi
 
