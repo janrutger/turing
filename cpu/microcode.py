@@ -5,8 +5,11 @@ def loadlibrary():
     library["MULTI"] = (
         ("START", {"ST":"1", "RA":"_", "RB":"_"}, ({"ST":"_", "RA":"1", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
         ("START", {"ST":"1", "RA":"0", "RB":"0"}, ({"ST":"_", "RA":"1", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
+        ("START", {"ST":"1", "RA":"1", "RB":"_"}, ({"ST":"_", "RA":"1", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
+
         ("START", {"ST":"0", "RA":"_", "RB":"_"}, ({"ST":"_", "RA":"0", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
         ("START", {"ST":"0", "RA":"0", "RB":"0"}, ({"ST":"_", "RA":"0", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
+        ("START", {"ST":"0", "RA":"1", "RB":"_"}, ({"ST":"_", "RA":"0", "RB":"0"}, {"ST":"R", "RA":"R", "RB":"R"}, "START")),
 
         ("START", {"ST":"#", "RA":"_", "RB":"_"}, ({"ST":"#", "RA":"_", "RB":"_"}, {"ST":"S", "RA":"L", "RB":"L"}, "retA")),
 
@@ -64,6 +67,7 @@ def loadlibrary():
         ("carry", {"ST":"1", "RA":"0", "RB":"1"}, ({"ST":"1", "RA":"0", "RB":"0"}, {"ST":"S", "RA":"R", "RB":"R"}, "carry")),
 
         ("carry", {"ST":"1", "RA":"0", "RB":"0"}, ({"ST":"1", "RA":"0", "RB":"1"}, {"ST":"S", "RA":"R", "RB":"R"}, "addA")),
+        ("carry", {"ST":"1", "RA":"0", "RB":"_"}, ({"ST":"1", "RA":"0", "RB":"1"}, {"ST":"S", "RA":"R", "RB":"R"}, "addA")), ##added
         ("carry", {"ST":"1", "RA":"_", "RB":"0"}, ({"ST":"_", "RA":"_", "RB":"1"}, {"ST":"S", "RA":"L", "RB":"S"}, "retA")),
         ("carry", {"ST":"1", "RA":"_", "RB":"_"}, ({"ST":"_", "RA":"_", "RB":"1"}, {"ST":"S", "RA":"L", "RB":"S"}, "retA")), 
 

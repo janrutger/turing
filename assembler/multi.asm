@@ -1,19 +1,18 @@
 speed 5
 
-push 24
-push 12
+push 3
+push 2
 
 multi
 
-halt
+#halt
 
 :loop
     storea
     storeb
     push 0
-    push 0
-    loada
     loadb
+
 
     multi
 jump :loop
