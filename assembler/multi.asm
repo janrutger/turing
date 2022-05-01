@@ -1,11 +1,11 @@
 speed 5
 
-push 9
-push 5
+push 24
+push 12
 
 multi
 
-#halt
+halt
 
 :loop
     storea
