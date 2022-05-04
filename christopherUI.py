@@ -79,7 +79,7 @@ window = sg.Window('Christopher (TM)', layout)
 
 # Event Loop to process "events"
 while True:             
-    event, values = window.read(timeout=1000)
+    event, values = window.read(timeout=100)
     #print(event, values)
     #print(values['-open-'])
     if event == sg.WIN_CLOSED or event == '-shutdown-':
