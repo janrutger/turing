@@ -1,20 +1,24 @@
-speed 3
+speed 1
 
 push 1
-push 5
+push 1023
 
 multi
 
-#halt
-
 :loop
-    storea
     storeb
-    push 0
-    loadb
+    clrb
 
+    ex
+    decb
+    jumpt :halt
+
+    storeb
+    clrb
 
     multi
+
 jump :loop
 
-halt
+:halt
+    halt

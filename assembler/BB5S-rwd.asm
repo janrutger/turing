@@ -1,8 +1,8 @@
-speed 5
-#5s-bb
-4s-bb
-speed 5
+speed 1
+5s-bb
+#4s-bb
+speed 1
 rwd
-speed 5
+speed 2
 abs
 halt

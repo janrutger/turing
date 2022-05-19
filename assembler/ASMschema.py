@@ -27,13 +27,16 @@ def loadSchema():
     schema["loadb"]     = ("LDB", None)
     schema["loadm"]     = ("LDM", "s")
 
-    schema["decrementb"]= ("DECB", None)    
+    schema["decb"]= ("DECB", None)    
     schema["add"]       = ("ADD", None)
     schema["multi"]     = ("MULTI", None)
 
     schema["ex"]        = ("EX", None)
     schema["testz"]     = ("TSTZ", None)
     schema["teste"]     = ("TSTE", None)
+
+    schema["clrb"]     = ("CLRB", None)
+    schema["clra"]     = ("CLRA", None)
 
     return(schema)
 

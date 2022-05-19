@@ -111,6 +111,18 @@ def loadlibrary():
         ("START",  {"ST":"0"}, ({"ST":"0"}, {"ST":"L"}, "START")),
     )
 
+    library["CLRA"] = (
+        ("START",  {"RA":"_"}, ({"RA":"_"}, {"RA":"L"}, "HALT")),
+        ("START",  {"RA":"1"}, ({"RA":"_"}, {"RA":"R"}, "START")),
+        ("START",  {"RA":"0"}, ({"RA":"_"}, {"RA":"R"}, "START")),
+    )
+
+    library["CLRB"] = (
+        ("START",  {"RB":"_"}, ({"RB":"_"}, {"RB":"L"}, "HALT")),
+        ("START",  {"RB":"1"}, ({"RB":"_"}, {"RB":"R"}, "START")),
+        ("START",  {"RB":"0"}, ({"RB":"_"}, {"RB":"R"}, "START")),
+    )
+
     library["ABS"] = (
         ("START", {"ST":"_", "RA":"1"}, ({"ST":"_", "RA":"1"}, {"ST":"S", "RA":"S"}, "HALT")),
         ("START", {"ST":"_", "RA":"0"}, ({"ST":"_", "RA":"0"}, {"ST":"S", "RA":"S"}, "HALT")),
