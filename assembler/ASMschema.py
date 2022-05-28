@@ -9,6 +9,7 @@ def loadSchema():
 
     schema["rwd"]       = ("RWD", None)
     schema["abs"]       = ("ABS", None)
+    schema["bc"]        = ("BC", None)
     schema["speed"]     = ("SPEED", "n")
 
     schema["push"]      = ("PUSH", "b")
@@ -27,7 +28,7 @@ def loadSchema():
     schema["loadb"]     = ("LDB", None)
     schema["loadm"]     = ("LDM", "s")
 
-    schema["decb"]= ("DECB", None)    
+    schema["decb"]      = ("DECB", None)    
     schema["add"]       = ("ADD", None)
     schema["multi"]     = ("MULTI", None)
 
@@ -35,8 +36,10 @@ def loadSchema():
     schema["testz"]     = ("TSTZ", None)
     schema["teste"]     = ("TSTE", None)
 
-    schema["clrb"]     = ("CLRB", None)
-    schema["clra"]     = ("CLRA", None)
+    schema["clrb"]      = ("CLRB", None)
+    schema["clra"]      = ("CLRA", None)
+
+    schema["prt"]       = ("PRT", None)
 
     return(schema)
 

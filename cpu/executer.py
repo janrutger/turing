@@ -35,6 +35,13 @@ class Executer:
             self.memory.writeMem(operand, val)
             self.pc = self.pc + 1
             return(exitCode)
+        if commando =="PRT":
+            exitCode="HALT"
+            val = self.execNOP.pull()
+            print("-->", int(val,2))
+            #self.memory.writeMem(operand, val)
+            self.pc = self.pc + 1
+            return(exitCode)
         if commando == "LDM":
             exitCode ="HALT"
             val = self.memory.readMem(operand)

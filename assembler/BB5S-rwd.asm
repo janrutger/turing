@@ -1,8 +1,15 @@
-speed 1
+speed 0
 5s-bb
 #4s-bb
-speed 1
+speed 0
 rwd
-speed 2
+speed 1
 abs
+
+storea
+push 0
+loada
+
+abs
+
 halt
