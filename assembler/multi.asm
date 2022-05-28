@@ -1,7 +1,7 @@
 speed 1
 
 push 1
-push 16
+push 9999
 speed 0
 multi
 
@@ -16,14 +16,16 @@ multi
     jumpt :halt
 
     storeb
-    clrb
+    #clrb
+    push 0
+    loadb
 
     multi
 
 jump :loop
 
 :halt
-    speed 1
+    speed 0
     loadb
     storeb
     prt
