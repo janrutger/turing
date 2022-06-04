@@ -1,9 +1,11 @@
 speed 1
 
 push 1
-push 9999
+push 1024
 speed 0
 multi
+
+
 
 :loop
     storeb
@@ -32,6 +34,12 @@ jump :loop
 
     storeb
     bc
+    storea
+    prt
+
+    clra
+    storeb
+    abs
     storea
     prt
 
