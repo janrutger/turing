@@ -35,6 +35,7 @@ def loadSchema():
     schema["ex"]        = ("EX", None)
     schema["testz"]     = ("TSTZ", None)
     schema["teste"]     = ("TSTE", None)
+    schema["testg"]     = ("TSTG", None)
 
     schema["clrb"]      = ("CLRB", None)
     schema["clra"]      = ("CLRA", None)

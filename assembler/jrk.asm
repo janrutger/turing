@@ -1,22 +1,12 @@
 # test program
+	speed 2
 
-	push 5
-	push 3
+	push 13
+	push 913
 
-	storem $getal
-	push 0
-	loada
 	loadb
+	loada
 
-:loop
-	loadm $getal
-	add
-
-	decrementb
-	jumpf :loop
-
-	storea
-	storem $result
-	loadm $result
+	testg
 
 	halt
