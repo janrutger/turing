@@ -1,11 +1,13 @@
 # test program
-	speed 2
+	speed 3
 
-	push 13
-	push 913
+	push 2
+	push 1
 
 	loadb
-	loada
+	#loada
+
+	speed 5
 
 	testg
 
