@@ -1,13 +1,14 @@
 speed 1
 
-push 49
-push 2401
+push 495
+push 705
 
 loada
+loadb
 testz
 jumpt :done
 ex
-loada
+#loada
 testz
 jumpt :done
 

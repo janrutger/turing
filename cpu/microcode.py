@@ -187,15 +187,32 @@ def loadlibrary():
 
     library["CLRA"] = (
         ("START",  {"RA":"_"}, ({"RA":"_"}, {"RA":"L"}, "HALT")),
-        ("START",  {"RA":"1"}, ({"RA":"_"}, {"RA":"R"}, "START")),
-        ("START",  {"RA":"0"}, ({"RA":"_"}, {"RA":"R"}, "START")),
+        ("START",  {"RA":"1"}, ({"RA":"1"}, {"RA":"R"}, "shift")),
+        ("START",  {"RA":"0"}, ({"RA":"0"}, {"RA":"R"}, "shift")),
+
+        ("shift",  {"RA":"1"}, ({"RA":"1"}, {"RA":"R"}, "shift")),
+        ("shift",  {"RA":"0"}, ({"RA":"0"}, {"RA":"R"}, "shift")),
+        ("shift",  {"RA":"_"}, ({"RA":"_"}, {"RA":"L"}, "del")),
+
+        ("del",    {"RA":"1"}, ({"RA":"_"}, {"RA":"L"}, "del")),
+        ("del",    {"RA":"0"}, ({"RA":"_"}, {"RA":"L"}, "del")),
+        ("del",    {"RA":"_"}, ({"RA":"_"}, {"RA":"S"}, "HALT")),
     )
 
     library["CLRB"] = (
         ("START",  {"RB":"_"}, ({"RB":"_"}, {"RB":"L"}, "HALT")),
-        ("START",  {"RB":"1"}, ({"RB":"_"}, {"RB":"R"}, "START")),
-        ("START",  {"RB":"0"}, ({"RB":"_"}, {"RB":"R"}, "START")),
+        ("START",  {"RB":"1"}, ({"RB":"1"}, {"RB":"R"}, "shift")),
+        ("START",  {"RB":"0"}, ({"RB":"0"}, {"RB":"R"}, "shift")),
+
+        ("shift",  {"RB":"1"}, ({"RB":"1"}, {"RB":"R"}, "shift")),
+        ("shift",  {"RB":"0"}, ({"RB":"0"}, {"RB":"R"}, "shift")),
+        ("shift",  {"RB":"_"}, ({"RB":"_"}, {"RB":"L"}, "del")),
+
+        ("del",    {"RB":"1"}, ({"RB":"_"}, {"RB":"L"}, "del")),
+        ("del",    {"RB":"0"}, ({"RB":"_"}, {"RB":"L"}, "del")),
+        ("del",    {"RB":"_"}, ({"RB":"_"}, {"RB":"S"}, "HALT")),
     )
+
 
     library["BC"] = (
         ("START", {"ST":"_", "RA":"1"}, ({"ST":"_", "RA":"1"}, {"ST":"S", "RA":"S"}, "HALT")),
