@@ -1,9 +1,7 @@
-speed 2
+speed 1
 
-
-
-push 3
-push 9
+push 49
+push 2401
 
 loada
 testz
@@ -36,10 +34,6 @@ jumpt :done
     loadb
     jump :while
 
-
-
-:endWhile
-    halt
 
 :done
     storea
