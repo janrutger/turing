@@ -31,6 +31,7 @@ def loadSchema():
     schema["decb"]      = ("DECB", None)    
     schema["add"]       = ("ADD", None)
     schema["multi"]     = ("MULTI", None)
+    schema["sub"]       = ("SUB", None)
 
     schema["ex"]        = ("EX", None)
     schema["testz"]     = ("TSTZ", None)
