@@ -16,8 +16,11 @@ class Assembler:
 
     def compile(self, ASMfile):
         program    = self.compiler.parseProgram(ASMfile)
+        #print(program)
         program    = self.compiler.ProcesLabels(program)
+        #print(program)
         BINprogram = self.compiler.ProcesLines(program)
+        print(BINprogram)
 
         return(BINprogram)
 

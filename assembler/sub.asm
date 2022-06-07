@@ -1,8 +1,8 @@
 speed 3
 
 push 2
-push 22
-push 8
+push 61
+push 16
 
 sub
 
