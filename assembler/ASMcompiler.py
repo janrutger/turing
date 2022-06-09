@@ -11,6 +11,8 @@ class Compiler:
             return(self.labels[operand_])
         if operand_[0] == "$":                      # input is mem adres
             return(str(operand_))
+        if operand_[0] == "%":                      # input is mem stack adres
+            return(str(operand_))
         if operand_.isnumeric():                    # input is numeriek
             if operandType == "n":
                 return(int(operand_))

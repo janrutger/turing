@@ -1,5 +1,38 @@
 # test program
-speed 5
+speed 1
+
+lifo %mystack
+lifo %_system
+
+push 10
+push 5
+#push 0
+#loada
+
+call :xx
+call :xx
+
+storea
+prt
+
+halt
+
+:xx
+	add
+ret
+
+storem %mystack
+
+
+
+push 5
+storem %mystack
+
+loadm %mystack
+
+halt
+
+
 push 0b1100
 push 0b1010
 
@@ -8,6 +41,8 @@ storem $jan
 
 loadm $jan1
 loadm $jan
+
+storem $jan
 
 halt
 

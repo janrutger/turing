@@ -20,6 +20,9 @@ def loadSchema():
     schema["jumpt"]     = ("JPT", "n")
     schema["jumpf"]     = ("JPF", "n")
 
+    schema["call"]      = ("CALL", "n")
+    schema["ret"]       = ("RET", None)
+
     schema["storea"]    = ("STA", None)
     schema["storeb"]    = ("STB", None)
     schema["storem"]    = ("STM", "s")
@@ -27,6 +30,8 @@ def loadSchema():
     schema["loada"]     = ("LDA", None)
     schema["loadb"]     = ("LDB", None)
     schema["loadm"]     = ("LDM", "s")
+
+    schema["lifo"]      = ("LIFO", "s")
 
     schema["decb"]      = ("DECB", None)    
     schema["add"]       = ("ADD", None)

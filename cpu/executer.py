@@ -17,6 +17,11 @@ class Executer:
         return(exitCode)
 
     def run_commando(self, commando, operand):
+        if commando =="LIFO":
+            exitCode="HALT"
+            self.memory.makeStack("LIFO", operand)
+            self.pc = self.pc + 1
+            return(exitCode)
         if commando == "PUSH":
             exitCode = self.execNOP.push(operand)
             self.pc = self.pc + 1
@@ -39,7 +44,6 @@ class Executer:
             exitCode="HALT"
             val = self.execNOP.pull()
             print("-->", int(val,2))
-            #self.memory.writeMem(operand, val)
             self.pc = self.pc + 1
             return(exitCode)
         if commando == "LDM":
@@ -65,6 +69,16 @@ class Executer:
                 self.pc = operand
             else:
                 self.pc = self.pc + 1
+            return(exitCode)
+        if commando == "CALL":
+            exitCode = "HALT"
+            self.memory.writeMem("%_system", self.pc)
+            self.pc = operand
+            return(exitCode)
+        if commando == "RET":
+            exitCode = "HALT"
+            adres =self.memory.readMem("%_system")
+            self.pc = adres+1
             return(exitCode)
         if commando == "SPEED":
             exitCode = "HALT"
