@@ -118,6 +118,7 @@ class Executer:
             adresValue = self.memory.readMem(self.pc)
             opcode  = adresValue[0]
             operand = adresValue[1]
+            print(self.pc, opcode, operand)
 
             exitcode = self.run_commando(opcode, operand)
 

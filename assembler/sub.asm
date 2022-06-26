@@ -1,11 +1,11 @@
-speed 3
+speed 5
 
 push 2
-push 61
-push 16
+push 5
+push 4
 
 sub
-
+halt
 storeb
 prt
 

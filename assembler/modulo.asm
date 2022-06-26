@@ -1,10 +1,10 @@
-speed 1
+speed 0
 
 push 0
 storem $count
 
-push 18
-push 4
+push 200
+push 49
 
 loada
 loadb
