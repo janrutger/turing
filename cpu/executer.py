@@ -54,26 +54,26 @@ class Executer:
             return(exitCode)
         if commando == "JP":
             exitCode = "HALT"
-            self.pc = operand
+            self.pc = operand + self.pc
             return(exitCode)
         if commando == "JPT":
             exitCode = self.execNOP.returnStatus()
             if exitCode == "true":
-                self.pc = operand
+                self.pc = operand + self.pc
             else:
                 self.pc = self.pc + 1
             return(exitCode)
         if commando == "JPF":
             exitCode = self.execNOP.returnStatus()
             if exitCode == "false":
-                self.pc = operand
+                self.pc = operand + self.pc
             else:
                 self.pc = self.pc + 1
             return(exitCode)
         if commando == "CALL":
             exitCode = "HALT"
             self.memory.writeMem("%_system", self.pc)
-            self.pc = operand
+            self.pc = operand + self.pc
             return(exitCode)
         if commando == "RET":
             exitCode = "HALT"

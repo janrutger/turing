@@ -35,9 +35,9 @@ sg.theme('Dark Blue 3')
 
 def tapeLayout(label, left, head, right, name):
     return [
-        sg.Text(size=(12,1), key=left, justification='right', text=label),
+        sg.Text(size=(22,1), key=left, justification='right', text=label),
         sg.Text(size=(1,1),  key=head, justification='center'),
-        sg.Text(size=(12,1), key=right,justification='left'),
+        sg.Text(size=(22,1), key=right,justification='left'),
         sg.Text(name)
         ]
     

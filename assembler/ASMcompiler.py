@@ -6,9 +6,9 @@ class Compiler:
         self.ASMschema = schema.loadSchema()
         self.labels = {}
 
-    def checkOperand(self, operandType, operand_):
+    def checkOperand(self, operandType, operand_, progLen):
         if operand_[0] == ":":                      # input is a mem label
-            return(self.labels[operand_])
+            return(self.labels[operand_] - progLen)
         if operand_[0] == "$":                      # input is mem adres
             return(str(operand_))
         if operand_[0] == "%":                      # input is mem stack adres
@@ -72,7 +72,7 @@ class Compiler:
                     operand = ""
                 else:
                     operandType = self.ASMschema[opcode_][1]
-                    operand = self.checkOperand(operandType, operand_)
+                    operand = self.checkOperand(operandType, operand_, len(newProgram))
             
                 x = (opcode,operand)
                 #print(type(x))
