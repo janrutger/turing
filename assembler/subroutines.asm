@@ -4,7 +4,7 @@ clrb
 lifo %_system
 
 #main
-push 4
+push 25
 
 call :factorial
 

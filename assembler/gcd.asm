@@ -1,7 +1,7 @@
 speed 1
 
-push 4
-push 8
+push 14
+push 21
 
 loada
 loadb
