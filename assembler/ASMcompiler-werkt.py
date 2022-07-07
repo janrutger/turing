@@ -1,4 +1,3 @@
-from symtable import SymbolTableFactory
 from assembler import ASMschema as schema
 
 
@@ -8,15 +7,13 @@ class Compiler:
         self.labels = {}
 
     def checkOperand(self, operandType, operand_, progLen):
-        if operand_[0] == ":":                      # operand is a mem label
+        if operand_[0] == ":":                      # input is a mem label
             return(self.labels[operand_] - progLen)
-        if operand_[0] == "$":                      # operand is mem adres
+        if operand_[0] == "$":                      # input is mem adres
             return(str(operand_))
-        if operand_[0] == "%":                      # operand is mem stack adres
+        if operand_[0] == "%":                      # input is mem stack adres
             return(str(operand_))
-        if operand_[0] == "@":                      # operand is a symbol
-            return(str(operand_))
-        if operand_.isnumeric():                    # operand is numeriek
+        if operand_.isnumeric():                    # input is numeriek
             if operandType == "n":
                 return(int(operand_))
             if operandType == "b":
@@ -50,10 +47,7 @@ class Compiler:
         newProgram = []
         linenumber = 0
         for line in program:
-            if line[0] == "@":
-                symbol = line.split()[0]
-                newProgram.append(symbol)
-            elif line[0] == ":":
+            if line[0] == ":":
                 label = line.split()[0]
                 self.labels[label] = linenumber
             else:
@@ -62,30 +56,26 @@ class Compiler:
         return(newProgram)
 
     def ProcesLines(self, program):
-        newProgram = []
-        linenumber = 0
-
+        newProgram =[]
         for line in program:
-            if line[0] == "@":
-                newProgram.append(line)
+            opcode_ = line.split()[0].lower()
+            if len(line.split()) == 2:
+                operand_ = line.split()[1]
             else:
-                opcode_ = line.split()[0].lower()
-                if len(line.split()) == 2:
-                    operand_ = line.split()[1]
+                operand_ = None
+            
+            if opcode_ not in self.ASMschema.keys():
+                return("error")
+            else:
+                opcode = self.ASMschema[opcode_][0]
+                if operand_ == None:
+                    operand = ""
                 else:
-                    operand_ = None
-                
-                if opcode_ not in self.ASMschema.keys():
-                    return("error")
-                else:
-                    opcode = self.ASMschema[opcode_][0]
-                    if operand_ == None:
-                        operand = ""
-                    else:
-                        operandType = self.ASMschema[opcode_][1]
-                        operand = self.checkOperand(operandType, operand_, linenumber)
-                    newProgram.append((opcode,operand))
-                    linenumber = linenumber +1
-
+                    operandType = self.ASMschema[opcode_][1]
+                    operand = self.checkOperand(operandType, operand_, len(newProgram))
+            
+                x = (opcode,operand)
+                #print(type(x))
+                newProgram.append(x)
         return(newProgram)
 

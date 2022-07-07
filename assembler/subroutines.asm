@@ -2,12 +2,11 @@ speed 2
 clra
 clrb
 lifo %_system
-lifo %_system
 
-#main
-push 25
+@main
+push 4
 
-call :factorial
+call @factorial
 
 loadb
 storeb
@@ -16,7 +15,7 @@ prt
 halt
 
 ##sub routings down here
-:factorial
+@factorial
 
 #get here the input value
 storem %_system

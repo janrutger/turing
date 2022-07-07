@@ -16,8 +16,10 @@ class MMU:
             self.initMem()
             self.loader = True
         elif binProgram[0][0] ==  "@" and self.loader == False:
-            #load basis loader
-            pass
+            bloader = [('SPEED', 1), ('LIFO', '%_system'), ('JP', '@main')]
+            for memVal in bloader:
+                self.memory.append(memVal)
+            self.loader = True
 
         for line in binProgram:
             if line[0] == "@":
