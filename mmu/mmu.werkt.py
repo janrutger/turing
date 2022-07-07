@@ -1,37 +1,15 @@
 class MMU:
     def __init__(self):
-        self.initMem()
-        #self.memory = []
-        #self.virtMemAdresses = {}
-
-
-    # def loadMem1(self, binProgram):
-    #     i = 0
-    #     while i < len(binProgram):
-    #         self.memory.append(binProgram[i])
-    #         i = i + 1
-    
-    def loadMem(self, binProgram):
-        if binProgram[0][0] !=  "@":
-            self.initMem()
-            self.loader = True
-        elif binProgram[0][0] ==  "@" and self.loader == False:
-            #load basis loader
-            pass
-
-        for line in binProgram:
-            if line[0] == "@":
-                self.symbolTable[line] = len(self.memory)
-            else:
-                self.memory.append(line)
-
-
-    def initMem(self):
         self.memory = []
         self.virtMemAdresses = {}
-        self.symbolTable = {}
-        self.loader = False
 
+
+    def loadMem(self, binProgram):
+        i = 0
+        while i < len(binProgram):
+            self.memory.append(binProgram[i])
+            i = i + 1
+        
 
     def dumpMem(self):
         return(self.memory)
@@ -39,10 +17,7 @@ class MMU:
 
     def readMem(self, adres):
         if isinstance(adres, int):
-            opcode, operand = self.memory[adres]
-            if operand != '' and str(operand)[0] == "@":
-                operand = self.symbolTable[operand] - adres
-            return((opcode, operand)) 
+            return(self.memory[adres])
         else:
             if adres in self.virtMemAdresses.keys():
                 memType, memVal = self.memory[self.virtMemAdresses[adres]]
@@ -83,4 +58,4 @@ class MMU:
             self.virtMemAdresses[adres] = len(self.memory)
             self.memory.append((memType, memVal))
         else:
-            self.memory[self.virtMemAdresses[adres]] = (memType, memVal)
+            return("error")

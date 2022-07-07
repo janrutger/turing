@@ -2,6 +2,7 @@ speed 2
 clra
 clrb
 lifo %_system
+lifo %_system
 
 #main
 push 25
