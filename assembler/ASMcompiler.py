@@ -1,4 +1,3 @@
-from symtable import SymbolTableFactory
 from assembler import ASMschema as schema
 
 

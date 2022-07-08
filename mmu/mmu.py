@@ -26,6 +26,7 @@ class MMU:
                 self.symbolTable[line] = len(self.memory)
             else:
                 self.memory.append(line)
+        print(self.memory)
 
 
     def initMem(self):
