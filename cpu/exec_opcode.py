@@ -27,7 +27,7 @@ class Exec_opcode:
 
             stepCounter = stepCounter + 1
             tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-            print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+            #print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
 
         while nextState != "HALT" and nextState != "ERROR":
             state       = nextState
@@ -47,10 +47,11 @@ class Exec_opcode:
             stepCounter = stepCounter + 1
             if self.tapecommander.CPUspeed > 0 or nextState == "HALT":
                 tapeprint =self.tapecommander.print_tape({"ST", "RA", "RB", "S"})
-                print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
+                #print(stepCounter,opcode, state, tapeprint, nextState) #JRK hier worden de tape in de console geprint, nog geen UI
                 pass
             else:
-                print(stepCounter, opcode, state, ">", nextState)
+                #print(stepCounter, opcode, state, ">", nextState)
+                pass
 
     
         return(nextState)      #do something smarter over here

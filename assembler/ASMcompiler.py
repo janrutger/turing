@@ -69,7 +69,7 @@ class Compiler:
                 newProgram.append(line)
             else:
                 opcode_ = line.split()[0].lower()
-                if len(line.split()) == 2:
+                if len(line.split()) >= 2:
                     operand_ = line.split()[1]
                 else:
                     operand_ = None

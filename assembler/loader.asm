@@ -111,5 +111,5 @@ jump @main
 
 
     :done1
-        clrb
+        clra
         ret

@@ -1,12 +1,17 @@
 @main
-push 140
-push 7
+speed 3
 
-call @gcd
+call @oeis
 
-loadb
-storea
 prt
-
+prt
+prt
+prt
+prt
+prt
+prt
+prt
+prt
+prt
 
 halt
