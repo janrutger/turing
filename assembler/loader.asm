@@ -75,3 +75,41 @@ jump @main
         clra
         clrb
         halt
+
+
+@gcd
+    loada
+    loadb
+    testz
+    jumpt :done1
+    ex
+    testz
+    jumpt :done1
+
+    :while1
+        teste
+        jumpt :done1
+
+        testg
+        jumpf :Asmaller1
+        storeb
+        storea
+        storeb
+        jump :subtract1
+    :Asmaller1
+        storea
+        storeb
+        storea
+
+    :subtract1
+        clra
+        clrb
+        sub
+        ex
+        loadb
+        jump :while1
+
+
+    :done1
+        clrb
+        ret

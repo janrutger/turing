@@ -1,14 +1,12 @@
 @main
-push 13
+push 140
+push 7
 
-call @factorial
+call @gcd
 
 loadb
-storeb
+storea
 prt
 
-storeb
-push 5
-call @modulo
 
 halt
