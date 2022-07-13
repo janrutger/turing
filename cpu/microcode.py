@@ -186,7 +186,7 @@ def loadlibrary():
     )
 
     library["CLRA"] = (
-        ("START",  {"RA":"_"}, ({"RA":"_"}, {"RA":"L"}, "HALT")),
+        ("START",  {"RA":"_"}, ({"RA":"_"}, {"RA":"R"}, "HALT")),
         ("START",  {"RA":"1"}, ({"RA":"1"}, {"RA":"R"}, "shift")),
         ("START",  {"RA":"0"}, ({"RA":"0"}, {"RA":"R"}, "shift")),
 
@@ -200,7 +200,7 @@ def loadlibrary():
     )
 
     library["CLRB"] = (
-        ("START",  {"RB":"_"}, ({"RB":"_"}, {"RB":"L"}, "HALT")),
+        ("START",  {"RB":"_"}, ({"RB":"_"}, {"RB":"R"}, "HALT")),
         ("START",  {"RB":"1"}, ({"RB":"1"}, {"RB":"R"}, "shift")),
         ("START",  {"RB":"0"}, ({"RB":"0"}, {"RB":"R"}, "shift")),
 

@@ -1,17 +1,6 @@
 @main
-speed 3
+speed 5
 
 call @oeis
-
-prt
-prt
-prt
-prt
-prt
-prt
-prt
-prt
-prt
-prt
 
 halt

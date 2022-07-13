@@ -52,7 +52,7 @@
     storea      
     storem $n  
 
-    push 10      
+    push 700      
     loadb
     teste      
     jumpt :done 
