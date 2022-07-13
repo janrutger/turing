@@ -47,6 +47,7 @@ def loadSchema():
     schema["clra"]      = ("CLRA", None)
 
     schema["prt"]       = ("PRT", None)
+    schema["plotter"]   = ("PLOTTER", "n")
 
     return(schema)
 

@@ -39,6 +39,14 @@ class MMU:
     def dumpMem(self):
         return(self.memory)
         
+    def readIObuff(self, adres):
+        if adres in self.virtMemAdresses.keys():
+            memType, memVal = self.memory[self.virtMemAdresses[adres]]
+            if memType == "IObuff":
+                #memVal_ = memVal.pop()
+                return(memVal)
+            else:
+                return("error: unknow memtype")    
 
     def readMem(self, adres):
         if isinstance(adres, int):
@@ -69,6 +77,9 @@ class MMU:
                     self.memory[self.virtMemAdresses[adres]] = (memType, memVal)
                 if memType == "LIFO":
                     memVal_.append(memVal)
+                    self.memory[self.virtMemAdresses[adres]] = (memType, memVal_)
+                if memType == "IObuff":
+                    memVal_.append(int(memVal,2))
                     self.memory[self.virtMemAdresses[adres]] = (memType, memVal_)
                 else:
                     return("error: unknow memtype")

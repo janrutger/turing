@@ -1,6 +1,10 @@
 @oeis
-    push 1      
-    push 1      
+    push 1 
+    push 1
+    storem %plotter     
+    push 1  
+    push 1
+    storem %plotter    
 
     push 2      
     storem $n   
@@ -28,7 +32,9 @@
 
     call @modulo 
 
-    storea      
+    storea 
+    storea
+    storem %plotter     
     jump :incn  
 
 :no-cf          
@@ -41,7 +47,9 @@
     add        
     add        
 
-    storea     
+    storea  
+    storea
+    storem %plotter   
     jump :incn  
 
 :incn

@@ -1,12 +1,15 @@
+import threading
 
 #from christopherUI import tapeLayout
 from cpu import tapecommander as tc 
 from cpu import exec_no_opcode as nop
 from cpu import exec_opcode as op
+from cpu import plotter as yplt
 
 class Executer:
     def __init__(self, memory):
         self.memory = memory
+        self.plotter = yplt.Plotter(memory)
         self.tapecommander = tc.Tapecommander()
         self.execNOP = nop.Exec_no_opcode(self.tapecommander)
         self.execOP  = op.Exec_opcode(self.tapecommander)
@@ -16,7 +19,17 @@ class Executer:
         exitCode = self.execNOP.print(tapeList)
         return(exitCode)
 
+    def startPlotter(self, IObuff):
+        self.plotter.plot(IObuff)
+
     def run_commando(self, commando, operand):
+        if commando == "PLOTTER":
+            exitCode="HALT"
+            self.memory.makeStack("IObuff", operand)
+            plt0 = threading.Thread(target=self.startPlotter, args=((operand,)))
+            plt0.start()
+            self.pc = self.pc + 1
+            return(exitCode)
         if commando =="LIFO":
             exitCode="HALT"
             self.memory.makeStack("LIFO", operand)

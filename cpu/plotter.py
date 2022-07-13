@@ -1,4 +1,5 @@
-
+import time
+import matplotlib.pyplot as plt
 
 
 class Plotter:
@@ -7,8 +8,21 @@ class Plotter:
 
 
     def plot(self, IObuff):
-        
+        plt.ion()
+        fig = plt.figure()
+        ax =  fig.add_subplot(111)
 
         while True:
-            print(IObuff)
-            sleep 15
+            bufValues = self.memory.readIObuff(IObuff)
+            if bufValues == []:
+                pass
+            else:
+                x = range(len(bufValues))
+                y = bufValues
+
+                line = ax.plot(x,y,'o')
+
+                fig.canvas.draw()
+                fig.canvas.flush_events()
+
+            time.sleep(5)

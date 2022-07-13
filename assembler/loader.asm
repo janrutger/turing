@@ -2,6 +2,7 @@ speed 2
 clra
 clrb
 lifo %_system
+plotter %plotter
 jump @main
 
 
