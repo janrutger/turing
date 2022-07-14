@@ -5,14 +5,16 @@ import matplotlib.pyplot as plt
 class Plotter:
     def __init__(self, memory):
         self.memory = memory
+        self.online = False
 
 
-    def plot(self, IObuff):
+    def start(self, IObuff):
+        self.online = True
         plt.ion()
-        fig = plt.figure()
+        fig = plt.figure(figsize=(8,5))
         ax =  fig.add_subplot(111)
 
-        while True:
+        while self.online:
             bufValues = self.memory.readIObuff(IObuff)
             if bufValues == []:
                 pass
@@ -26,3 +28,8 @@ class Plotter:
                 fig.canvas.flush_events()
 
             time.sleep(5)
+
+        plt.close('all')
+
+    def stop(self):
+        self.online = False

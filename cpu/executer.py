@@ -20,7 +20,10 @@ class Executer:
         return(exitCode)
 
     def startPlotter(self, IObuff):
-        self.plotter.plot(IObuff)
+        self.plotter.start(IObuff)
+
+    def stopPlotter(self):
+        self.plotter.stop()
 
     def run_commando(self, commando, operand):
         if commando == "PLOTTER":
@@ -28,6 +31,12 @@ class Executer:
             self.memory.makeStack("IObuff", operand)
             plt0 = threading.Thread(target=self.startPlotter, args=((operand,)))
             plt0.start()
+            self.pc = self.pc + 1
+            return(exitCode)
+        if commando == "STOP":
+            exitCode="HALT"
+            if operand.lower() == "plotter":
+                self.stopPlotter()
             self.pc = self.pc + 1
             return(exitCode)
         if commando =="LIFO":

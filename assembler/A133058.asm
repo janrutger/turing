@@ -7,7 +7,7 @@
     storem %plotter    
 
     push 2      
-    storem $n   
+    storem $n
 
 
 :loop

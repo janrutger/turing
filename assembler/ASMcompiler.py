@@ -15,6 +15,8 @@ class Compiler:
             return(str(operand_))
         if operand_[0] == "@":                      # operand is a symbol
             return(str(operand_))
+        if operand_ == "plotter":
+            return("plotter")
         if operand_.isnumeric():                    # operand is numeriek
             if operandType == "n":
                 return(int(operand_))
