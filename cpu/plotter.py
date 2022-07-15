@@ -11,8 +11,8 @@ class Plotter:
     def start(self, IObuff):
         self.online = True
         plt.ion()
-        fig = plt.figure(figsize=(8,5))
-        ax =  fig.add_subplot(111)
+        self.fig = plt.figure(figsize=(8,5))
+        self.ax =  self.fig.add_subplot(111)
 
         while self.online:
             bufValues = self.memory.readIObuff(IObuff)
@@ -22,10 +22,10 @@ class Plotter:
                 x = range(len(bufValues))
                 y = bufValues
 
-                line = ax.plot(x,y,'o')
+                line = self.ax.plot(x,y,'o')
 
-                fig.canvas.draw()
-                fig.canvas.flush_events()
+                self.fig.canvas.draw()
+                self.fig.canvas.flush_events()
 
             time.sleep(5)
 

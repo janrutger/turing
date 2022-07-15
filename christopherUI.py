@@ -84,6 +84,7 @@ while True:
     #print(values['-open-'])
     if event == sg.WIN_CLOSED or event == '-shutdown-':
         window['-stout-'].print("Shutdown, waiting for finisch")
+        executer.stopPlotter()
         if THREAD == True:
             job.join()
             break

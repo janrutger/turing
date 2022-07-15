@@ -1,7 +1,7 @@
 @main
-speed 0
+speed 5
 
 call @oeis
 
-stop plotter 
+#stop plotter 
 halt
