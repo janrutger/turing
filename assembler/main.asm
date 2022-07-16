@@ -1,5 +1,5 @@
 @main
-speed 5
+speed 200
 
 call @oeis
 
