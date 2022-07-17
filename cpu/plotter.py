@@ -24,11 +24,12 @@ class Plotter:
                 x = range(len(bufValues))
                 y = bufValues
 
-                #line = self.ax.plot(x,y,'o')
-                plt.scatter(x, y, s=5)
+                line = self.ax.plot(x,y,'o')
+                #plt.scatter(x, y, s=5)
 
                 self.fig.canvas.draw()
                 self.fig.canvas.flush_events()
+                plt.cla()
 
             time.sleep(5)
 
